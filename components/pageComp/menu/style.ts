@@ -127,7 +127,7 @@ export const MenuList = styled.ul`
   }
 
   .en_name {
-    font-family: "Montserrat";
+    font-family: "rucksack";
     font-size: 1.8rem;
     font-weight: 500;
     color: #aaa;
@@ -274,7 +274,7 @@ export const Info = styled.section`
         line-height: 1.38;
       }
       .en {
-        font-family: "Montserrat";
+        font-family: "rucksack";
         font-size: 1.8rem;
         color: #aaa;
       }

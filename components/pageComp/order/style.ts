@@ -215,7 +215,7 @@ export const StoreWrap = styled.div`
       label {
         padding-left: 1rem;
         font-size: 1.6rem;
-        font-family: "Montserrat";
+        font-family: "rucksack";
       }
     }
   }

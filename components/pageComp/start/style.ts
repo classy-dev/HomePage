@@ -160,7 +160,7 @@ export const SubVisualWrap = styled.section`
       }
 
       .tel {
-        font-family: "Montserrat";
+        font-family: "rucksack";
         font-size: 4.8rem;
         font-weight: bold;
         line-height: 1.88;

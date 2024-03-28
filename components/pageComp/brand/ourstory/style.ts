@@ -250,7 +250,7 @@ export const ValuesWrap = styled.section`
 
       h5 {
         margin-bottom: 0.8rem;
-        font-family: "solano";
+        font-family: "rucksack";
         font-size: 6.5rem;
         font-weight: bold;
       }
@@ -281,7 +281,7 @@ export const KeepGoingWrap = styled.section`
       position: absolute;
       li {
         margin-bottom: 1.25rem;
-        font-family: "solano";
+        font-family: "rucksack";
         font-size: 4.8rem;
         font-weight: bold;
         color: var(--color-gray);
@@ -457,7 +457,7 @@ export const KeepGoingWrap = styled.section`
         .number {
           margin-top: 8px;
           margin-right: 1.6rem;
-          font-family: "solano";
+          font-family: "rucksack";
           font-size: 6.2rem;
           font-weight: bold;
           line-height: 0.63;

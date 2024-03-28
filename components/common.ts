@@ -18,10 +18,10 @@ const montserrat = enFontTypes.map((weight) => {
 
   return css`
     @font-face {
-      font-family: "Montserrat";
+      font-family: "rucksack";
       font-style: normal;
       font-weight: ${fontWeight};
-      src: local("montserrat"),
+      src: local("rucksack"),
         url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/font/montserrat-v18-latin-${weight}.eot?#iefix") format("embedded-opentype"),
         url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/font/montserrat-v18-latin-${weight}.woff2") format("woff2"),
         url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/font/montserrat-v18-latin-${weight}.woff") format("woff"),
@@ -56,7 +56,7 @@ const notoSansKR = krFontTypes.map((weight) => {
 const solanoFT = solanoTypes.map((weight) => {
   return css`
     @font-face {
-      font-family: "solano";
+      font-family: "rucksack";
       src: url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/font/solano-${weight}") format("woff2"),
         url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/font/solano-${weight}-2") format("woff"),
         url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/font/solano-${weight}-3") format("opentype");
@@ -253,7 +253,7 @@ const reset = css`
     color: var(--color-orange);
     font-size: var(--size-h3);
     font-weight: bold;
-    font-family: "solano";
+    font-family: "rucksack";
   }
 
   main p {
@@ -290,7 +290,7 @@ const reset = css`
 
     &.en li span,
     &.en li h3 {
-      font-family: "Montserrat";
+      font-family: "rucksack";
     }
 
     li {
@@ -370,7 +370,7 @@ const reset = css`
     font-size: var(--size-titleNo);
     font-weight: bold;
     font-weight: bold;
-    font-family: "solano";
+    font-family: "rucksack";
   }
 
   .form_txt {
@@ -1224,6 +1224,110 @@ const reset = css`
   ${montserrat}
   ${notoSansKR}
   ${solanoFT}
+
+  /*
+ * The Typekit service used to deliver this font or fonts for use on websites
+ * is provided by Adobe and is subject to these Terms of Use
+ * http://www.adobe.com/products/eulas/tou_typekit. For font license
+ * information, see the list below.
+ *
+ * rucksack:
+ *   - http://typekit.com/eulas/00000000000000007735a60f
+ *   - http://typekit.com/eulas/00000000000000007735a615
+ *   - http://typekit.com/eulas/00000000000000007735a61a
+ *   - http://typekit.com/eulas/00000000000000007735a619
+ *   - http://typekit.com/eulas/00000000000000007735a61b
+ *   - http://typekit.com/eulas/00000000000000007735a611
+ *
+ * © 2009-2024 Adobe Systems Incorporated. All Rights Reserved.
+ */
+/*{"last_published":"2024-03-28 08:48:53 UTC"}*/
+
+@import url("https://p.typekit.net/p.css?s=1&k=tsk2qix&ht=tk&f=25166.25167.25168.25169.25170.25171&a=191683344&app=typekit&e=css");
+
+  @font-face {
+    font-family: "rucksack";
+    src: url("https://use.typekit.net/af/4fd071/00000000000000007735a60f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/4fd071/00000000000000007735a60f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/4fd071/00000000000000007735a60f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 900;
+    font-stretch: normal;
+  }
+
+  @font-face {
+    font-family: "rucksack";
+    src: url("https://use.typekit.net/af/506a93/00000000000000007735a615/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/506a93/00000000000000007735a615/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/506a93/00000000000000007735a615/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 700;
+    font-stretch: normal;
+  }
+
+  @font-face {
+    font-family: "rucksack";
+    src: url("https://use.typekit.net/af/71ffe0/00000000000000007735a61a/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/71ffe0/00000000000000007735a61a/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/71ffe0/00000000000000007735a61a/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+  }
+
+  @font-face {
+    font-family: "rucksack";
+    src: url("https://use.typekit.net/af/ac7ce3/00000000000000007735a619/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/ac7ce3/00000000000000007735a619/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/ac7ce3/00000000000000007735a619/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 600;
+    font-stretch: normal;
+  }
+
+  @font-face {
+    font-family: "rucksack";
+    src: url("https://use.typekit.net/af/e1f8b2/00000000000000007735a61b/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/e1f8b2/00000000000000007735a61b/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/e1f8b2/00000000000000007735a61b/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 300;
+    font-stretch: normal;
+  }
+
+  @font-face {
+    font-family: "rucksack";
+    src: url("https://use.typekit.net/af/ab66ed/00000000000000007735a611/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/ab66ed/00000000000000007735a611/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/ab66ed/00000000000000007735a611/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 500;
+    font-stretch: normal;
+  }
 `;
 
 export default reset;

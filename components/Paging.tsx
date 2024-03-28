@@ -20,7 +20,7 @@ const PaginationWrap = styled.div`
 
     a {
       color: #7b7b7b;
-      font-family: "Montserrat";
+      font-family: "rucksack";
     }
 
     &.active {

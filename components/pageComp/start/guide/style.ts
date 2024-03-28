@@ -97,7 +97,7 @@ export const CostWrap = styled.section`
         font-family: "Noto Sans KR" !important;
       }
       &:not(&:nth-of-type(1)) {
-        font-family: "solano";
+        font-family: "rucksack";
         .sale {
           position: relative;
           &:before {
@@ -358,7 +358,7 @@ export const ProcessWrap = styled.ol`
   .num {
     display: flex;
     align-items: center;
-    font-family: "Montserrat";
+    font-family: "rucksack";
     font-size: 8rem;
     font-weight: bold;
 

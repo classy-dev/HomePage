@@ -255,7 +255,7 @@ export const FooterWrap = styled.footer`
       opacity: 0.8;
       margin-top: 0.5rem;
       font-size: 1.6rem;
-      font-family: "Montserrat", "Noto Sans KR";
+      font-family: "rucksack", "Noto Sans KR";
       line-height: 1.75;
     }
     .top {
@@ -272,7 +272,7 @@ export const FooterWrap = styled.footer`
 
         .menuBox {
           &:first-of-type li {
-            font-family: "Montserrat";
+            font-family: "rucksack";
             letter-spacing: 0.2rem;
           }
         }
@@ -434,7 +434,7 @@ export const FooterMobileWrap = styled.footer`
       h2,
       li * {
         display: block;
-        font-family: "Montserrat";
+        font-family: "rucksack";
         font-size: 10px;
 
         color: #fff;
@@ -477,7 +477,7 @@ export const FooterMobileWrap = styled.footer`
     }
     address {
       display: block;
-      font-family: "Montserrat";
+      font-family: "rucksack";
       font-size: 10px;
       font-style: normal;
       color: #fff;
@@ -507,13 +507,13 @@ export const CopyrightWrap = styled.div`
   height: 6rem;
   color: #7b7b7b;
   font-size: 2rem;
-  font-family: "Montserrat";
+  font-family: "rucksack";
   background: #2c2c2c;
 
   ${mq[0]} {
     height: auto;
     padding: 16px 0;
-    font-family: "Montserrat";
+    font-family: "rucksack";
     font-size: 10px;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
@@ -554,7 +554,7 @@ export const TopWrap = styled.div`
     height: 8rem;
     margin-left: auto;
     text-align: center;
-    font: bold 3.5rem "solano";
+    font: bold 3.5rem "rucksack";
     color: #fff;
     border-radius: 8rem;
     background: var(--color-bluedark);
@@ -631,7 +631,7 @@ export const Container = styled.div`
           color: var(--color-orange);
         }
         &:first-of-type {
-          font-family: "Montserrat";
+          font-family: "rucksack";
         }
         &:last-of-type {
           margin-right: 0;

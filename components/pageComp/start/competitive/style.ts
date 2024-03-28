@@ -335,7 +335,7 @@ export const RevenueWrap = styled.section`
 
             .number {
               margin-right: 0.8rem;
-              font-family: "solano";
+              font-family: "rucksack";
               font-size: 5.6rem;
               font-weight: bold;
             }
@@ -367,14 +367,14 @@ export const RevenueWrap = styled.section`
 
             .number {
               margin: 0 0.6rem;
-              font-family: "solano";
+              font-family: "rucksack";
               font-size: 6.5rem;
               font-weight: bold;
               line-height: 1;
             }
 
             .txt_per {
-              font-family: "solano";
+              font-family: "rucksack";
               font-size: 3.2rem;
               font-weight: bold;
               line-height: 1.25;
@@ -820,7 +820,7 @@ export const ParbakedWrap = styled.section`
     h5 {
       position: relative;
       color: var(--color-orange);
-      font-family: "solano";
+      font-family: "rucksack";
       font-size: 16rem;
       font-weight: bold;
       line-height: 0.88;
@@ -940,7 +940,7 @@ export const GovenWrap = styled.section`
       position: relative;
 
       margin-bottom: 3.8rem;
-      font-family: "solano";
+      font-family: "rucksack";
       font-size: 16rem;
       font-weight: bold;
 
@@ -983,7 +983,7 @@ export const GovenWrap = styled.section`
       }
 
       span {
-        font-family: "solano";
+        font-family: "rucksack";
         line-height: 1;
 
         &.txt2 {

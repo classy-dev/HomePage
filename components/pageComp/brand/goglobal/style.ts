@@ -194,7 +194,7 @@ export const GlobalListItemWrap = styled.li`
   .country {
     width: 15.13rem;
     padding-top: 17.52rem;
-    font-family: "solano";
+    font-family: "rucksack";
     font-size: 3.2rem;
     font-weight: bold;
     text-align: center;
@@ -208,7 +208,7 @@ export const GlobalListItemWrap = styled.li`
       display: block;
       width: 25.49rem;
       height: 19.2rem;
-      font-family: "solano";
+      font-family: "rucksack";
       font-size: 16rem;
       font-weight: bold;
     }

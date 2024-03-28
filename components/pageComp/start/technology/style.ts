@@ -67,7 +67,7 @@ export const GopizzaTechWrap = styled.section`
       dt {
         display: flex;
         margin-bottom: 0.65rem;
-        font-family: "solano";
+        font-family: "rucksack";
         font-size: 3.2rem;
         font-weight: bold;
 

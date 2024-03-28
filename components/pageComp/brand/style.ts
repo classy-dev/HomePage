@@ -29,7 +29,7 @@ export const SubMainVisualWrap = styled.div<{ bgimg: string }>`
   &.howwemake .txt1,
   &.goglobal .txt2 {
     font-size: var(--size-subMainVisualTxt1);
-    font-family: "solano";
+    font-family: "rucksack";
   }
 
   .subTxt {

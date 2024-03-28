@@ -57,7 +57,7 @@ export const TipWrap = styled.div`
         font-weight: bold;
 
         .number {
-          font-family: "Montserrat";
+          font-family: "rucksack";
         }
       }
       .txt2 {

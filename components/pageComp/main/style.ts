@@ -195,7 +195,7 @@ export const BestMenuWrap = styled.section`
         }
 
         .en {
-          font-family: "solano";
+          font-family: "rucksack";
           font-size: 2.5rem;
           font-weight: bold;
         }
@@ -203,7 +203,7 @@ export const BestMenuWrap = styled.section`
         .priceWrap {
           display: flex;
           align-items: baseline;
-          font-family: "solano";
+          font-family: "rucksack";
           font-weight: bold;
 
           .won {
@@ -353,7 +353,7 @@ export const OrderItem = styled.li`
     margin: -0.5rem 0 1rem;
     font-size: 10rem;
     font-weight: bold;
-    font-family: "solano";
+    font-family: "rucksack";
     color: #fff;
 
     &.mobile {
@@ -466,7 +466,7 @@ export const InstagramWrap = styled.section`
   .tit_box {
     margin-bottom: 4.7rem;
     em {
-      font-family: "solano";
+      font-family: "rucksack";
       font-size: 2.5rem;
       font-weight: bold;
     }

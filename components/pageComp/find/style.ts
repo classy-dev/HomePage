@@ -115,7 +115,7 @@ export const FindWrap = styled.main`
 
         .distance {
           margin-left: 0.8rem;
-          font-family: "Montserrat";
+          font-family: "rucksack";
           font-size: 2.4rem;
           color: var(--color-gray);
         }
@@ -137,7 +137,7 @@ export const FindWrap = styled.main`
           margin-right: 4.9rem;
           padding-left: 4.8rem;
           font-size: 2rem;
-          font-family: "Montserrat";
+          font-family: "rucksack";
 
           &.pc {
             padding-left: 0;

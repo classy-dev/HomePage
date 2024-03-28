@@ -39,7 +39,7 @@ export const IndexWrap = styled.main`
 
       h1 {
         margin-bottom: 0.8rem;
-        font-family: "solano";
+        font-family: "rucksack";
         font-size: 4.8rem;
         font-weight: bold;
       }

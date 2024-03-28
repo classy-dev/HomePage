@@ -163,7 +163,7 @@ export const Board = styled.div`
     .txt {
       width: 100%;
       * {
-        font-family: "Montserrat";
+        font-family: "rucksack";
       }
       h4 {
         color: var(--color-black);
