@@ -22,42 +22,30 @@ function BrandBi() {
       <div className="type_img_sample">
         <div className="banner_2area">
           <picture>
-            <source
-              media="(max-width: 767px)"
-              srcSet="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/mobile/img_brandbi1x2.webp"
-            />
-            <source media="(min-width: 768px)" srcSet="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/img_brandbi1.svg" />
-            <img src="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/img_brandbi1.svg" alt="BRAND LOGO_SYMBOL VER." />
+            <source media="(max-width: 767px)" srcSet="/images/brand/ourstory/mobile/img_brandbi1_2x.webp" />
+            <source media="(min-width: 768px)" srcSet="/images/brand/ourstory/img_brandbi1_2x.webp" />
+            <img src="/images/brand/ourstory/img_brandbi1_2x.webp" alt="BRAND LOGO_SYMBOL VER. GOPIZZA" />
           </picture>
           <picture>
-            <source
-              media="(max-width: 767px)"
-              srcSet="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/mobile/img_brandbi2x2.webp"
-            />
-            <source media="(min-width: 768px)" srcSet="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/img_brandbi2.svg" />
-            <img src="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/img_brandbi2.svg" alt="BRAND LOGO_SYMBOL VER." />
+            <source media="(max-width: 767px)" srcSet="/images/brand/ourstory/mobile/img_brandbi2_2x.webp" />
+            <source media="(min-width: 768px)" srcSet="/images/brand/ourstory/img_brandbi2_2x.webp" />
+            <img src="/images/brand/ourstory/img_brandbi2_2x.webp" alt="BRAND LOGO_TYPE VER. GOPIZZA" />
           </picture>
         </div>
         <div className="brand_slogan">
           <picture>
-            <source
-              media="(max-width: 767px)"
-              srcSet="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/mobile/img_brandbi3x2.webp"
-            />
-            <source media="(min-width: 768px)" srcSet="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/img_brandbi3x2.webp" />
-            <img src="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/img_brandbi3x2.webp" alt="BRAND LOGO_SYMBOL VER." />
+            <source media="(max-width: 767px)" srcSet="/images/brand/ourstory/mobile/img_brandbi3_2x.webp" />
+            <source media="(min-width: 768px)" srcSet="/images/brand/ourstory/img_brandbi3_2x.webp" />
+            <img src="/images/brand/ourstory/img_brandbi3_2x.webp" alt="BRAND LOGO_SLOGAN. FAST but Delicious" />
           </picture>
         </div>
         <div className="brand_color">
           <picture>
-            <source
-              media="(max-width: 767px)"
-              srcSet="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/mobile/img_brandbi4x2.webp"
-            />
-            <source media="(min-width: 768px)" srcSet="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/img_brandbi4.webp?v=3" />
+            <source media="(max-width: 767px)" srcSet="/images/brand/ourstory/mobile/img_brandbi4_2x.webp" />
+            <source media="(min-width: 768px)" srcSet="/images/brand/ourstory/img_brandbi4_2x.webp" />
             <img
-              src="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/img_brandbi4.webp?v=3"
-              alt="[BRAND COLOR] PRIMARY ORANGE - 고피자의 열정과 도전 (RGB : 255 70 0, CMYK : 0 80 95 0, PANTONE : 02IC), PRIMARY NAVY - 피자에 임하는 마음가짐 (RGB : 23 28 143, CMYK : 100 92 15 0, PANTONE : 2746C)"
+              src="/images/brand/ourstory/img_brandbi4_2x.webp"
+              alt="[BRAND COLOR] GOPIZZA ORANGE - 고피자의 열정과 도전 (RGB : 255 70 22, CMYK : 0 82 100 0, PANTONE : 172C), FLOUR IVORY - 본질에 집중하는 마음가짐 (RGB : 253 243 203, CMYK : 1 2 24 0, PANTONE : 7499CP)"
             />
           </picture>
         </div>
