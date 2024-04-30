@@ -32,15 +32,22 @@ export const Content = styled.div<{ width: string; height: string }>`
   height: 74rem;
   background: #ddd;
   border-radius: 3rem 3rem 0 0;
+
   img {
     display: block;
     width: 100%;
   }
 
+  &.sm {
+    width: 52rem;
+    height: 52rem;
+    border-radius: 2rem 2rem 0 0;
+  }
+
   ${mq[0]} {
-    width: calc(100vw - 40px);
-    height: calc(100vw - 40px);
-    border-radius: 10px 10px 0 0;
+    width: calc(100vw - 40px) !important;
+    height: calc(100vw - 40px) !important;
+    border-radius: 10px 10px 0 0 !important;
   }
 `;
 
@@ -65,12 +72,33 @@ const BtnBox = styled.div`
       border-radius: 0 0 3rem 0;
     }
   }
+
+  &.sm button {
+    width: 50%;
+    height: 6rem;
+    line-height: 6rem;
+    font-size: 1.8rem;
+    text-align: center;
+    cursor: pointer;
+
+    &:first-of-type {
+      color: #000;
+      background: #fff;
+      border-radius: 0 0 0 3rem;
+    }
+    &:last-of-type {
+      color: #fff;
+      background: var(--color-orange);
+      border-radius: 0 0 3rem 0;
+    }
+  }
+
   ${mq[0]} {
     button {
       width: 100%;
-      height: 60px;
-      font-size: 14px;
-      line-height: 1;
+      height: 50px !important;
+      font-size: 14px !important;
+      line-height: 1 !important;
       &:first-of-type {
         border-radius: 0 0 0px 10px !important;
       }
@@ -79,6 +107,7 @@ const BtnBox = styled.div`
       }
     }
   }
+
   ${folder} {
     button {
       font-size: 13px;
@@ -86,7 +115,7 @@ const BtnBox = styled.div`
   }
 `;
 
-const TodayPopup = ({ href, src, alt, width, height }: { href: string; src: string; alt: string; width: string; height: string }) => {
+const TodayPopup = ({ href, src, alt, width, height, size }: { size?: "sm"; href: string; src: string; alt: string; width: string; height: string }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -114,12 +143,12 @@ const TodayPopup = ({ href, src, alt, width, height }: { href: string; src: stri
   return (
     <PopWrap>
       <div css={popupStyle}>
-        <Content width={width} height={height}>
+        <Content width={width} height={height} className={size ?? ""}>
           <a target="_blank" href={href} rel="noreferrer">
             <Image src={src} fill alt={alt} />
           </a>
         </Content>
-        <BtnBox>
+        <BtnBox className={size ?? ""}>
           <button onClick={dontShowToday}>오늘 하루 동안 열지 않기</button>
           <button onClick={closePopup}>닫기</button>
         </BtnBox>

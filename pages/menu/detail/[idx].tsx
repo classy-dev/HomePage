@@ -129,10 +129,7 @@ function DetailView({ seo }: any) {
           <Fade style={{ opacity: fade ? "0" : "1" }}>
             <Info>
               <div {...handlers} className={`thumb ${currentMenu?.badge === "best" ? "badge best" : currentMenu?.badge === "new" ? "badge new" : ""}`}>
-                <img
-                  src={`https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/detail/${currentMenu?.category}/${idx}x2.webp?v=5`}
-                  alt={currentMenu?.name}
-                />
+                <img src={`/images/menu/detail/${currentMenu?.category}/${idx}x2.webp?v=2`} alt={currentMenu?.name} />
               </div>
               <dl className="box_ingredients">
                 <dt>
@@ -165,10 +162,7 @@ function DetailView({ seo }: any) {
                     {currentMenu?.ingredients.map((el: string, i: number) => (
                       <li key={i}>
                         <span className="img">
-                          <img
-                            src={`https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/detail/img_ingredients${Ingredients.indexOf(el)}x2.webp`}
-                            alt={currentMenu?.name}
-                          />
+                          <img src={`/images/menu/detail/img_ingredients${Ingredients.indexOf(el)}x2.webp`} alt={currentMenu?.name} />
                         </span>
                         <span className="desc">{el}</span>
                       </li>
@@ -182,7 +176,7 @@ function DetailView({ seo }: any) {
             <NutrientWrap>
               <p className="tit">영양성분 / 알레르기 / 원산지</p>
               <div className="box_info">
-                <img src="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/popup/info_nutrientx2.webp" alt="고피자 영양분석표" />
+                <img src="/images/popup/info_nutrientx2.webp" alt="고피자 영양분석표" />
               </div>
               <button className="btn_close" onClick={close}>
                 <span className="hiddenZoneV">닫기</span>
@@ -219,7 +213,7 @@ export const getStaticProps = async (context: any) => {
       url: `https://gopizza.kr/menu/detail/${idx}`,
       images: [
         {
-          url: `https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/detail/${menuDetail[`${idx}`]?.category}/${idx}x2.webp`,
+          url: `/images/menu/detail/${menuDetail[`${idx}`]?.category}/${idx}x2.webp`,
           alt: `${menuDetail[`${idx}`].name}`,
         },
       ],
@@ -231,7 +225,7 @@ export const getStaticProps = async (context: any) => {
       title: `${menuDetail[`${idx}`].name} | 고피자`,
       description: `${menuDetail[`${idx}`].txt}, 고피자의 ${menuDetail[`${idx}`].name}`,
       image: {
-        url: `https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/detail/${menuDetail[`${idx}`]?.category}/${idx}x2.webp`,
+        url: `/images/menu/detail/${menuDetail[`${idx}`]?.category}/${idx}x2.webp`,
       },
     },
   };

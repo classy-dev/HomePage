@@ -6,6 +6,7 @@ import CeoMessage from "ComponentsFarm/pageComp/start/ceo/CeoMessage";
 import Interview from "ComponentsFarm/pageComp/start/ceo/Interview";
 import Media from "ComponentsFarm/pageComp/start/ceo/Media";
 import { Content } from "ComponentsFarm/pageComp/start/style";
+import TodayPopup from "ComponentsFarm/popup/TodayPopup";
 
 function News(news: INews) {
   return (
@@ -15,6 +16,7 @@ function News(news: INews) {
         <Interview />
         <Media news={news} />
         <BtnInquiry />
+        {/* <TodayPopup size="sm" href="javascript:void(0)" src="/images/insure_240329.png" alt="" width="520" height="" /> */}
       </Content>
     </StartLayout>
   );

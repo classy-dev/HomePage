@@ -166,6 +166,7 @@ export const MenuList = styled.ul`
     .ko_name {
       margin: 8px 0;
       font-size: 14px;
+      white-space: pre-line;
     }
 
     .en_name {
