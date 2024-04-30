@@ -35,7 +35,7 @@ export const menuItem = [
     {
       idx: "pizza1",
       imgUrl: "/images/menu/pizza/img_item1x2.webp",
-      name: "치킨앤콘 반반 피자",
+      name: "치킨앤콘\n 반반 피자",
       enName: "Chicken & Corn Half/Half Pizza",
     },
     {
