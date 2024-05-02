@@ -65,7 +65,7 @@ export const menu = [
 export const Seo = [
   {
     canonical: "https://gopizza.kr",
-    title: "1인피자의 시작, 고피자",
+    title: "언제 어디서나 고피자",
     description: "고피자에서는 다양한 맛의 피자와 함께 즐거운 시간을 제공합니다. 메뉴와 매장을 확인하고, 창업에 대한 정보를 얻으세요.",
     openGraph: {
       type: "website",
@@ -82,7 +82,7 @@ export const Seo = [
     twitter: {
       card: "summary_large_image",
       site: "@gopizza",
-      title: "1인피자의 시작, 고피자",
+      title: "언제 어디서나 고피자",
       description: "고피자에서는 다양한 맛의 피자와 함께 즐거운 시간을 제공합니다. 메뉴와 매장을 확인하고, 창업에 대한 정보를 얻으세요.",
       image: {
         url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/index/bg_index1x2.webp",
