@@ -144,9 +144,13 @@ const TodayPopup = ({ href, src, alt, width, height, size }: { size?: "sm"; href
     <PopWrap>
       <div css={popupStyle}>
         <Content width={width} height={height} className={size ?? ""}>
-          <a target="_blank" href={href} rel="noreferrer">
+          {href ? (
+            <a target="_blank" href={href} rel="noreferrer">
+              <Image src={src} fill alt={alt} />
+            </a>
+          ) : (
             <Image src={src} fill alt={alt} />
-          </a>
+          )}
         </Content>
         <BtnBox className={size ?? ""}>
           <button onClick={dontShowToday}>오늘 하루 동안 열지 않기</button>
