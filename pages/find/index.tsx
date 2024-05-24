@@ -64,12 +64,13 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
     address2: "",
   });
 
-  const handleFilterChange = (e: any) => {
+  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFilters((prevFilters) => ({
       ...prevFilters,
       [name]: name === "address1" ? value : prevFilters.address1,
       address2: name === "address1" ? "" : name === "address2" ? value : prevFilters.address2,
+      [name]: value,
     }));
   };
 
@@ -159,7 +160,18 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
             ))}
         </select>
         <div className="box_search_keyword">
-          <input type="text" name="name" placeholder="검색어를 입력해주세요" onChange={handleFilterChange} value={filters.name} />
+          <input
+            type="text"
+            name="name"
+            placeholder="검색어를 입력해주세요"
+            onChange={handleFilterChange}
+            value={filters.name}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
+          />
           <button onClick={handleSearch}>검색</button>
         </div>
       </div>
