@@ -168,7 +168,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
         <span className="txt">원하는 매장 유형을 선택해 주세요.</span>
       </div>
       <ul className="list_filter_store">
-        <li className={selectedType === "All" ? "on" : ""} onClick={() => handleTypeFilter("All")}>
+        <li className={selectedType === "All" ? "fst on" : "fst"} onClick={() => handleTypeFilter("All")}>
           <div className="box_img">
             <img src="/images/find/btn_all.svg" alt="ALL" />
           </div>

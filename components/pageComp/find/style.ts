@@ -66,6 +66,7 @@ export const FindWrap = styled.main`
 
   .list_filter_store {
     display: flex;
+    
     li {
       width: 14.5rem;
       height: 15.6rem;
@@ -74,7 +75,15 @@ export const FindWrap = styled.main`
       border: 1px solid #e0e0e0;
       text-align: center;
       cursor: pointer;
-      font-weight: 500;
+
+
+
+      &.fst {
+        .box_img {
+         filter: grayscale(100%) brightness(320%);
+        }
+      }
+
 
       &.on {
         border: 1px solid #ff4600;
@@ -86,6 +95,8 @@ export const FindWrap = styled.main`
       .box_img {
         margin-top: 3.3rem;
         filter: grayscale(100%);
+
+       
       }
 
       .txt {
