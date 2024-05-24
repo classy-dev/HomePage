@@ -66,11 +66,13 @@ export const Seo = [
   {
     canonical: "https://gopizza.kr",
     title: "언제 어디서나 고피자",
-    description: "고피자에서는 다양한 맛의 피자와 함께 즐거운 시간을 제공합니다. 메뉴와 매장을 확인하고, 창업에 대한 정보를 얻으세요.",
+    description:
+      "한 사람만을 위한 한 판, 고피자는 언제 어디서나 취향에 맞게 즐기는 다양한 피자를 제공합니다. 지금 우리동네 고피자를 확인하고 창업에 대한 정보도 얻어보세요!",
     openGraph: {
       type: "website",
-      title: "고피자 - 맛있는 피자와 함께하는 행복한 시간",
-      description: "고피자에서는 다양한 맛의 피자와 함께 즐거운 시간을 제공합니다. 메뉴와 매장을 확인하고, 창업에 대한 정보를 얻으세요.",
+      title: "언제 어디서나 고피자",
+      description:
+        "한 사람만을 위한 한 판, 고피자는 언제 어디서나 취향에 맞게 즐기는 다양한 피자를 제공합니다. 지금 우리동네 고피자를 확인하고 창업에 대한 정보도 얻어보세요!",
       url: "https://gopizza.kr",
       images: [
         {
@@ -83,7 +85,8 @@ export const Seo = [
       card: "summary_large_image",
       site: "@gopizza",
       title: "언제 어디서나 고피자",
-      description: "고피자에서는 다양한 맛의 피자와 함께 즐거운 시간을 제공합니다. 메뉴와 매장을 확인하고, 창업에 대한 정보를 얻으세요.",
+      description:
+        "한 사람만을 위한 한 판, 고피자는 언제 어디서나 취향에 맞게 즐기는 다양한 피자를 제공합니다. 지금 우리동네 고피자를 확인하고 창업에 대한 정보도 얻어보세요!",
       image: {
         url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/index/bg_index1x2.webp",
         alt: "고피자",

@@ -41,11 +41,11 @@ function Index() {
           <div className="inner">
             <h1>FRANCHISE</h1>
             <p>
-              고피자 창업을
-              <br /> 고민하고 계신가요?
+              인건비 걱정 없는 고피자 창업에
+              <br /> 관심이 있으신가요?
             </p>
             <Link href="/start">
-              <span className="txt">프랜차이즈</span>
+              <span className="txt">창업안내</span>
             </Link>
           </div>
         </div>

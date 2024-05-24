@@ -27,7 +27,7 @@ function YouWantPizza() {
           <li>
             <span className="txt">
               <span className="inner">
-                고피자는 고객이 있는 곳<br /> 언제 어디서든 함께 합니다.
+                고객 취향에 초근접 <br /> 갓 구운 고피자
               </span>
             </span>
           </li>

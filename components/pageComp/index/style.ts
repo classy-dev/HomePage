@@ -44,7 +44,7 @@ export const IndexWrap = styled.main`
         font-weight: bold;
       }
       p {
-        font-size: 6.4rem;
+        font-size: 5rem;
         font-weight: bold;
         line-height: 1.47;
       }
