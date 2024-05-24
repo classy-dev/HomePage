@@ -9,8 +9,28 @@ export const FindWrap = styled.main`
     margin-bottom: 13.2rem;
   }
 
+  .sub_tit {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 2.4rem;
+
+    h3 {
+      font-size: 2.4rem;
+      font-weight: 700;
+    }
+
+    .txt {
+      margin-left: 2.2rem;
+      color: #aaa;
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 1.6rem;
+    }
+  }
+
   .wrp_filter {
     display: flex;
+    margin-bottom: 4.8rem;
 
     select {
       width: 29rem;
@@ -23,6 +43,7 @@ export const FindWrap = styled.main`
       }
     }
   }
+
   .box_search_keyword {
     display: flex;
     border: 1px solid var(--color-inputBorder);
@@ -40,6 +61,44 @@ export const FindWrap = styled.main`
       color: #fff;
       border-radius: 0 2.8rem 2.8rem 0;
       background: var(--color-orange);
+    }
+  }
+
+  .list_filter_store {
+    display: flex;
+    li {
+      width: 14.5rem;
+      height: 15.6rem;
+      margin-right: 1.6rem;
+      border-radius: 0.4rem;
+      border: 1px solid #e0e0e0;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 500;
+
+      &.on {
+        border: 1px solid #ff4600;
+        .box_img {
+          filter: unset;
+        }
+      }
+
+      .box_img {
+        margin-top: 3.3rem;
+        filter: grayscale(100%);
+      }
+
+      .txt {
+        margin-top: 1.6rem;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 1rem;
+      }
+
+      img {
+        width: 6.4rem;
+        height: 6.4rem;
+      }
     }
   }
 
@@ -77,6 +136,16 @@ export const FindWrap = styled.main`
     }
 
     li {
+      .wrap_info {
+        display: flex;
+        align-items: center;
+        .logo {
+          width: 6.4rem;
+          height: 6.4rem;
+          margin: 0 2.4rem; 0 5.6rem;
+        }
+      }
+
       padding: 3.05rem 0 3.05rem;
       border-bottom: 1px solid #ddd;
       background: url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/find/go_find.svg") no-repeat 117.6rem 6.35rem / 8rem;
@@ -104,9 +173,7 @@ export const FindWrap = styled.main`
         }
       }
 
-      dl {
-        padding: 0 4rem;
-      }
+
 
       dt {
         font-size: 3.2rem;
@@ -122,7 +189,7 @@ export const FindWrap = styled.main`
       }
 
       .address {
-        margin: 2.4rem 0 1.6rem;
+        margin: 1.6rem 0 2.4rem;
         font-size: 2rem;
       }
 
@@ -160,6 +227,9 @@ export const FindWrap = styled.main`
         }
       }
     }
+  }
+  .list_filter_store {
+    dispaly: flex;
   }
   ${mq[0]} {
     width: 100%;

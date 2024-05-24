@@ -65,6 +65,7 @@ export interface IInstarItem {
 export interface IStoreSearch {
   id: number;
   name: string;
+  type: string;
   store_phone_number: string;
   address: string;
   business_time: string;
