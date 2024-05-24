@@ -83,9 +83,9 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 
     if (filters.name) {
       filteredData =
-        filteredData.filter((item) => item.name.includes(filters.name)).length === 0
+        filteredData.filter((item) => item.name.toLowerCase().includes(filters.name.toLowerCase())).length === 0
           ? filteredData.filter((item) => item.address.includes(filters.name))
-          : filteredData.filter((item) => item.name.includes(filters.name));
+          : filteredData.filter((item) => item.name.toLowerCase().includes(filters.name.toLowerCase()));
     }
 
     if (filters.address1) {
