@@ -96,10 +96,10 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
       filteredData = filteredData.filter((item) => item.store_location.district.name.substring(0, 2) === filters.address2.substring(0, 2));
     }
 
-    if (selectedType === "GS") {
-      filteredData = filteredData.filter((item) => item.type === "GS");
+    if (selectedType === "GS25") {
+      filteredData = filteredData.filter((item) => item.type === "GS25");
     } else if (selectedType === "GOPIZZA") {
-      filteredData = filteredData.filter((item) => item.type !== "GS");
+      filteredData = filteredData.filter((item) => item.type !== "GS25");
     }
 
     setTotalPage(filteredData.length);
@@ -192,7 +192,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
           </div>
           <div className="txt">GOPIZZA</div>
         </li>
-        <li className={selectedType === "GS" ? "on" : ""} onClick={() => handleTypeFilter("GS")}>
+        <li className={selectedType === "GS25" ? "on" : ""} onClick={() => handleTypeFilter("GS25")}>
           <div className="box_img">
             <img src="/images/find/btn_gs25.svg" alt="GS25" />
           </div>
@@ -242,7 +242,7 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
     <li className={expanded ? "on" : ""}>
       <div className="wrap_info">
         <div className="logo">
-          <img src={`/images/find/btn_${store.type === "GS" ? "gs25" : "gopizza"}.svg`} alt="ALL" />
+          <img src={`/images/find/btn_${store.type === "GS25" ? "gs25" : "gopizza"}.svg`} alt="ALL" />
         </div>
         <dl
           onClick={(e) => {
