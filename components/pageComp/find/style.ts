@@ -349,6 +349,50 @@ export const FindWrap = styled.main`
       }
     }
   }
+
+
+  ${mq[0]} {
+    .wrp_filter {
+      margin-bottom: 2.4rem;
+    }
+
+    .sub_tit h3 {
+      font-size: 1.8rem;
+    }
+    .sub_tit .txt {
+      font-size: 1.4rem;
+    }
+
+    .sub_tit {
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .list_filter_store {
+      gap: 1rem;
+      padding: 0 2rem;
+    }
+
+    .list_filter_store li {
+      flex: 1;
+      width: 100%;
+      margin: 0;
+    
+    }
+
+    .list_store li {
+      background-position: 100% 2rem !important 
+    }
+
+    .list_store li .wrap_info .logo {
+      width: 5rem;
+      height: 5rem;
+      margin: 0 1.2rem 0 0;
+    }
+    
+
+  }
+
   ${folder} {
     .wrp_filter select {
       font-size: 12px;
