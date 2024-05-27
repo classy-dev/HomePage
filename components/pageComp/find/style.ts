@@ -357,33 +357,32 @@ export const FindWrap = styled.main`
     }
 
     .sub_tit {
-      margin-left: 2.2rem;
-    }
-
-    .sub_tit h3 {
-      font-size: 1.8rem;
-    }
-    .sub_tit .txt {
-      margin-left: 0;
-      font-size: 1.4rem;
-    }
-
-    .sub_tit {
       flex-direction: column;
       gap: 0.4rem;
+      margin-left: 2.2rem;
+
+      h3 {
+        font-size: 1.8rem;
+      }
+
+      .txt {
+        margin-left: 0;
+        font-size: 1.4rem;
+      }
+
     }
 
     .list_filter_store {
       gap: 1rem;
       padding: 0 2rem;
-    }
 
-    .list_filter_store li {
-      flex: 1;
-      width: 100%;
-      margin: 0;    
+      li {
+        flex: 1;
+        width: 100%;
+        margin: 0;    
+      }
     }
-    
+   
 
     .list_store li {
       background-position: 100% 2rem !important;
@@ -392,13 +391,6 @@ export const FindWrap = styled.main`
         .time {
           display:none;
         }
-      }
-
-      .info {
-          display:block;
-          .tel {
-            margin-bottom:0.5rem;
-          }
       }
 
       .wrap_info .logo {
@@ -411,6 +403,15 @@ export const FindWrap = styled.main`
         flex:1;
 
         dt {font-size:1.8rem}
+      }
+
+      .info {
+          display:block;
+          .tel {
+            margin-bottom:0.5rem;  
+
+            a {width:fit-content;}
+          }
       }
     }
 
