@@ -220,7 +220,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
             {timer > 2 ? (
               <div className="box_basicInfo">
                 <p>현재 고객님의 위치정보를 가져올 수 없습니다.</p>
-                <button onClick={handlerTimeOut}>기본목록 불러오기</button>
+                <button onClick={handlerTimeOut}>직접 매장 검색하기</button>
               </div>
             ) : (
               <p>가까운 매장 순으로 매장 정보를 불러오는 중입니다.</p>
