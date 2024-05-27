@@ -239,7 +239,7 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
   };
 
   return (
-    <li className={expanded ? "on" : ""}>
+    <li className={expanded ? (store.type === "GS25" ? "on gs25" : "on") : store.type === "GS25" ? "gs25" : ""}>
       <div className="wrap_info">
         <div className="logo">
           <img src={`/images/find/btn_${store.type === "GS25" ? "gs25" : "gopizza"}.svg`} alt="ALL" />

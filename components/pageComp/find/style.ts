@@ -356,10 +356,15 @@ export const FindWrap = styled.main`
       margin-bottom: 2.4rem;
     }
 
+    .sub_tit {
+      margin-left: 2.2rem;
+    }
+
     .sub_tit h3 {
       font-size: 1.8rem;
     }
     .sub_tit .txt {
+      margin-left: 0;
       font-size: 1.4rem;
     }
 
@@ -376,19 +381,39 @@ export const FindWrap = styled.main`
     .list_filter_store li {
       flex: 1;
       width: 100%;
-      margin: 0;
-    
+      margin: 0;    
     }
+    
 
     .list_store li {
-      background-position: 100% 2rem !important 
-    }
+      background-position: 100% 2rem !important;
 
-    .list_store li .wrap_info .logo {
+      &.gs25 {
+        .time {
+          display:none;
+        }
+      }
+
+      .info {
+          display:block;
+          .tel {
+            margin-bottom:0.5rem;
+          }
+      }
+
+      .wrap_info .logo {
       width: 5rem;
       height: 5rem;
       margin: 0 1.2rem 0 0;
+      }
+
+      dl {
+        flex:1;
+
+        dt {font-size:1.8rem}
+      }
     }
+
     
 
   }
