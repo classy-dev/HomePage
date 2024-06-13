@@ -86,6 +86,9 @@ interface PagingProps {
   setPage: (pageNumber: number) => void;
 }
 
+const PrevArrow = () => <div className="arrow-left"></div>;
+const NextArrow = () => <div className="arrow-right"></div>;
+
 const Paging = ({ page, PerPage, count, setPage }: PagingProps) => {
   return (
     <PaginationWrap>
@@ -94,8 +97,8 @@ const Paging = ({ page, PerPage, count, setPage }: PagingProps) => {
         itemsCountPerPage={PerPage}
         totalItemsCount={count}
         pageRangeDisplayed={5}
-        prevPageText={<div className="arrow-left"></div>}
-        nextPageText={<div className="arrow-right"></div>}
+        prevPageText={<PrevArrow />}
+        nextPageText={<NextArrow />}
         firstPageText={""}
         lastPageText={""}
         onChange={setPage}
