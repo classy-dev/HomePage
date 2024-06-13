@@ -121,6 +121,14 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
     setSelectedType(type);
   };
 
+  const getCGVStores = (storeData: IStoreSearch[]) => {
+    return storeData.filter((store) => store.name.toLowerCase().includes("cgv"));
+  };
+
+  const getFreshStores = (storeData: IStoreSearch[]) => {
+    return storeData.filter((store) => store.type === "Fresh");
+  };
+
   const toggleStoreExpansion = (storeId: number) => {
     setExpandedStores((prevExpandedStores) => {
       const newExpandedStores = new Set(prevExpandedStores);
@@ -198,6 +206,18 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
           </div>
           <div className="txt">GS25</div>
         </li>
+        <li className={selectedType === "Fresh" ? "on" : ""} onClick={() => handleTypeFilter("Fresh")}>
+          <div className="box_img">
+            <img src="/images/find/btn_fresh.svg" alt="Fresh" />
+          </div>
+          <div className="txt">THE FRESH</div>
+        </li>
+        <li className={selectedType === "CGV" ? "on" : ""} onClick={() => handleTypeFilter("CGV")}>
+          <div className="box_img">
+            <img src="/images/find/btn_cgv.svg" alt="CGV" />
+          </div>
+          <div className="txt">CGV</div>
+        </li>
       </ul>
 
       <ul className={`list_store ${storeData.length === 0 || !load ? "off" : ""}`}>
@@ -209,9 +229,19 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
             <p>{(filters.name || filters.address1 || filters.address2) && "해당 지역에는 매장이 존재하지 않습니다."}</p>
           </li>
         ) : load ? (
-          currentData.map((store: IStoreSearch) => (
-            <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
-          ))
+          selectedType === "CGV" ? (
+            getCGVStores(storeData).map((store: IStoreSearch) => (
+              <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
+            ))
+          ) : selectedType === "Fresh" ? (
+            getFreshStores(storeData).map((store: IStoreSearch) => (
+              <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
+            ))
+          ) : (
+            currentData.map((store: IStoreSearch) => (
+              <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
+            ))
+          )
         ) : (
           <li>
             <div className="box_spinner">
@@ -234,15 +264,30 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 }
 
 const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: boolean; store: IStoreSearch; expanded: boolean; toggleExpansion: () => void }) => {
+  const getStoreClassName = (store: IStoreSearch, expanded: boolean) => {
+    const isExpanded = expanded ? "on" : "";
+    const storeType = store.name.toLowerCase().includes("cgv") ? "cgv" : store.type === "GS25" ? "gs25" : store.type === "Fresh" ? "fresh" : "";
+
+    return `${isExpanded} ${storeType}`.trim();
+  };
+
   const handleAClick = (e: any) => {
     e.stopPropagation(); // a 태그 클릭시 이벤트 버블링 방지
   };
 
+  const logoSrc = store.name.toLowerCase().includes("cgv")
+    ? "/images/find/btn_cgv.svg"
+    : store.type === "GS25"
+    ? "/images/find/btn_gs25.svg"
+    : store.type === "Fresh"
+    ? "/images/find/btn_fresh.svg"
+    : "/images/find/btn_gopizza.svg";
+
   return (
-    <li className={expanded ? (store.type === "GS25" ? "on gs25" : "on") : store.type === "GS25" ? "gs25" : ""}>
+    <li className={getStoreClassName(store, expanded)}>
       <div className="wrap_info">
         <div className="logo">
-          <img src={`/images/find/btn_${store.type === "GS25" ? "gs25" : "gopizza"}.svg`} alt="ALL" />
+          <img src={logoSrc} alt={store.name} />
         </div>
         <dl
           onClick={(e) => {
@@ -299,6 +344,29 @@ export const getStaticProps = async () => {
       .replace(/경상남도/g, "경남")
       .replace(/경상북도/g, "경북");
   });
+
+  // Fresh 타입의 mock 데이터 추가
+  const mockFreshStores = [
+    {
+      id: "mock-fresh-1",
+      name: "Mock Fresh Store 1",
+      type: "Fresh",
+      address: "Mock Fresh Address 1",
+      store_phone_number: "010-1234-5678",
+      business_time: "09:00 ~ 22:00",
+      store_location: {
+        lat: 37.1234,
+        lng: 127.5678,
+        district: {
+          city: "서울특별시",
+          name: "강남구",
+        },
+      },
+      distance: 0,
+    },
+  ];
+
+  storeInfo2 = [...storeInfo2, ...mockFreshStores];
 
   return {
     props: {
