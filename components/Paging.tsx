@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import Pagination from "react-js-pagination";
 import styled from "@emotion/styled";
 import { mq } from "./common";
@@ -79,7 +79,7 @@ const PaginationWrap = styled.div`
   }
 `;
 
-const Paging = ({ page, PerPage, count, setPage }: any) => {
+const Paging = ({ page, PerPage, count, setPage }: { page: number; PerPage: number; count: number; setPage: (page: number) => void }) => {
   return (
     <PaginationWrap>
       <Pagination
@@ -87,8 +87,8 @@ const Paging = ({ page, PerPage, count, setPage }: any) => {
         itemsCountPerPage={PerPage}
         totalItemsCount={count}
         pageRangeDisplayed={5}
-        prevPageText={<div className="arrow-left"></div>}
-        nextPageText={<div className="arrow-right"></div>}
+        prevPageText={(<div className="arrow-left"></div>) as React.ReactElement}
+        nextPageText={(<div className="arrow-right"></div>) as React.ReactElement}
         firstPageText={""}
         lastPageText={""}
         onChange={setPage}
