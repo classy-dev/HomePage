@@ -79,7 +79,14 @@ const PaginationWrap = styled.div`
   }
 `;
 
-const Paging = ({ page, PerPage, count, setPage }: any) => {
+interface PagingProps {
+  page: number;
+  PerPage: number;
+  count: number;
+  setPage: (pageNumber: number) => void;
+}
+
+const Paging = ({ page, PerPage, count, setPage }: PagingProps) => {
   return (
     <PaginationWrap>
       <Pagination
