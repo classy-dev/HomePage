@@ -762,12 +762,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-js-pagination@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "@types/react-js-pagination@npm:3.0.4"
+"@types/react-js-pagination@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@types/react-js-pagination@npm:3.0.3"
   dependencies:
     "@types/react": "*"
-  checksum: c0a413b30bf158da43c446a620298709cbe3c6958d62cef48ba694ba32a4478af936c22a2ad359c29f1feff492c413dbf1b826abca9d379e81b0cdee74e1cc54
+  checksum: 7ac2bf4c7441dc139be79f4e4c6cb637b09578703eeaecc473dfad967c484effeeb4699e2a0df1327dc3533e93112d10c5facf542505742b359a769fbbb79fbf
   languageName: node
   linkType: hard
 
@@ -2914,7 +2914,7 @@ __metadata:
     "@types/react": 18.0.26
     "@types/react-datepicker": ^4.8.0
     "@types/react-dom": 18.0.10
-    "@types/react-js-pagination": ^3.0.4
+    "@types/react-js-pagination": 3.0.3
     "@types/react-transition-group": ^4.4.5
     "@vercel/analytics": ^0.1.11
     add: ^2.0.6
