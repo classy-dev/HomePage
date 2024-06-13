@@ -87,8 +87,8 @@ const Paging = ({ page, PerPage, count, setPage }: { page: number; PerPage: numb
         itemsCountPerPage={PerPage}
         totalItemsCount={count}
         pageRangeDisplayed={5}
-        prevPageText={(<div className="arrow-left"></div>) as React.ReactElement}
-        nextPageText={(<div className="arrow-right"></div>) as React.ReactElement}
+        prevPageText={"<"}
+        nextPageText={">"}
         firstPageText={""}
         lastPageText={""}
         onChange={setPage}
