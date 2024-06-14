@@ -197,9 +197,13 @@ export const FindWrap = styled.main`
           margin-top: 3.2rem;
         }
       }
-      dl {
+
+      @media (min-width:1000px) {
+        dl {
         width: calc(100% - 8.8rem);
         }
+      }
+
 
 
       dt {
