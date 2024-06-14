@@ -91,6 +91,14 @@ export const FindWrap = styled.main`
       }
 
 
+      &:nth-of-type(5) {
+        .box_img {
+         filter: grayscale(100%) brightness(116%);
+        }
+      }
+
+
+
       &.on {
         border: 1px solid #ff4600;
         .box_img {
@@ -382,17 +390,26 @@ export const FindWrap = styled.main`
     .list_filter_store {
       display: grid;
         grid-template-columns: repeat(3, 1fr);
-      gap: 1.6rem;
       padding: 0 2rem;
 
       li {
         flex: 1;
         width: 100%;
-        height:10.4rem;
+        height:10.2rem;
         margin: 0;    
-        
-        .box_img, .txt  {
+        border-radius:0;
+
+        img {
+          width:5rem;
+          height:5rem;
+        }
+
+        .box_img {
+          margin-top:1.6rem;
+        } 
+        .txt  {
           margin-top:0.8rem;
+          font-size:1.2rem;
         }
         
       }
@@ -417,7 +434,7 @@ export const FindWrap = styled.main`
       dl {
         flex:1;
 
-        dt {font-size:1.8rem}
+        dt {font-size:1.6rem}
       }
 
       .info {

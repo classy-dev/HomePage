@@ -126,7 +126,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
   };
 
   const getFreshStores = (storeData: IStoreSearch[]) => {
-    return storeData.filter((store) => store.type === "Fresh");
+    return storeData.filter((store) => store.type === "GSTHEFRESH");
   };
 
   const toggleStoreExpansion = (storeId: number) => {
@@ -210,7 +210,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
           <div className="box_img">
             <img src="/images/find/btn_fresh.svg" alt="Fresh" />
           </div>
-          <div className="txt">THE FRESH</div>
+          <div className="txt">GS THE FRESH</div>
         </li>
         <li className={selectedType === "CGV" ? "on" : ""} onClick={() => handleTypeFilter("CGV")}>
           <div className="box_img">
@@ -266,7 +266,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: boolean; store: IStoreSearch; expanded: boolean; toggleExpansion: () => void }) => {
   const getStoreClassName = (store: IStoreSearch, expanded: boolean) => {
     const isExpanded = expanded ? "on" : "";
-    const storeType = store.name.toLowerCase().includes("cgv") ? "cgv" : store.type === "GS25" ? "gs25" : store.type === "Fresh" ? "fresh" : "";
+    const storeType = store.name.toLowerCase().includes("cgv") ? "cgv" : store.type === "GS25" ? "gs25" : store.type === "GSTHEFRESH" ? "fresh" : "";
 
     return `${isExpanded} ${storeType}`.trim();
   };
@@ -279,7 +279,7 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
     ? "/images/find/btn_cgv.svg"
     : store.type === "GS25"
     ? "/images/find/btn_gs25.svg"
-    : store.type === "Fresh"
+    : store.type === "GSTHEFRESH"
     ? "/images/find/btn_fresh.svg"
     : "/images/find/btn_gopizza.svg";
 
@@ -344,29 +344,6 @@ export const getStaticProps = async () => {
       .replace(/경상남도/g, "경남")
       .replace(/경상북도/g, "경북");
   });
-
-  // Fresh 타입의 mock 데이터 추가
-  const mockFreshStores = [
-    {
-      id: "mock-fresh-1",
-      name: "Mock Fresh Store 1",
-      type: "Fresh",
-      address: "Mock Fresh Address 1",
-      store_phone_number: "010-1234-5678",
-      business_time: "09:00 ~ 22:00",
-      store_location: {
-        lat: 37.1234,
-        lng: 127.5678,
-        district: {
-          city: "서울특별시",
-          name: "강남구",
-        },
-      },
-      distance: 0,
-    },
-  ];
-
-  storeInfo2 = [...storeInfo2, ...mockFreshStores];
 
   return {
     props: {
