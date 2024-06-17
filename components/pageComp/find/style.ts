@@ -100,7 +100,17 @@ export const FindWrap = styled.main`
 
 
       &.on {
-        border: 1px solid #ff4600;
+        position:relative;
+        &:before {
+          content:"";
+          position:absolute;
+          top:-1px;
+          left:-1px;
+          width:100%;
+          height:100%;
+          border:1px solid #ff4600;
+          border-radius: 0.4rem;
+        }
         .box_img {
           filter: unset;
         }
@@ -405,6 +415,10 @@ export const FindWrap = styled.main`
         margin: 0;    
         border-radius:0;
 
+        &.on::before {
+          border-radius:0;
+        }
+
         img {
           width:5rem;
           height:5rem;
@@ -417,6 +431,17 @@ export const FindWrap = styled.main`
           margin-top:0.8rem;
           font-size:1.2rem;
         }
+
+        &:nth-of-type(4), &:nth-of-type(5) {
+            border-top:0;
+        }
+        &:nth-of-type(1),  &:nth-of-type(4) {
+          border-right:0;
+        }
+        &:nth-of-type(3) {
+          border-left:0;
+        }
+        
         
       }
     }

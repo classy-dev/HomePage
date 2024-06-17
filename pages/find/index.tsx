@@ -98,8 +98,12 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 
     if (selectedType === "GS25") {
       filteredData = filteredData.filter((item) => item.type === "GS25");
+    } else if (selectedType === "GSTHEFRESH") {
+      filteredData = filteredData.filter((item) => item.type === "GSTHEFRESH");
+    } else if (selectedType === "CGV") {
+      filteredData = filteredData.filter((item) => item.name.toLowerCase().includes("cgv"));
     } else if (selectedType === "GOPIZZA") {
-      filteredData = filteredData.filter((item) => item.type !== "GS25");
+      filteredData = filteredData.filter((item) => item.type !== "GS25" && item.type !== "GSTHEFRESH" && !item.name.toLowerCase().includes("cgv"));
     }
 
     setTotalPage(filteredData.length);
@@ -119,14 +123,6 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 
   const handleTypeFilter = (type: string) => {
     setSelectedType(type);
-  };
-
-  const getCGVStores = (storeData: IStoreSearch[]) => {
-    return storeData.filter((store) => store.name.toLowerCase().includes("cgv"));
-  };
-
-  const getFreshStores = (storeData: IStoreSearch[]) => {
-    return storeData.filter((store) => store.type === "GSTHEFRESH");
   };
 
   const toggleStoreExpansion = (storeId: number) => {
@@ -206,7 +202,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
           </div>
           <div className="txt">GS25</div>
         </li>
-        <li className={selectedType === "Fresh" ? "on" : ""} onClick={() => handleTypeFilter("Fresh")}>
+        <li className={selectedType === "GSTHEFRESH" ? "on" : ""} onClick={() => handleTypeFilter("GSTHEFRESH")}>
           <div className="box_img">
             <img src="/images/find/btn_fresh.svg" alt="Fresh" />
           </div>
@@ -229,19 +225,9 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
             <p>{(filters.name || filters.address1 || filters.address2) && "해당 지역에는 매장이 존재하지 않습니다."}</p>
           </li>
         ) : load ? (
-          selectedType === "CGV" ? (
-            getCGVStores(storeData).map((store: IStoreSearch) => (
-              <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
-            ))
-          ) : selectedType === "Fresh" ? (
-            getFreshStores(storeData).map((store: IStoreSearch) => (
-              <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
-            ))
-          ) : (
-            currentData.map((store: IStoreSearch) => (
-              <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
-            ))
-          )
+          currentData.map((store: IStoreSearch) => (
+            <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
+          ))
         ) : (
           <li>
             <div className="box_spinner">
