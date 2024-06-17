@@ -80,13 +80,37 @@ export const FindWrap = styled.main`
 
       &.fst {
         .box_img {
-         filter: grayscale(100%) brightness(320%);
+         filter: grayscale(100%) brightness(327%);
+        }
+      }
+
+      &:nth-of-type(4) {
+        .box_img {
+         filter: grayscale(100%) brightness(166%);
         }
       }
 
 
+      &:nth-of-type(5) {
+        .box_img {
+         filter: grayscale(100%) brightness(116%);
+        }
+      }
+
+
+
       &.on {
-        border: 1px solid #ff4600;
+        position:relative;
+        &:before {
+          content:"";
+          position:absolute;
+          top:-1px;
+          left:-1px;
+          width:100%;
+          height:100%;
+          border:1px solid #ff4600;
+          border-radius: 0.4rem;
+        }
         .box_img {
           filter: unset;
         }
@@ -181,6 +205,12 @@ export const FindWrap = styled.main`
           width: 100%;
           height: 40rem;
           margin-top: 3.2rem;
+        }
+      }
+
+      @media (min-width:1000px) {
+        dl {
+        width: calc(100% - 8.8rem);
         }
       }
 
@@ -293,6 +323,7 @@ export const FindWrap = styled.main`
     }
 
     .list_store {
+   
       margin: 47.5px 20px 0;
 
       &.off li {
@@ -373,13 +404,45 @@ export const FindWrap = styled.main`
     }
 
     .list_filter_store {
-      gap: 1rem;
+      display: grid;
+        grid-template-columns: repeat(3, 1fr);
       padding: 0 2rem;
 
       li {
         flex: 1;
         width: 100%;
+        height:10.2rem;
         margin: 0;    
+        border-radius:0;
+
+        &.on::before {
+          border-radius:0;
+        }
+
+        img {
+          width:5rem;
+          height:5rem;
+        }
+
+        .box_img {
+          margin-top:1.6rem;
+        } 
+        .txt  {
+          margin-top:0.8rem;
+          font-size:1.2rem;
+        }
+
+        &:nth-of-type(4), &:nth-of-type(5) {
+            border-top:0;
+        }
+        &:nth-of-type(1),  &:nth-of-type(4) {
+          border-right:0;
+        }
+        &:nth-of-type(3) {
+          border-left:0;
+        }
+        
+        
       }
     }
    
@@ -402,7 +465,7 @@ export const FindWrap = styled.main`
       dl {
         flex:1;
 
-        dt {font-size:1.8rem}
+        dt {font-size:1.6rem}
       }
 
       .info {

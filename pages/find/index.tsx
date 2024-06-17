@@ -98,8 +98,12 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 
     if (selectedType === "GS25") {
       filteredData = filteredData.filter((item) => item.type === "GS25");
+    } else if (selectedType === "GSTHEFRESH") {
+      filteredData = filteredData.filter((item) => item.type === "GSTHEFRESH");
+    } else if (selectedType === "CGV") {
+      filteredData = filteredData.filter((item) => item.name.toLowerCase().includes("cgv"));
     } else if (selectedType === "GOPIZZA") {
-      filteredData = filteredData.filter((item) => item.type !== "GS25");
+      filteredData = filteredData.filter((item) => item.type !== "GS25" && item.type !== "GSTHEFRESH" && !item.name.toLowerCase().includes("cgv"));
     }
 
     setTotalPage(filteredData.length);
@@ -198,6 +202,18 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
           </div>
           <div className="txt">GS25</div>
         </li>
+        <li className={selectedType === "GSTHEFRESH" ? "on" : ""} onClick={() => handleTypeFilter("GSTHEFRESH")}>
+          <div className="box_img">
+            <img src="/images/find/btn_fresh.svg" alt="Fresh" />
+          </div>
+          <div className="txt">GS THE FRESH</div>
+        </li>
+        <li className={selectedType === "CGV" ? "on" : ""} onClick={() => handleTypeFilter("CGV")}>
+          <div className="box_img">
+            <img src="/images/find/btn_cgv.svg" alt="CGV" />
+          </div>
+          <div className="txt">CGV</div>
+        </li>
       </ul>
 
       <ul className={`list_store ${storeData.length === 0 || !load ? "off" : ""}`}>
@@ -234,15 +250,30 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 }
 
 const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: boolean; store: IStoreSearch; expanded: boolean; toggleExpansion: () => void }) => {
+  const getStoreClassName = (store: IStoreSearch, expanded: boolean) => {
+    const isExpanded = expanded ? "on" : "";
+    const storeType = store.name.toLowerCase().includes("cgv") ? "cgv" : store.type === "GS25" ? "gs25" : store.type === "GSTHEFRESH" ? "fresh" : "";
+
+    return `${isExpanded} ${storeType}`.trim();
+  };
+
   const handleAClick = (e: any) => {
     e.stopPropagation(); // a 태그 클릭시 이벤트 버블링 방지
   };
 
+  const logoSrc = store.name.toLowerCase().includes("cgv")
+    ? "/images/find/btn_cgv.svg"
+    : store.type === "GS25"
+    ? "/images/find/btn_gs25.svg"
+    : store.type === "GSTHEFRESH"
+    ? "/images/find/btn_fresh.svg"
+    : "/images/find/btn_gopizza.svg";
+
   return (
-    <li className={expanded ? (store.type === "GS25" ? "on gs25" : "on") : store.type === "GS25" ? "gs25" : ""}>
+    <li className={getStoreClassName(store, expanded)}>
       <div className="wrap_info">
         <div className="logo">
-          <img src={`/images/find/btn_${store.type === "GS25" ? "gs25" : "gopizza"}.svg`} alt="ALL" />
+          <img src={logoSrc} alt={store.name} />
         </div>
         <dl
           onClick={(e) => {
