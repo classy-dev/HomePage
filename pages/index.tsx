@@ -44,7 +44,7 @@ function Index() {
               인건비 걱정 없는 고피자 창업에
               <br /> 관심이 있으신가요?
             </p>
-            <Link href="/start">
+            <Link href="https://startup.gopizza.kr">
               <span className="txt">창업안내</span>
             </Link>
           </div>
