@@ -130,6 +130,12 @@ export const menuItem = [
       name: "아임파인 피자",
       enName: "Hawaiian Overload Pizza",
     },
+    {
+      idx: "pizza17",
+      imgUrl: "/images/menu/pizza/img_item17x2.webp",
+      name: "갈릭크림새우 피자",
+      enName: "Creamy Garlic Shrimp Pizza",
+    },
   ],
   [
     {
@@ -378,6 +384,7 @@ export const Ingredients = [
   "갈릭치즈 소스",
   "레드커리 소스",
   "페퍼",
+  "갈릭크림 소스",
 ];
 
 // detail
@@ -531,6 +538,15 @@ export const menuDetail: IMenuDetail = {
     txt: `큼직한 파인애플이 올라가 컬러풀한 비주얼과
   상큼하고 달콤한 맛이 매력적인 피자`,
     ingredients: ["베이컨", "파인애플", "토마토 소스", "파마산 치즈", "모짜렐라 치즈", "그라나파다노 치즈"],
+  },
+  pizza17: {
+    id: 17,
+    category: "pizza",
+    name: "갈릭 크림새우 피자",
+    enName: "Creamy Garlic Shrimp Pizza",
+    txt: `큼직한 통새우 & 풍미 가득 갈릭크림소스의 맛남!
+    오동통한 식감과 풍성한 감칠맛의 콜라보레이션`,
+    ingredients: ["큰 새우", "갈릭칩", "갈릭크림 소스", "모짜렐라 치즈", "그라나파다노 치즈", "페퍼"],
   },
   pasta1: {
     id: 1,
