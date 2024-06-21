@@ -16,7 +16,7 @@ function News(news: INews) {
         <Interview />
         <Media news={news} />
         <BtnInquiry />
-        <TodayPopup size="sm" href="" src="/images/insure_240522_1.png" alt="" width="520" height="" />
+        {/* <TodayPopup size="sm" href="" src="/images/insure_240522_1.png" alt="" width="520" height="" /> */}
       </Content>
     </StartLayout>
   );
