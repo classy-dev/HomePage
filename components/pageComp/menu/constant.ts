@@ -385,6 +385,7 @@ export const Ingredients = [
   "레드커리 소스",
   "페퍼",
   "갈릭크림 소스",
+  "표고 버섯",
 ];
 
 // detail
@@ -417,7 +418,7 @@ export const menuDetail: IMenuDetail = {
     enName: "Super Combination Pizza",
     txt: `다양하고 풍부한 토핑의 꿀맛조합, 남녀노소가 좋
     아하는 베스트 피자`,
-    ingredients: ["토마토 소스", "페퍼로니", "포크토핑", "피망", "양파", "양송이", "옥수수", "올리브", "모짜렐라 치즈", "시즈닝"],
+    ingredients: ["토마토 소스", "페퍼로니", "포크토핑", "피망", "양파", "표고 버섯", "옥수수", "올리브", "모짜렐라 치즈", "시즈닝", "베이컨"],
   },
   pizza4: {
     id: 4,
