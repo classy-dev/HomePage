@@ -19,10 +19,10 @@ export const menuTab = [
     link: "/menu/set",
     menuName: "COMBO",
   },
-  {
-    link: "/menu/powertime",
-    menuName: "POWER TIME",
-  },
+  // {
+  //   link: "/menu/powertime",
+  //   menuName: "POWER TIME",
+  // },
   {
     link: "/menu/special",
     menuName: "SPECIAL",
@@ -254,26 +254,26 @@ export const menuItem = [
       enName: "Double Pizza & Pasta Combo",
     },
   ],
-  [
-    {
-      idx: "powertime1",
-      imgUrl: "/images/menu/powertime/img_item1x2.webp",
-      name: "오리지널 페퍼로니 피자+콜라",
-      enName: "OG Pepperoni Pizza",
-    },
-    {
-      idx: "powertime2",
-      imgUrl: "/images/menu/powertime/img_item2x2.webp",
-      name: "허니 고르곤졸라 피자+콜라",
-      enName: "Honey Gorgonzola Pizza",
-    },
-    {
-      idx: "powertime3",
-      imgUrl: "/images/menu/powertime/img_item3x2.webp",
-      name: "이달의 피자+콜라",
-      enName: "",
-    },
-  ],
+  // [
+  //   {
+  //     idx: "powertime1",
+  //     imgUrl: "/images/menu/powertime/img_item1x2.webp",
+  //     name: "오리지널 페퍼로니 피자+콜라",
+  //     enName: "OG Pepperoni Pizza",
+  //   },
+  //   {
+  //     idx: "powertime2",
+  //     imgUrl: "/images/menu/powertime/img_item2x2.webp",
+  //     name: "허니 고르곤졸라 피자+콜라",
+  //     enName: "Honey Gorgonzola Pizza",
+  //   },
+  //   {
+  //     idx: "powertime3",
+  //     imgUrl: "/images/menu/powertime/img_item3x2.webp",
+  //     name: "이달의 피자+콜라",
+  //     enName: "",
+  //   },
+  // ],
   [
     {
       idx: "special1",
@@ -712,32 +712,32 @@ export const menuDetail: IMenuDetail = {
     매콤 치즈 떡볶이 중 택1`,
     ingredients: [],
   },
-  powertime1: {
-    id: 1,
-    category: "powertime",
-    name: "오리지널 페퍼로니 피자 + 콜라",
-    enName: "OG Pepperoni Pizza",
-    txt: `고소하고 짭조름한 페퍼로니가 듬뿍 들어간
-    정통 페퍼로니 피자`,
-    ingredients: [],
-  },
-  powertime2: {
-    id: 2,
-    category: "powertime",
-    name: "허니 고르곤졸라 피자 + 콜라",
-    enName: "Honey Gorgonzola Pizza",
-    txt: `달콤한 꿀과 함께~블루치즈의 풍미를 더욱
-    깊게 즐길 수 있는 정통 이태리 스타일 피자`,
-    ingredients: [],
-  },
-  powertime3: {
-    id: 3,
-    category: "powertime",
-    name: "이달의 피자 + 콜라",
-    enName: "",
-    txt: ``,
-    ingredients: [],
-  },
+  // powertime1: {
+  //   id: 1,
+  //   category: "powertime",
+  //   name: "오리지널 페퍼로니 피자 + 콜라",
+  //   enName: "OG Pepperoni Pizza",
+  //   txt: `고소하고 짭조름한 페퍼로니가 듬뿍 들어간
+  //   정통 페퍼로니 피자`,
+  //   ingredients: [],
+  // },
+  // powertime2: {
+  //   id: 2,
+  //   category: "powertime",
+  //   name: "허니 고르곤졸라 피자 + 콜라",
+  //   enName: "Honey Gorgonzola Pizza",
+  //   txt: `달콤한 꿀과 함께~블루치즈의 풍미를 더욱
+  //   깊게 즐길 수 있는 정통 이태리 스타일 피자`,
+  //   ingredients: [],
+  // },
+  // powertime3: {
+  //   id: 3,
+  //   category: "powertime",
+  //   name: "이달의 피자 + 콜라",
+  //   enName: "",
+  //   txt: ``,
+  //   ingredients: [],
+  // },
   special1: {
     id: 1,
     category: "special",

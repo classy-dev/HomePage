@@ -76,7 +76,7 @@ export const MenuWrap = styled.main`
 export const MenuVisual = styled.figure<{ bgimg: number }>`
   position: relative;
   height: 46rem;
-  background: url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual${({ bgimg }) => bgimg}x2.webp") no-repeat center/cover;
+  background: url("/images/menu/img_menu_visual${({ bgimg }) => bgimg}x2.webp") no-repeat center/cover;
 
   ${mq[0]} {
     height: 160px;

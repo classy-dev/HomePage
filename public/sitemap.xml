@@ -112,11 +112,11 @@
   <lastmod>2023-03-27T01:47:23+00:00</lastmod>
   <priority>0.51</priority>
 </url>
-<url>
+<!-- <url>
   <loc>https://gopizza.kr/menu/powertime</loc>
   <lastmod>2023-03-27T01:47:23+00:00</lastmod>
   <priority>0.51</priority>
-</url>
+</url> -->
 <url>
   <loc>https://gopizza.kr/menu/detail/pizza1</loc>
   <lastmod>2023-03-27T01:47:23+00:00</lastmod>
@@ -267,7 +267,7 @@
   <lastmod>2023-03-27T01:47:23+00:00</lastmod>
   <priority>0.41</priority>
 </url>
-<url>
+<!-- <url>
   <loc>https://gopizza.kr/menu/detail/powertime1</loc>
   <lastmod>2023-03-27T01:47:23+00:00</lastmod>
   <priority>0.41</priority>
@@ -281,7 +281,7 @@
   <loc>https://gopizza.kr/menu/detail/powertime3</loc>
   <lastmod>2023-03-27T01:47:23+00:00</lastmod>
   <priority>0.41</priority>
-</url>
+</url> -->
 
 
 </urlset>

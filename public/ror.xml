@@ -172,14 +172,14 @@
      <ror:sortOrder>3</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
-<item>
+<!-- <item>
      <link>https://gopizza.kr/menu/powertime</link>
      <title>POWER TIME | 고피자</title>
      <description>고피자 파워타임 메뉴를 즐겨보세요! 오리지널 페퍼로니 피자, 허니 고르곤졸라 피자, 이달의 피자 등 다양한 메뉴를 특별한 할인 가격으로 경험해 보십시오.</description>
      <ror:updatePeriod></ror:updatePeriod>
      <ror:sortOrder>3</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
+</item> -->
 <item>
      <link>https://gopizza.kr/menu/detail/pizza1</link>
      <title>치킨앤콘 반반 피자 | 고피자</title>
@@ -454,7 +454,7 @@
      <ror:sortOrder>4</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
 </item>
-<item>
+<!-- <item>
      <link>https://gopizza.kr/menu/detail/powertime1</link>
      <title>오리지널 페퍼로니 피자 + 콜라 | 고피자</title>
      <description>고소하고 짭조름한 페퍼로니가 듬뿍 들어간
@@ -479,7 +479,7 @@
      <ror:updatePeriod></ror:updatePeriod>
      <ror:sortOrder>4</ror:sortOrder>
      <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
+</item> -->
 </channel>
 </rss>
   
