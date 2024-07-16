@@ -23,6 +23,8 @@ import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import { Analytics } from "@vercel/analytics/react";
 import Head from "next/head";
+import * as fbq from "../src/util/fpixel";
+import Script from "next/script";
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -36,39 +38,21 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
   const router = useRouter();
 
-  // function setScreenSize() {
-  //   let vh = window.innerHeight * 0.01;
-  //   document.documentElement.style.setProperty("--vh", `${vh}px`);
-  // }
-  // useEffect(() => {
-  //   setScreenSize();
-  // }, []);
+  //페이스북 픽셀
+  useEffect(() => {
+    // This pageview only triggers the first time (it's important for Pixel to have real information)
+    fbq.pageview();
 
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     if (router.asPath === "/start/inquiry") {
-  //       if (window.wcs) {
-  //         var _nasa = window._nasa || {};
-  //         _nasa["cnv"] = wcs.cnv("5", "0");
-  //       }
-  //       if (!wcs_add) var wcs_add = {};
-  //       wcs_add["wa"] = "s_dc8a2375cf2";
-  //       if (!_nasa) var _nasa = {};
-  //       if (window.wcs) {
-  //         wcs.inflow("gopizza.kr");
-  //         wcs_do(_nasa);
-  //       }
-  //     } else {
-  //       if (!wcs_add) var wcs_add = {};
-  //       wcs_add["wa"] = "s_dc8a2375cf2";
-  //       if (!_nasa) var _nasa = {};
-  //       if (window.wcs) {
-  //         wcs.inflow("gopizza.kr");
-  //         wcs_do(_nasa);
-  //       }
-  //     }
-  //   }
-  // }, [router.asPath]);
+    const handleRouteChange = () => {
+      fbq.pageview();
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+  //페이스북 픽셀
 
   const [currentPath, setCurrentPath] = useState(router.pathname);
 
@@ -138,6 +122,23 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     <QueryClientProvider client={queryClient}>
       <Global styles={reset} />
       <CommonSeo />
+      <Script
+        id="fb-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', ${fbq.FB_PIXEL_ID});
+          `,
+        }}
+      />
       <NextSeo {...Seo[menu.indexOf(router.asPath)]} />
       <GoogleAnalytics trackPageViews />
       <CookiesProvider>{getLayout(<Component {...pageProps} />)}</CookiesProvider>
