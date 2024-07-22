@@ -23,7 +23,6 @@ import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import { Analytics } from "@vercel/analytics/react";
 import Head from "next/head";
-import * as fbq from "../src/util/fpixel";
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
