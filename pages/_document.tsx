@@ -26,6 +26,16 @@ export default function Document() {
         </Script>
         <Script src="https://www.googletagmanager.com/gtag/js?id=AW-730698568" strategy="afterInteractive" />
         <Script id="naver-wcs" strategy="afterInteractive" src="//wcs.naver.net/wcslog.js" />
+        <script defer src="https://karrot-pixel.business.daangn.com/0.2/karrot-pixel.umd.js"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                window.karrotPixel.init('1722497231114000001');
+                window.karrotPixel.track('ViewPage');
+              `,
+          }}
+        />
+
         {/* <Script id="naver-common" strategy="lazyOnload">
           {`
           var _nasa={};
