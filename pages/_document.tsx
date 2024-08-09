@@ -15,7 +15,7 @@ export default function Document() {
         <script defer src="https://www.youtube.com/player_api"></script>
         <Script src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.KAKAOMAP_APIKEY}&libraries=services,clusterer&autoload=false`} strategy="beforeInteractive" />
 
-        <Script id="google-analytics" strategy="afterInteractive">
+        {/* <Script id="google-analytics" strategy="afterInteractive">
           {`
          window.dataLayer = window.dataLayer || [];
          function gtag(){dataLayer.push(arguments);}
@@ -24,7 +24,7 @@ export default function Document() {
          gtag('config', 'AW-730698568');
         `}
         </Script>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-730698568" strategy="afterInteractive" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-730698568" strategy="afterInteractive" /> */}
         <Script id="naver-wcs" strategy="afterInteractive" src="//wcs.naver.net/wcslog.js" />
         <script defer src="https://karrot-pixel.business.daangn.com/0.2/karrot-pixel.umd.js"></script>
         <script
