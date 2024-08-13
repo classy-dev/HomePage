@@ -501,7 +501,7 @@ export const menuDetail: IMenuDetail = {
     name: "스트릿 콘치즈 피자",
     enName: "Street Corn Cheese Pizza",
     txt: `연유크림소스에 옥수수와 치즈가 가득, 단짠단짠!
-    카이엔페퍼가 살짝 뿌려져 매울 수 있어요`,
+케이엔페퍼가 살짝 뿌려져 매울 수 있어요`,
     ingredients: ["연유", "케이엔 페퍼", "옥수수", "양파", "모짜렐라 치즈"],
   },
   pizza12: {
