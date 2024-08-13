@@ -136,6 +136,12 @@ export const menuItem = [
       name: "갈릭크림새우 피자",
       enName: "Creamy Garlic Shrimp Pizza",
     },
+    {
+      idx: "pizza18",
+      imgUrl: "/images/menu/pizza/img_item18x2.webp",
+      name: "속쓰리라차 피자",
+      enName: "3x spicy pizza",
+    },
   ],
   [
     {
@@ -386,6 +392,10 @@ export const Ingredients = [
   "페퍼",
   "갈릭크림 소스",
   "표고 버섯",
+  "K-고추장 칠리소스",
+  "스리라차 마요 소스",
+  "레드 체다치즈",
+  "크러쉬드 레드페퍼",
 ];
 
 // detail
@@ -548,6 +558,15 @@ export const menuDetail: IMenuDetail = {
     txt: `큼직한 통새우 & 풍미 가득 갈릭크림소스의 맛남!
     오동통한 식감과 풍성한 감칠맛의 콜라보레이션`,
     ingredients: ["큰 새우", "갈릭칩", "갈릭크림 소스", "모짜렐라 치즈", "그라나파다노 치즈", "페퍼"],
+  },
+  pizza18: {
+    id: 18,
+    category: "pizza",
+    name: "속쓰리라차 피자",
+    enName: "3X SPICY PIZZA",
+    txt: `스리라차 마요소스 & 고추장 칠리소스 듬뿍!
+    할라피뇨와 베이컨이 더해진 맛있게 매운 피자`,
+    ingredients: ["K-고추장 칠리소스", "스리라차 마요 소스", "모짜렐라 치즈", "할라피뇨", "베이컨", "양파", "레드 체다치즈", "크러쉬드 레드페퍼"],
   },
   pasta1: {
     id: 1,
