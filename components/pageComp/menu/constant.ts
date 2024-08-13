@@ -97,8 +97,8 @@ export const menuItem = [
     {
       idx: "pizza11",
       imgUrl: "/images/menu/pizza/img_item11x2.webp",
-      name: "마약 옥수수 피자",
-      enName: "'Mayak' Corn Pizza",
+      name: "스트릿 콘치즈 피자",
+      enName: "Street Corn Cheese Pizza",
     },
     {
       idx: "pizza12",
@@ -498,8 +498,8 @@ export const menuDetail: IMenuDetail = {
   pizza11: {
     id: 11,
     category: "pizza",
-    name: "마약 옥수수 피자",
-    enName: "'Mayak' Corn Pizza",
+    name: "스트릿 콘치즈 피자",
+    enName: "Street Corn Cheese Pizza",
     txt: `연유크림소스에 옥수수와 치즈가 가득, 단짠단짠!
     카이엔페퍼가 살짝 뿌려져 매울 수 있어요`,
     ingredients: ["연유", "케이엔 페퍼", "옥수수", "양파", "모짜렐라 치즈"],
