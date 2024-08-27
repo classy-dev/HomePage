@@ -21,6 +21,12 @@ export const FormWrap = styled.form`
     color: var(--color-black);
   }
 
+  .submit {
+    &:disabled {
+      background: #ddd;
+    }
+  }
+
   .txt_error {
     padding: 1rem 0 0 22.5rem;
     font-size: 14px;
