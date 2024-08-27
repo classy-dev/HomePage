@@ -101,6 +101,9 @@ const Consulting = observer(function Consulting() {
         alert("문제가 발생하였습니다. 잠시 후 다시 신청해주시기 바랍니다.");
         console.log(err);
       },
+      onSettled: () => {
+        setIsSubmitting(false);
+      },
     });
   };
 
