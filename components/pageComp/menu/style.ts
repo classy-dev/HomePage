@@ -33,12 +33,13 @@ export const MenuWrap = styled.main`
     display: flex;
     width: 128rem;
     margin: 0 auto;
+    justify-content: flex-end;
   }
 
   .tip {
     width: 18.9rem;
     height: 4.8rem;
-    margin: 3.6rem 0 3.6rem auto;
+    margin: 3.6rem 0 3.6rem 0;
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--color-orange);
@@ -51,6 +52,10 @@ export const MenuWrap = styled.main`
     &:hover {
       color: #fff;
       background-color: var(--color-orange);
+    }
+
+    &:nth-of-type(2) {
+      margin-left: 1.6rem;
     }
   }
 
@@ -68,6 +73,11 @@ export const MenuWrap = styled.main`
         font-size: 18px;
         line-height: 1.67;
         border-radius: 10px;
+
+        &:nth-of-type(1) {
+          display: none;
+          margin-left: 1.6rem;
+        }
       }
     }
   }

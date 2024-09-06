@@ -152,6 +152,14 @@ function Menu({ seo }: { seo: object }) {
     setOpen(false);
   }, []);
 
+  const [openNutrient, setOpenNutrient] = useState(false);
+  const openNutrientModal = useCallback(() => {
+    setOpenNutrient(true);
+  }, []);
+  const closesetOpenNutrient = useCallback(() => {
+    setOpenNutrient(false);
+  }, []);
+
   return (
     <>
       <NextSeo {...seo} />
@@ -163,11 +171,20 @@ function Menu({ seo }: { seo: object }) {
           <button
             className="tip"
             onClick={() => {
+              openNutrientModal();
+            }}
+          >
+            영양성분 & 알레르기
+          </button>
+          <button
+            className="tip"
+            onClick={() => {
               openStoreModal();
             }}
           >
             더 맛있게 먹는 TIP
           </button>
+
           <Modal open={open} onClose={close}>
             <TipWrap>
               <div className="box_txt">
@@ -205,6 +222,17 @@ function Menu({ seo }: { seo: object }) {
                 <span className="hiddenZoneV">닫기</span>
               </button>
             </TipWrap>
+          </Modal>
+          <Modal open={openNutrient} onClose={closesetOpenNutrient}>
+            <NutrientWrap>
+              <div className="box_info">
+                <img src="/images/popup/info_nutrient_newx2.webp" alt="고피자 영양분석표" />
+                <img src="/images/popup/info_nutrient_new2x2.webp" alt="고피자 영양분석표" />
+              </div>
+              <button className="btn_close" onClick={closesetOpenNutrient}>
+                <span className="hiddenZoneV">닫기</span>
+              </button>
+            </NutrientWrap>
           </Modal>
         </div>
         <MenuList>
@@ -266,3 +294,43 @@ export const getStaticPaths = async () => {
     fallback: false, // 이 페이지에 대해 존재하지 않는 경로는 404 페이지를 표시합니다.
   };
 };
+
+export const NutrientWrap = styled.div`
+  position: relative;
+  width: 124rem;
+  padding: 6.4rem 0 6.6rem;
+  border-radius: 4.8rem;
+  background: #fff;
+
+  .box_info {
+    overflow-y: scroll;
+    width: 120.5rem;
+    height: 80vh;
+    margin: 5.6rem auto 0;
+    padding-right: 4.5rem;
+
+    img:nth-of-type(2) {
+      display: block;
+      margin-top: 3.2rem;
+    }
+  }
+
+  ${mq[0]} {
+    width: calc(100vw - 40px);
+    padding: 1rem;
+    border-radius: 10px;
+
+    .box_info {
+      width: 100%;
+      height: 75vh;
+      margin: 0 auto;
+      padding-right: 0;
+      img {
+        width: 100%;
+        &:nth-of-type(2) {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+`;
