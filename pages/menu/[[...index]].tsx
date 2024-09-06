@@ -226,8 +226,14 @@ function Menu({ seo }: { seo: object }) {
           <Modal open={openNutrient} onClose={closesetOpenNutrient}>
             <NutrientWrap>
               <div className="box_info">
-                <img src="/images/popup/info_nutrient_newx2.webp" alt="고피자 영양분석표" />
-                <img src="/images/popup/info_nutrient_new2x2.webp" alt="고피자 영양분석표" />
+                <div className="pc">
+                  <img src="/images/popup/info_nutrient_newx2.webp" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new2x2.webp" alt="고피자 영양분석표" />
+                </div>
+                <div className="mobile">
+                  <img src="/images/popup/info_nutrient_new_mobilex2.webp" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new_mobile2x2.webp" alt="고피자 영양분석표" />
+                </div>
               </div>
               <button className="btn_close" onClick={closesetOpenNutrient}>
                 <span className="hiddenZoneV">닫기</span>
@@ -308,6 +314,12 @@ export const NutrientWrap = styled.div`
     height: 80vh;
     margin: 5.6rem auto 0;
     padding-right: 4.5rem;
+    .pc {
+      display: block;
+    }
+    .mobile {
+      display: none;
+    }
 
     img:nth-of-type(2) {
       display: block;
@@ -325,6 +337,13 @@ export const NutrientWrap = styled.div`
       height: 75vh;
       margin: 0 auto;
       padding-right: 0;
+
+      .pc {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
       img {
         width: 100%;
         &:nth-of-type(2) {

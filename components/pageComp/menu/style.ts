@@ -65,19 +65,15 @@ export const MenuWrap = styled.main`
     .wrp_tip {
       width: 100%;
       padding: 0 20px;
+      gap: 1.5rem;
 
       .tip {
         width: 100%;
         height: 48px;
         margin: 24px 0;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.67;
         border-radius: 10px;
-
-        &:nth-of-type(1) {
-          display: none;
-          margin-left: 1.6rem;
-        }
       }
     }
   }
