@@ -4,7 +4,7 @@ import { MenuList, MenuVisual, MenuWrap } from "ComponentsFarm/pageComp/menu/sty
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Dialog from "ComponentsFarm/common/Dialog";
 import styled from "@emotion/styled";
 import Tip from "ComponentsFarm/popup/Tip";
@@ -156,9 +156,20 @@ function Menu({ seo }: { seo: object }) {
   const openNutrientModal = useCallback(() => {
     setOpenNutrient(true);
   }, []);
+
+  useEffect(() => {
+    if (!!router.asPath && router.asPath.includes("#nutrient")) {
+      setOpenNutrient(true);
+    }
+  }, [router.asPath]);
+
   const closesetOpenNutrient = useCallback(() => {
     setOpenNutrient(false);
-  }, []);
+
+    if (!!router.asPath && router.asPath.includes("#nutrient")) {
+      router.push("/menu");
+    }
+  }, [router]);
 
   return (
     <>
