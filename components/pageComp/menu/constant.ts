@@ -682,7 +682,7 @@ export const menuDetail: IMenuDetail = {
     category: "sides",
     name: "매콤 떡강정",
     enName: "Spicy Tteok Gangjung",
-    txt: `매콤한 고피자 특제소스와 (바삭)쫄깃한 식감이
+    txt: `매콤한 고피자 특제소스와 쫄깃한 식감이
     조화로운 매콤떡강정`,
     ingredients: [],
   },
