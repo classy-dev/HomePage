@@ -221,6 +221,12 @@ export const menuItem = [
       name: "치즈스틱",
       enName: "Cheese Stick",
     },
+    {
+      idx: "sides6",
+      imgUrl: "/images/menu/sides/img_item6x2.webp",
+      name: "매콤 떡강정",
+      enName: "Spicy Tteok Gangjung",
+    },
   ],
   [
     {
@@ -669,6 +675,15 @@ export const menuDetail: IMenuDetail = {
     enName: "Cheese Stick",
     txt: `쭉쭉 늘어나는 스트링 치즈의 고소한 맛의
     치즈스틱`,
+    ingredients: [],
+  },
+  sides6: {
+    id: 6,
+    category: "sides",
+    name: "매콤 떡강정",
+    enName: "Spicy Tteok Gangjung",
+    txt: `매콤한 고피자 특제소스와 (바삭)쫄깃한 식감이
+    조화로운 매콤떡강정`,
     ingredients: [],
   },
   set1: {
