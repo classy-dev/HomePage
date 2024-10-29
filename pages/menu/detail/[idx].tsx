@@ -60,22 +60,22 @@ function DetailView({ seo }: any) {
     }
     switch (currentMenu?.category) {
       case "large":
-        return `special${menuItem[5].length}`;
+        return `special${menuItem[6].length}`;
       case "personal":
         return `large${menuItem[0].length}`;
       case "pasta":
-        return `personal${menuItem[0].length}`;
+        return `personal${menuItem[1].length}`;
       case "topokki":
-        return `pasta${menuItem[1].length}`;
+        return `pasta${menuItem[2].length}`;
       case "sides":
-        return `topokki${menuItem[2].length}`;
+        return `topokki${menuItem[3].length}`;
       case "set":
-        return `sides${menuItem[3].length}`;
+        return `sides${menuItem[4].length}`;
       // case "powertime":
       //   return `set${menuItem[4].length}`;
 
       default:
-        return `set${menuItem[4].length}`;
+        return `set${menuItem[5].length}`;
 
       // default:
       //   return `powertime${menuItem[5].length}`;
