@@ -51,7 +51,8 @@ function DetailView({ seo }: any) {
   }, [idx, isMobile]);
 
   const currentMenu = useMemo(() => menuDetail[`${idx}`], [idx]);
-  const category = ["pizza", "pasta", "topokki", "sides", "set", "powertime", "special"];
+  // const category = ["pizza", "pasta", "topokki", "sides", "set", "powertime", "special"];
+  const category = ["pizza", "pasta", "topokki", "sides", "set", "special"];
 
   const PrevHandler = useCallback(() => {
     if (currentMenu?.id > 1) {
@@ -59,7 +60,7 @@ function DetailView({ seo }: any) {
     }
     switch (currentMenu?.category) {
       case "pizza":
-        return `special${menuItem[6].length}`;
+        return `special${menuItem[5].length}`;
       case "pasta":
         return `pizza${menuItem[0].length}`;
       case "topokki":
@@ -68,11 +69,14 @@ function DetailView({ seo }: any) {
         return `topokki${menuItem[2].length}`;
       case "set":
         return `sides${menuItem[3].length}`;
-      case "powertime":
-        return `set${menuItem[4].length}`;
+      // case "powertime":
+      //   return `set${menuItem[4].length}`;
 
       default:
-        return `powertime${menuItem[5].length}`;
+        return `set${menuItem[4].length}`;
+
+      // default:
+      //   return `powertime${menuItem[5].length}`;
     }
   }, [currentMenu?.category, currentMenu?.id]);
 
@@ -91,9 +95,12 @@ function DetailView({ seo }: any) {
       case "sides":
         return `set1`;
       case "set":
-        return `powertime1`;
-      case "powertime":
         return `special1`;
+
+      // case "set":
+      //   return `powertime1`;
+      // case "powertime":
+      //   return `special1`;
 
       default:
         return `pizza1`;
@@ -110,7 +117,13 @@ function DetailView({ seo }: any) {
             {menuTab.map((el) => (
               <li
                 key={el.menuName}
-                className={router.asPath.split("/menu/detail")[1].includes(el.menuName === "POWER TIME" ? "powertime" : el.menuName.toLowerCase()) ? "on" : ""}
+                className={
+                  router.asPath
+                    .split("/menu/detail")[1]
+                    .includes(el.menuName === "POWER TIME" ? "powertime" : el.menuName === "COMBO" ? "set" : el.menuName.toLowerCase())
+                    ? "on"
+                    : ""
+                }
               >
                 <Link href={el.link}>
                   <span>{el.menuName}</span>

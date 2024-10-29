@@ -4,7 +4,7 @@ import { MenuList, MenuVisual, MenuWrap } from "ComponentsFarm/pageComp/menu/sty
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Dialog from "ComponentsFarm/common/Dialog";
 import styled from "@emotion/styled";
 import Tip from "ComponentsFarm/popup/Tip";
@@ -140,7 +140,8 @@ const TipArr = [
 function Menu({ seo }: { seo: object }) {
   const router = useRouter();
   const popref = useRef<any>(null);
-  const category = ["/pizza", "/pasta", "/topokki", "/sides", "/set", "/powertime", "/special"];
+  // const category = ["/pizza", "/pasta", "/topokki", "/sides", "/set", "/powertime", "/special"];
+  const category = ["/pizza", "/pasta", "/topokki", "/sides", "/set", "/special"];
   const categoryNav = useMemo(() => category.indexOf(router.asPath.split("/menu")[1]), [router.asPath]);
 
   const [open, setOpen] = useState(false);
@@ -150,6 +151,25 @@ function Menu({ seo }: { seo: object }) {
   const close = useCallback(() => {
     setOpen(false);
   }, []);
+
+  const [openNutrient, setOpenNutrient] = useState(false);
+  const openNutrientModal = useCallback(() => {
+    setOpenNutrient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!!router.asPath && router.asPath.includes("#nutrient")) {
+      setOpenNutrient(true);
+    }
+  }, [router.asPath]);
+
+  const closesetOpenNutrient = useCallback(() => {
+    setOpenNutrient(false);
+
+    if (!!router.asPath && router.asPath.includes("#nutrient")) {
+      router.push("/menu");
+    }
+  }, [router]);
 
   return (
     <>
@@ -162,11 +182,20 @@ function Menu({ seo }: { seo: object }) {
           <button
             className="tip"
             onClick={() => {
+              openNutrientModal();
+            }}
+          >
+            영양성분 & 알레르기
+          </button>
+          <button
+            className="tip"
+            onClick={() => {
               openStoreModal();
             }}
           >
             더 맛있게 먹는 TIP
           </button>
+
           <Modal open={open} onClose={close}>
             <TipWrap>
               <div className="box_txt">
@@ -205,6 +234,23 @@ function Menu({ seo }: { seo: object }) {
               </button>
             </TipWrap>
           </Modal>
+          <Modal open={openNutrient} onClose={closesetOpenNutrient}>
+            <NutrientWrap>
+              <div className="box_info">
+                <div className="pc">
+                  <img src="/images/popup/info_nutrient_newx2.webp" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new2x2.webp" alt="고피자 영양분석표" />
+                </div>
+                <div className="mobile">
+                  <img src="/images/popup/info_nutrient_new_mobilex2.webp" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new_mobile2x2.webp" alt="고피자 영양분석표" />
+                </div>
+              </div>
+              <button className="btn_close" onClick={closesetOpenNutrient}>
+                <span className="hiddenZoneV">닫기</span>
+              </button>
+            </NutrientWrap>
+          </Modal>
         </div>
         <MenuList>
           {menuItem[categoryNav === -1 ? 0 : categoryNav].map((el, i: number) => (
@@ -242,7 +288,8 @@ export default Menu;
 
 export const getStaticProps = async (context: any) => {
   const { index } = context.params;
-  const menu = ["pasta", "topokki", "sides", "set", "powertime", "special"];
+  // const menu = ["pasta", "topokki", "sides", "set", "powertime", "special"];
+  const menu = ["pasta", "topokki", "sides", "set", "special"];
   return {
     props: { seo: index === undefined ? MenuSeo[0] : MenuSeo[menu.indexOf(index[0]) + 1] },
   };
@@ -255,7 +302,7 @@ export const getStaticPaths = async () => {
     { params: { index: ["topokki"] } },
     { params: { index: ["sides"] } },
     { params: { index: ["set"] } },
-    { params: { index: ["powertime"] } },
+    // { params: { index: ["powertime"] } },
     { params: { index: ["special"] } },
   ];
 
@@ -264,3 +311,56 @@ export const getStaticPaths = async () => {
     fallback: false, // 이 페이지에 대해 존재하지 않는 경로는 404 페이지를 표시합니다.
   };
 };
+
+export const NutrientWrap = styled.div`
+  position: relative;
+  width: 124rem;
+  padding: 6.4rem 0 6.6rem;
+  border-radius: 4.8rem;
+  background: #fff;
+
+  .box_info {
+    overflow-y: scroll;
+    width: 120.5rem;
+    height: 80vh;
+    margin: 5.6rem auto 0;
+    padding-right: 4.5rem;
+    .pc {
+      display: block;
+    }
+    .mobile {
+      display: none;
+    }
+
+    img:nth-of-type(2) {
+      display: block;
+      margin-top: 3.2rem;
+    }
+  }
+
+  ${mq[0]} {
+    width: calc(100vw - 40px);
+    padding: 1rem;
+    border-radius: 10px;
+
+    .box_info {
+      width: 100%;
+      height: 75vh;
+      margin: 0 auto;
+      padding-right: 0;
+
+      .pc {
+        display: none;
+      }
+      .mobile {
+        display: block;
+      }
+      img {
+        width: 100%;
+        &:nth-of-type(2) {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+`;

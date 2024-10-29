@@ -49,6 +49,7 @@ const Consulting = observer(function Consulting() {
 
   //textarea fake placeholder
   const [showPlaceholder, setShowPlaceholder] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [agree, setAgree] = useState(false);
 
@@ -69,17 +70,18 @@ const Consulting = observer(function Consulting() {
   }, []);
 
   //단체주문
-  const Inquiry = useMutation(["groupOrder"], (request: IInquiryReq) => fetchInquiry(request));
-
-  const handleGoogleAnalytics = () => {
-    (window as any)?.gtag("event", "conversion", {
-      send_to: "AW-730698568/yqQFCN2r2aQBEMimttwC",
-    });
-    return;
-  };
+  const Inquiry = useMutation(["groupOrder"], (request: IInquiryReq) => fetchInquiry(request), {
+    onMutate: () => {
+      setIsSubmitting(true);
+    },
+    onSettled: () => {
+      setIsSubmitting(false);
+    },
+  });
 
   const onSubmit = (data: Record<string, string>) => {
     // 버튼 비활성화시 더이상 submit 되지 않도록
+    if (isSubmitting) return;
 
     if (!agree) {
       return alert("개인정보취급방침에 동의해주세요.");
@@ -92,7 +94,6 @@ const Consulting = observer(function Consulting() {
 
     Inquiry.mutate(sendData, {
       onSuccess: (data) => {
-        handleGoogleAnalytics();
         openStoreModal2();
         reset();
       },
@@ -237,7 +238,7 @@ const Consulting = observer(function Consulting() {
                 전문보기
               </button>
             </div>
-            <button className="submit" disabled={Inquiry.isLoading}>
+            <button className="submit" disabled={isSubmitting || !agree} onClick={handleSubmit(onSubmit)}>
               신청하기
             </button>
           </FormWrap>

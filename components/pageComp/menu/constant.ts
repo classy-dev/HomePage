@@ -19,10 +19,10 @@ export const menuTab = [
     link: "/menu/set",
     menuName: "COMBO",
   },
-  {
-    link: "/menu/powertime",
-    menuName: "POWER TIME",
-  },
+  // {
+  //   link: "/menu/powertime",
+  //   menuName: "POWER TIME",
+  // },
   {
     link: "/menu/special",
     menuName: "SPECIAL",
@@ -97,8 +97,8 @@ export const menuItem = [
     {
       idx: "pizza11",
       imgUrl: "/images/menu/pizza/img_item11x2.webp",
-      name: "마약 옥수수 피자",
-      enName: "'Mayak' Corn Pizza",
+      name: "스트릿 콘치즈 피자",
+      enName: "Street Corn Cheese Pizza",
     },
     {
       idx: "pizza12",
@@ -129,6 +129,18 @@ export const menuItem = [
       imgUrl: "/images/menu/pizza/img_item16x2.webp",
       name: "아임파인 피자",
       enName: "Hawaiian Overload Pizza",
+    },
+    {
+      idx: "pizza17",
+      imgUrl: "/images/menu/pizza/img_item17x2.webp",
+      name: "갈릭크림새우 피자",
+      enName: "Creamy Garlic Shrimp Pizza",
+    },
+    {
+      idx: "pizza18",
+      imgUrl: "/images/menu/pizza/img_item18x2.webp",
+      name: "속쓰리라차 피자",
+      enName: "3x spicy pizza",
     },
   ],
   [
@@ -209,6 +221,12 @@ export const menuItem = [
       name: "치즈스틱",
       enName: "Cheese Stick",
     },
+    {
+      idx: "sides6",
+      imgUrl: "/images/menu/sides/img_item6x2.webp",
+      name: "매콤 떡강정",
+      enName: "Spicy Tteok Gangjung",
+    },
   ],
   [
     {
@@ -248,26 +266,26 @@ export const menuItem = [
       enName: "Double Pizza & Pasta Combo",
     },
   ],
-  [
-    {
-      idx: "powertime1",
-      imgUrl: "/images/menu/powertime/img_item1x2.webp",
-      name: "오리지널 페퍼로니 피자+콜라",
-      enName: "OG Pepperoni Pizza",
-    },
-    {
-      idx: "powertime2",
-      imgUrl: "/images/menu/powertime/img_item2x2.webp",
-      name: "허니 고르곤졸라 피자+콜라",
-      enName: "Honey Gorgonzola Pizza",
-    },
-    {
-      idx: "powertime3",
-      imgUrl: "/images/menu/powertime/img_item3x2.webp",
-      name: "이달의 피자+콜라",
-      enName: "",
-    },
-  ],
+  // [
+  //   {
+  //     idx: "powertime1",
+  //     imgUrl: "/images/menu/powertime/img_item1x2.webp",
+  //     name: "오리지널 페퍼로니 피자+콜라",
+  //     enName: "OG Pepperoni Pizza",
+  //   },
+  //   {
+  //     idx: "powertime2",
+  //     imgUrl: "/images/menu/powertime/img_item2x2.webp",
+  //     name: "허니 고르곤졸라 피자+콜라",
+  //     enName: "Honey Gorgonzola Pizza",
+  //   },
+  //   {
+  //     idx: "powertime3",
+  //     imgUrl: "/images/menu/powertime/img_item3x2.webp",
+  //     name: "이달의 피자+콜라",
+  //     enName: "",
+  //   },
+  // ],
   [
     {
       idx: "special1",
@@ -378,6 +396,12 @@ export const Ingredients = [
   "갈릭치즈 소스",
   "레드커리 소스",
   "페퍼",
+  "갈릭크림 소스",
+  "표고 버섯",
+  "K-고추장 칠리소스",
+  "스리라차 마요 소스",
+  "레드 체다치즈",
+  "크러쉬드 레드페퍼",
 ];
 
 // detail
@@ -410,7 +434,7 @@ export const menuDetail: IMenuDetail = {
     enName: "Super Combination Pizza",
     txt: `다양하고 풍부한 토핑의 꿀맛조합, 남녀노소가 좋
     아하는 베스트 피자`,
-    ingredients: ["토마토 소스", "페퍼로니", "포크토핑", "피망", "양파", "양송이", "옥수수", "올리브", "모짜렐라 치즈", "시즈닝"],
+    ingredients: ["토마토 소스", "페퍼로니", "포크토핑", "피망", "양파", "표고 버섯", "옥수수", "올리브", "모짜렐라 치즈", "시즈닝", "베이컨"],
   },
   pizza4: {
     id: 4,
@@ -480,10 +504,10 @@ export const menuDetail: IMenuDetail = {
   pizza11: {
     id: 11,
     category: "pizza",
-    name: "마약 옥수수 피자",
-    enName: "'Mayak' Corn Pizza",
+    name: "스트릿 콘치즈 피자",
+    enName: "Street Corn Cheese Pizza",
     txt: `연유크림소스에 옥수수와 치즈가 가득, 단짠단짠!
-    카이엔페퍼가 살짝 뿌려져 매울 수 있어요`,
+케이엔페퍼가 살짝 뿌려져 매울 수 있어요`,
     ingredients: ["연유", "케이엔 페퍼", "옥수수", "양파", "모짜렐라 치즈"],
   },
   pizza12: {
@@ -531,6 +555,24 @@ export const menuDetail: IMenuDetail = {
     txt: `큼직한 파인애플이 올라가 컬러풀한 비주얼과
   상큼하고 달콤한 맛이 매력적인 피자`,
     ingredients: ["베이컨", "파인애플", "토마토 소스", "파마산 치즈", "모짜렐라 치즈", "그라나파다노 치즈"],
+  },
+  pizza17: {
+    id: 17,
+    category: "pizza",
+    name: "갈릭 크림새우 피자",
+    enName: "Creamy Garlic Shrimp Pizza",
+    txt: `큼직한 통새우 & 풍미 가득 갈릭크림소스의 맛남!
+    오동통한 식감과 풍성한 감칠맛의 콜라보레이션`,
+    ingredients: ["큰 새우", "갈릭칩", "갈릭크림 소스", "모짜렐라 치즈", "그라나파다노 치즈", "페퍼"],
+  },
+  pizza18: {
+    id: 18,
+    category: "pizza",
+    name: "속쓰리라차 피자",
+    enName: "3X SPICY PIZZA",
+    txt: `스리라차 마요소스 & 고추장 칠리소스 듬뿍!
+    할라피뇨와 베이컨이 더해진 맛있게 매운 피자`,
+    ingredients: ["K-고추장 칠리소스", "스리라차 마요 소스", "모짜렐라 치즈", "할라피뇨", "베이컨", "양파", "레드 체다치즈", "크러쉬드 레드페퍼"],
   },
   pasta1: {
     id: 1,
@@ -635,6 +677,15 @@ export const menuDetail: IMenuDetail = {
     치즈스틱`,
     ingredients: [],
   },
+  sides6: {
+    id: 6,
+    category: "sides",
+    name: "매콤 떡강정",
+    enName: "Spicy Tteok Gangjung",
+    txt: `매콤한 고피자 특제소스와 쫄깃한 식감이
+    조화로운 매콤떡강정`,
+    ingredients: [],
+  },
   set1: {
     id: 1,
     category: "set",
@@ -695,32 +746,32 @@ export const menuDetail: IMenuDetail = {
     매콤 치즈 떡볶이 중 택1`,
     ingredients: [],
   },
-  powertime1: {
-    id: 1,
-    category: "powertime",
-    name: "오리지널 페퍼로니 피자 + 콜라",
-    enName: "OG Pepperoni Pizza",
-    txt: `고소하고 짭조름한 페퍼로니가 듬뿍 들어간
-    정통 페퍼로니 피자`,
-    ingredients: [],
-  },
-  powertime2: {
-    id: 2,
-    category: "powertime",
-    name: "허니 고르곤졸라 피자 + 콜라",
-    enName: "Honey Gorgonzola Pizza",
-    txt: `달콤한 꿀과 함께~블루치즈의 풍미를 더욱
-    깊게 즐길 수 있는 정통 이태리 스타일 피자`,
-    ingredients: [],
-  },
-  powertime3: {
-    id: 3,
-    category: "powertime",
-    name: "이달의 피자 + 콜라",
-    enName: "",
-    txt: ``,
-    ingredients: [],
-  },
+  // powertime1: {
+  //   id: 1,
+  //   category: "powertime",
+  //   name: "오리지널 페퍼로니 피자 + 콜라",
+  //   enName: "OG Pepperoni Pizza",
+  //   txt: `고소하고 짭조름한 페퍼로니가 듬뿍 들어간
+  //   정통 페퍼로니 피자`,
+  //   ingredients: [],
+  // },
+  // powertime2: {
+  //   id: 2,
+  //   category: "powertime",
+  //   name: "허니 고르곤졸라 피자 + 콜라",
+  //   enName: "Honey Gorgonzola Pizza",
+  //   txt: `달콤한 꿀과 함께~블루치즈의 풍미를 더욱
+  //   깊게 즐길 수 있는 정통 이태리 스타일 피자`,
+  //   ingredients: [],
+  // },
+  // powertime3: {
+  //   id: 3,
+  //   category: "powertime",
+  //   name: "이달의 피자 + 콜라",
+  //   enName: "",
+  //   txt: ``,
+  //   ingredients: [],
+  // },
   special1: {
     id: 1,
     category: "special",

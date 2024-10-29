@@ -33,12 +33,13 @@ export const MenuWrap = styled.main`
     display: flex;
     width: 128rem;
     margin: 0 auto;
+    justify-content: flex-end;
   }
 
   .tip {
     width: 18.9rem;
     height: 4.8rem;
-    margin: 3.6rem 0 3.6rem auto;
+    margin: 3.6rem 0 3.6rem 0;
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--color-orange);
@@ -52,6 +53,10 @@ export const MenuWrap = styled.main`
       color: #fff;
       background-color: var(--color-orange);
     }
+
+    &:nth-of-type(2) {
+      margin-left: 1.6rem;
+    }
   }
 
   ${mq[0]} {
@@ -60,12 +65,13 @@ export const MenuWrap = styled.main`
     .wrp_tip {
       width: 100%;
       padding: 0 20px;
+      gap: 1.5rem;
 
       .tip {
         width: 100%;
         height: 48px;
         margin: 24px 0;
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.67;
         border-radius: 10px;
       }
@@ -76,7 +82,7 @@ export const MenuWrap = styled.main`
 export const MenuVisual = styled.figure<{ bgimg: number }>`
   position: relative;
   height: 46rem;
-  background: url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual${({ bgimg }) => bgimg}x2.webp") no-repeat center/cover;
+  background: url("/images/menu/img_menu_visual${({ bgimg }) => bgimg}x2.webp") no-repeat center/cover;
 
   ${mq[0]} {
     height: 160px;

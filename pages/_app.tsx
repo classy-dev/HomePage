@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider, QueryCache } from "@tanstack/react-qu
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { CookiesProvider } from "react-cookie";
 import { findStore } from "MobxFarm/store";
-import { GoogleAnalytics } from "nextjs-google-analytics";
+// import { GoogleAnalytics } from "nextjs-google-analytics";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -35,40 +35,6 @@ type AppPropsWithLayout = AppProps & {
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => <Layout>{page}</Layout>);
   const router = useRouter();
-
-  // function setScreenSize() {
-  //   let vh = window.innerHeight * 0.01;
-  //   document.documentElement.style.setProperty("--vh", `${vh}px`);
-  // }
-  // useEffect(() => {
-  //   setScreenSize();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     if (router.asPath === "/start/inquiry") {
-  //       if (window.wcs) {
-  //         var _nasa = window._nasa || {};
-  //         _nasa["cnv"] = wcs.cnv("5", "0");
-  //       }
-  //       if (!wcs_add) var wcs_add = {};
-  //       wcs_add["wa"] = "s_dc8a2375cf2";
-  //       if (!_nasa) var _nasa = {};
-  //       if (window.wcs) {
-  //         wcs.inflow("gopizza.kr");
-  //         wcs_do(_nasa);
-  //       }
-  //     } else {
-  //       if (!wcs_add) var wcs_add = {};
-  //       wcs_add["wa"] = "s_dc8a2375cf2";
-  //       if (!_nasa) var _nasa = {};
-  //       if (window.wcs) {
-  //         wcs.inflow("gopizza.kr");
-  //         wcs_do(_nasa);
-  //       }
-  //     }
-  //   }
-  // }, [router.asPath]);
 
   const [currentPath, setCurrentPath] = useState(router.pathname);
 
@@ -139,7 +105,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       <Global styles={reset} />
       <CommonSeo />
       <NextSeo {...Seo[menu.indexOf(router.asPath)]} />
-      <GoogleAnalytics trackPageViews />
+      {/* <GoogleAnalytics trackPageViews /> */}
       <CookiesProvider>{getLayout(<Component {...pageProps} />)}</CookiesProvider>
       <ReactQueryDevtools />
       <Analytics />
