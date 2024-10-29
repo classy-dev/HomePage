@@ -548,7 +548,7 @@ export const MenuSeo = [
       type: "website",
       title: "PIZZA | 고피자",
       description:
-        "고피자에서는 다양한 종류의 맛있는 피자와 함께하는 즐거운 시간을 제공합니다. 치킨앤콘 반반 피자, 슈퍼 콤비네이션 피자, K-불고기 피자 등 다양한 메뉴를 만나보세요.",
+        "이제 고피자에서도 다양하고 맛있는 라지 피자를 즐기실 수 있습니다. 핫 크러쉬 새우 라지 피자, 미트 몬스터 라지피자, 페이보릿포(4-in-1) 피자 등 다양한 메뉴를 만나보세요.",
       url: "https://gopizza.kr/menu",
       images: [
         {
@@ -562,7 +562,7 @@ export const MenuSeo = [
       site: "@gopizza",
       title: "PIZZA | 고피자",
       description:
-        "고피자에서는 다양한 종류의 맛있는 피자와 함께하는 즐거운 시간을 제공합니다. 치킨앤콘 반반 피자, 슈퍼 콤비네이션 피자, K-불고기 피자 등 다양한 메뉴를 만나보세요.",
+        "이제 고피자에서도 다양하고 맛있는 라지 피자를 즐기실 수 있습니다. 핫 크러쉬 새우 라지 피자, 미트 몬스터 라지피자, 페이보릿포(4-in-1) 피자 등 다양한 메뉴를 만나보세요.",
       image: {
         url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual1x2.webp",
         alt: "",
@@ -570,7 +570,7 @@ export const MenuSeo = [
     },
   },
   {
-    canonical: "https://gopizza.kr/menu",
+    canonical: "https://gopizza.kr/menu/pizza",
     title: "PIZZA | 고피자",
     description:
       "고피자에서는 다양한 종류의 맛있는 피자와 함께하는 즐거운 시간을 제공합니다. 치킨앤콘 반반 피자, 슈퍼 콤비네이션 피자, K-불고기 피자 등 다양한 메뉴를 만나보세요.",
