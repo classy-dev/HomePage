@@ -582,7 +582,7 @@ export const MenuSeo = [
       url: "https://gopizza.kr/menu",
       images: [
         {
-          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual1x2.webp",
+          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual2x2.webp",
           alt: "",
         },
       ],
@@ -594,7 +594,7 @@ export const MenuSeo = [
       description:
         "고피자에서는 다양한 종류의 맛있는 피자와 함께하는 즐거운 시간을 제공합니다. 치킨앤콘 반반 피자, 슈퍼 콤비네이션 피자, K-불고기 피자 등 다양한 메뉴를 만나보세요.",
       image: {
-        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual1x2.webp",
+        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual2x2.webp",
         alt: "",
       },
     },
@@ -612,7 +612,7 @@ export const MenuSeo = [
       url: "https://gopizza.kr/menu/pasta",
       images: [
         {
-          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual2x2.webp",
+          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual3x2.webp",
           alt: "",
         },
       ],
@@ -624,7 +624,7 @@ export const MenuSeo = [
       description:
         "다양한 고피자 파스타 메뉴를 만나보세요! 혼자서도, 다 같이도 즐길 수 있는 토마토 치즈 파스타와 미트 치즈 파스타 등 맛있는 고피자 파스타를 경험해 보십시오.",
       image: {
-        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual2x2.webp",
+        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual3x2.webp",
         alt: "",
       },
     },
@@ -641,7 +641,7 @@ export const MenuSeo = [
       url: "https://gopizza.kr/menu/topokki",
       images: [
         {
-          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual3x2.webp?v=2",
+          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual4x2.webp?v=2",
           alt: "",
         },
       ],
@@ -652,7 +652,7 @@ export const MenuSeo = [
       title: "TOPOKKI | 고피자",
       description: "다양한 고피자 떡볶이 메뉴를 만나보세요! 혼자서도, 다 같이도 즐길 수 있는 화덕 떡볶이와 화덕 치즈 떡볶이 등 맛있는 고피자 떡볶이를 경험해 보십시오.",
       image: {
-        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual3x2.webp?v=2",
+        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual4x2.webp?v=2",
         alt: "",
       },
     },
@@ -670,7 +670,7 @@ export const MenuSeo = [
       url: "https://gopizza.kr/menu/sides",
       images: [
         {
-          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual4x2.webp",
+          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual5x2.webp",
           alt: "",
         },
       ],
@@ -682,7 +682,7 @@ export const MenuSeo = [
       description:
         "다양한 고피자 사이드 메뉴를 만나보세요! 순살치킨, 프렌치 프라이, 버팔로 윙, 치즈스틱 등 혼자서도, 다 같이도 즐길 수 있는 맛있는 고피자 사이드 메뉴를 경험해 보십시오.",
       image: {
-        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual4x2.webp",
+        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual5x2.webp",
         alt: "",
       },
     },
@@ -700,7 +700,7 @@ export const MenuSeo = [
       url: "https://gopizza.kr/menu/set",
       images: [
         {
-          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual5x2.webp",
+          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual6x2.webp",
           alt: "",
         },
       ],
@@ -712,7 +712,7 @@ export const MenuSeo = [
       description:
         "혼자서도, 다 같이도 즐겁고 맛있는 고피자 세트 메뉴! 1인 피자 세트부터 친구들과 함께 나눠 먹기 좋은 2.5인 피자 세트까지 다양한 메뉴와 조합으로 만나보세요.",
       image: {
-        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual5x2.webp",
+        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual6x2.webp",
         alt: "",
       },
     },
@@ -728,7 +728,7 @@ export const MenuSeo = [
       url: "https://gopizza.kr/menu/special",
       images: [
         {
-          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual1x2.webp",
+          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual7x2.webp",
           alt: "",
         },
       ],
@@ -739,7 +739,7 @@ export const MenuSeo = [
       title: "SPECIAL | 고피자",
       description: "고피자 스페셜 메뉴를 즐겨보세요! 치즈 폭탄 피자, 크림치즈 고구마 피자 등 특별한 메뉴를 경험해 보세요.",
       image: {
-        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual1x2.webp",
+        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual7x2.webp",
         alt: "",
       },
     },
