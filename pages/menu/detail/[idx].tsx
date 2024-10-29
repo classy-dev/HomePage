@@ -52,17 +52,19 @@ function DetailView({ seo }: any) {
 
   const currentMenu = useMemo(() => menuDetail[`${idx}`], [idx]);
   // const category = ["pizza", "pasta", "topokki", "sides", "set", "powertime", "special"];
-  const category = ["pizza", "pasta", "topokki", "sides", "set", "special"];
+  const category = ["large", "personal", "pasta", "topokki", "sides", "set", "special"];
 
   const PrevHandler = useCallback(() => {
     if (currentMenu?.id > 1) {
       return `/menu/detail/${currentMenu?.category}${currentMenu?.id - 1}`;
     }
     switch (currentMenu?.category) {
-      case "pizza":
+      case "large":
         return `special${menuItem[5].length}`;
+      case "personal":
+        return `large${menuItem[0].length}`;
       case "pasta":
-        return `pizza${menuItem[0].length}`;
+        return `personal${menuItem[0].length}`;
       case "topokki":
         return `pasta${menuItem[1].length}`;
       case "sides":
@@ -86,7 +88,9 @@ function DetailView({ seo }: any) {
     }
 
     switch (currentMenu?.category) {
-      case "pizza":
+      case "large":
+        return `personal1`;
+      case "personal":
         return `pasta1`;
       case "pasta":
         return `topokki1`;
@@ -103,7 +107,7 @@ function DetailView({ seo }: any) {
       //   return `special1`;
 
       default:
-        return `pizza1`;
+        return `large1`;
     }
   }, [currentMenu?.category, currentMenu?.id]);
 

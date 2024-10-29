@@ -141,7 +141,7 @@ function Menu({ seo }: { seo: object }) {
   const router = useRouter();
   const popref = useRef<any>(null);
   // const category = ["/pizza", "/pasta", "/topokki", "/sides", "/set", "/powertime", "/special"];
-  const category = ["/pizza", "/pasta", "/topokki", "/sides", "/set", "/special"];
+  const category = ["/large", "/personal", "/pasta", "/topokki", "/sides", "/set", "/special"];
   const categoryNav = useMemo(() => category.indexOf(router.asPath.split("/menu")[1]), [router.asPath]);
 
   const [open, setOpen] = useState(false);
@@ -253,31 +253,36 @@ function Menu({ seo }: { seo: object }) {
           </Modal>
         </div>
         <MenuList>
-          {menuItem[categoryNav === -1 ? 0 : categoryNav].map((el, i: number) => (
-            <li key={el.idx}>
-              <Link href={`/menu/detail/${el.idx}`}>
-                <div className={`thumb ${el.badge === "best" ? "badge best" : el.badge === "new" ? "badge new" : ""}`}>
-                  <img
-                    src={
-                      categoryNav === -1 ? `/images/menu/pizza/img_item${i + 1}x2.webp?v=2` : `/images/menu${router.asPath.split("/menu")[1]}/img_item${i + 1}x2.webp?v=2`
-                    }
-                    alt="메뉴배경이미지"
-                  />
-                </div>
-                <div className="ko_name">
-                  {el.name === "페퍼로니 앤 포테이토 반반 피자" ? (
-                    <>
-                      페페로니 앤 포테이토 <br />
-                      반반 피자
-                    </>
-                  ) : (
-                    el.name
-                  )}
-                </div>
-                <div className={el.enName.length >= 25 ? "en_name long" : "en_name"}>{el.enName}</div>
-              </Link>
-            </li>
-          ))}
+          {menuItem[categoryNav === -1 ? 0 : categoryNav].map((el: any, i: number) => {
+            console.log("el", el);
+            return (
+              <li key={el.idx}>
+                <Link href={`/menu/detail/${el.idx}`}>
+                  <div className={`thumb ${el.badge === "best" ? "badge best" : el.badge === "new" ? "badge new" : ""}`}>
+                    <img
+                      src={
+                        categoryNav === -1
+                          ? `/images/menu/large/img_item${i + 1}x2.webp?v=2`
+                          : `/images/menu${router.asPath.split("/menu")[1]}/img_item${i + 1}x2.webp?v=2`
+                      }
+                      alt="메뉴배경이미지"
+                    />
+                  </div>
+                  <div className="ko_name">
+                    {el.name === "페퍼로니 앤 포테이토 반반 피자" ? (
+                      <>
+                        페페로니 앤 포테이토 <br />
+                        반반 피자
+                      </>
+                    ) : (
+                      el.name
+                    )}
+                  </div>
+                  <div className={el.enName.length >= 25 ? "en_name long" : "en_name"}>{el.enName}</div>
+                </Link>
+              </li>
+            );
+          })}
         </MenuList>
       </MenuWrap>
     </>
@@ -289,7 +294,7 @@ export default Menu;
 export const getStaticProps = async (context: any) => {
   const { index } = context.params;
   // const menu = ["pasta", "topokki", "sides", "set", "powertime", "special"];
-  const menu = ["pasta", "topokki", "sides", "set", "special"];
+  const menu = ["large", "personal", "topokki", "sides", "set", "special"];
   return {
     props: { seo: index === undefined ? MenuSeo[0] : MenuSeo[menu.indexOf(index[0]) + 1] },
   };
@@ -298,6 +303,7 @@ export const getStaticProps = async (context: any) => {
 export const getStaticPaths = async () => {
   const paths = [
     { params: { index: undefined } },
+    { params: { index: ["personal"] } },
     { params: { index: ["pasta"] } },
     { params: { index: ["topokki"] } },
     { params: { index: ["sides"] } },

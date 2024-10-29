@@ -570,6 +570,36 @@ export const MenuSeo = [
     },
   },
   {
+    canonical: "https://gopizza.kr/menu",
+    title: "PIZZA | 고피자",
+    description:
+      "고피자에서는 다양한 종류의 맛있는 피자와 함께하는 즐거운 시간을 제공합니다. 치킨앤콘 반반 피자, 슈퍼 콤비네이션 피자, K-불고기 피자 등 다양한 메뉴를 만나보세요.",
+    openGraph: {
+      type: "website",
+      title: "PIZZA | 고피자",
+      description:
+        "고피자에서는 다양한 종류의 맛있는 피자와 함께하는 즐거운 시간을 제공합니다. 치킨앤콘 반반 피자, 슈퍼 콤비네이션 피자, K-불고기 피자 등 다양한 메뉴를 만나보세요.",
+      url: "https://gopizza.kr/menu",
+      images: [
+        {
+          url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual1x2.webp",
+          alt: "",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@gopizza",
+      title: "PIZZA | 고피자",
+      description:
+        "고피자에서는 다양한 종류의 맛있는 피자와 함께하는 즐거운 시간을 제공합니다. 치킨앤콘 반반 피자, 슈퍼 콤비네이션 피자, K-불고기 피자 등 다양한 메뉴를 만나보세요.",
+      image: {
+        url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual1x2.webp",
+        alt: "",
+      },
+    },
+  },
+  {
     canonical: "https://gopizza.kr/menu/pasta",
     title: "PASTA | 고피자",
     description:
