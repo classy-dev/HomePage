@@ -254,7 +254,6 @@ function Menu({ seo }: { seo: object }) {
         </div>
         <MenuList>
           {menuItem[categoryNav === -1 ? 0 : categoryNav].map((el: any, i: number) => {
-            console.log("el", el);
             return (
               <li key={el.idx}>
                 <Link href={`/menu/detail/${el.idx}`}>
@@ -294,7 +293,8 @@ export default Menu;
 export const getStaticProps = async (context: any) => {
   const { index } = context.params;
   // const menu = ["pasta", "topokki", "sides", "set", "powertime", "special"];
-  const menu = ["large", "personal", "topokki", "sides", "set", "special"];
+  const menu = ["personal", "pasta", "topokki", "sides", "set", "special"];
+
   return {
     props: { seo: index === undefined ? MenuSeo[0] : MenuSeo[menu.indexOf(index[0]) + 1] },
   };

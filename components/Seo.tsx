@@ -541,9 +541,9 @@ export const Seo = [
 export const MenuSeo = [
   {
     canonical: "https://gopizza.kr/menu",
-    title: "PIZZA | 고피자",
+    title: "LARGE PIZZA | 고피자",
     description:
-      "고피자에서는 다양한 종류의 맛있는 피자와 함께하는 즐거운 시간을 제공합니다. 치킨앤콘 반반 피자, 슈퍼 콤비네이션 피자, K-불고기 피자 등 다양한 메뉴를 만나보세요.",
+      "이제 고피자에서도 다양하고 맛있는 라지 피자를 즐기실 수 있습니다. 핫 크러쉬 새우 라지 피자, 미트 몬스터 라지피자, 페이보릿포(4-in-1) 피자 등 다양한 메뉴를 만나보세요.",
     openGraph: {
       type: "website",
       title: "PIZZA | 고피자",
@@ -717,35 +717,6 @@ export const MenuSeo = [
       },
     },
   },
-
-  // {
-  //   canonical: "https://gopizza.kr/menu/powertime",
-  //   title: "POWER TIME | 고피자",
-  //   description: "고피자 파워타임 메뉴를 즐겨보세요! 오리지널 페퍼로니 피자, 허니 고르곤졸라 피자, 이달의 피자 등 다양한 메뉴를 특별한 할인 가격으로 경험해 보십시오.",
-  //   openGraph: {
-  //     type: "website",
-  //     title: "POWER TIME | 고피자",
-  //     description: "고피자 파워타임 메뉴를 즐겨보세요! 오리지널 페퍼로니 피자, 허니 고르곤졸라 피자, 이달의 피자 등 다양한 메뉴를 특별한 할인 가격으로 경험해 보십시오.",
-  //     url: "https://gopizza.kr/menu/powertime",
-  //     images: [
-  //       {
-  //         url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual6x2.webp",
-  //         alt: "",
-  //       },
-  //     ],
-  //   },
-  //   twitter: {
-  //     card: "summary_large_image",
-  //     site: "@gopizza",
-  //     title: "POWER TIME | 고피자",
-  //     description: "고피자 파워타임 메뉴를 즐겨보세요! 오리지널 페퍼로니 피자, 허니 고르곤졸라 피자, 이달의 피자 등 다양한 메뉴를 특별한 할인 가격으로 경험해 보십시오.",
-  //     image: {
-  //       url: "https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/menu/img_menu_visual6x2.webp",
-  //       alt: "",
-  //     },
-  //   },
-  // },
-  //special
   {
     canonical: "https://gopizza.kr/menu/special",
     title: "SPECIAL | 고피자",
