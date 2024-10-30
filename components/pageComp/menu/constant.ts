@@ -34,7 +34,7 @@ const menuPath = ["large", "personal", "pasta", "topokki", "sides", "set", "spec
 export const menuItemName = [
   [
     {
-      name: "핫 크러쉬 새우 L",
+      name: "핫크러쉬 새우 L",
       enName: "Crunchy Hot Shrimp",
     },
     {
@@ -46,7 +46,7 @@ export const menuItemName = [
       enName: "4-in-1",
     },
     {
-      name: "달달달콤한구마 L",
+      name: "달달달콤하구마 L",
       enName: "Sweet Potato",
     },
     {
