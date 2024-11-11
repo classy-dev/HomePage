@@ -287,13 +287,15 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
           </dt>
           <dd className="address">{store.address}</dd>
           <dd className="info">
-            <span className="tel">
-              <span className="pc">{store.store_phone_number}</span>
-              <a href={`tel:${store.store_phone_number}`} className="mobile" onClick={handleAClick}>
-                {store.store_phone_number}
-              </a>
-            </span>
-            <span className="time">{store.business_time}</span>
+            {store.store_phone_number && (
+              <span className="tel">
+                <span className="pc">{store.store_phone_number}</span>
+                <a href={`tel:${store.store_phone_number}`} className="mobile" onClick={handleAClick}>
+                  {store.store_phone_number}
+                </a>
+              </span>
+            )}
+            {store.business_time && <span className="time">{store.business_time}</span>}
           </dd>
         </dl>
       </div>
