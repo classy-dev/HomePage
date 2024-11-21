@@ -238,12 +238,14 @@ function Menu({ seo }: { seo: object }) {
             <NutrientWrap>
               <div className="box_info">
                 <div className="pc">
-                  <img src="/images/popup/info_nutrient_newx2.webp" alt="고피자 영양분석표" />
-                  <img src="/images/popup/info_nutrient_new2x2.webp" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new.gif" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new2.gif" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new3.gif" alt="고피자 영양분석표" />
                 </div>
                 <div className="mobile">
-                  <img src="/images/popup/info_nutrient_new_mobilex2.webp" alt="고피자 영양분석표" />
-                  <img src="/images/popup/info_nutrient_new_mobile2x2.webp" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new_mobile.gif" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new_mobile2.gif" alt="고피자 영양분석표" />
+                  <img src="/images/popup/info_nutrient_new_mobile3.gif" alt="고피자 영양분석표" />
                 </div>
               </div>
               <button className="btn_close" onClick={closesetOpenNutrient}>
