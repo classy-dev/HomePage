@@ -293,6 +293,22 @@ export const Info = styled.section`
       line-height: 1.44;
     }
 
+    .txt_basic {
+      margin: 1.8rem 0 3.2rem;
+      font-size: 1.8rem;
+      line-height: 1.44;
+    }
+
+    .notice {
+      em {
+        display: block;
+        color: #fa4616;
+        &:not(:first-of-type) {
+          margin-top: 0.5rem;
+        }
+      }
+    }
+
     .list {
       display: grid;
       width: 35.4rem;
