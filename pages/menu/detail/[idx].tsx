@@ -11,6 +11,8 @@ import Modal from "ComponentsFarm/common/Modal";
 import { useMediaQuery } from "react-responsive";
 import { useSwipeable } from "react-swipeable";
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import DOMPurify from "dompurify";
 
 function DetailView({ seo }: any) {
   const router = useRouter();
@@ -19,6 +21,7 @@ function DetailView({ seo }: any) {
 
   const [open, setOpen] = useState(false);
   const [fade, setFade] = useState(false);
+  const [sanitizedContent, setSanitizedContent] = useState("");
 
   const openStoreModal = useCallback(() => {
     setOpen(true);
@@ -53,6 +56,13 @@ function DetailView({ seo }: any) {
   const currentMenu = useMemo(() => menuDetail[`${idx}`], [idx]);
   // const category = ["pizza", "pasta", "topokki", "sides", "set", "powertime", "special"];
   const category = ["large", "personal", "pasta", "topokki", "sides", "set", "special"];
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && currentMenu?.txt[0]) {
+      const sanitizedHtml = DOMPurify.sanitize(currentMenu.txt[0]);
+      setSanitizedContent(sanitizedHtml);
+    }
+  }, [currentMenu?.txt]);
 
   const PrevHandler = useCallback(() => {
     if (currentMenu?.id > 1) {
@@ -154,14 +164,18 @@ function DetailView({ seo }: any) {
                   <span className="en">{currentMenu?.enName.toUpperCase()}</span>
                 </dt>
                 <dd className="txt">
-                  {currentMenu?.txt?.split("\n").map((txt: string, i: number) => {
-                    return (
-                      <React.Fragment key={`line${i}`}>
-                        {txt}
-                        <br />
-                      </React.Fragment>
-                    );
-                  })}
+                  {typeof currentMenu?.txt === "string" ? (
+                    currentMenu?.txt?.split("\n").map((txt: string, i: number) => {
+                      return (
+                        <React.Fragment key={`line${i}`}>
+                          {txt}
+                          <br />
+                        </React.Fragment>
+                      );
+                    })
+                  ) : (
+                    <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+                  )}
                 </dd>
                 <dd>
                   <div className="box_btn">

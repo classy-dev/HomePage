@@ -204,6 +204,14 @@ export const menuItemName = [
       name: "매콤 떡강정",
       enName: "Spicy Tteok Gangjung",
     },
+    {
+      name: "갈릭 치즈 브레드",
+      enName: "Cheese Garlic Bread",
+    },
+    {
+      name: "시나몬 연유 브레드",
+      enName: "Cinnamon Bread",
+    },
   ],
   [
     {
@@ -241,6 +249,10 @@ export const menuItemName = [
     {
       name: "라지 시그니처 세트",
       enName: "Large signature Set",
+    },
+    {
+      name: "브레드 콤보 세트",
+      enName: "Bread combo set",
     },
   ],
   [
@@ -726,6 +738,24 @@ export const menuDetail: IMenuDetail = {
     조화로운 매콤떡강정`,
     ingredients: [],
   },
+  sides7: {
+    id: 7,
+    category: "sides",
+    name: "갈릭 치즈 브레드",
+    enName: "cheese garlic bread",
+    txt: `바삭한 식감에 진한 갈릭의 풍미를 더해
+    가볍게 즐기는 갈릭 치즈 브레드`,
+    ingredients: [],
+  },
+  sides8: {
+    id: 8,
+    category: "sides",
+    name: "시나몬 연유 브레드",
+    enName: "cinnamon bread",
+    txt: `달콤한 시나몬과 연유가 만나 부담없이 
+    디저트처럼 즐길 수 있는 시나몬 연유 브레드`,
+    ingredients: [],
+  },
   set1: {
     id: 1,
     category: "set",
@@ -808,6 +838,16 @@ export const menuDetail: IMenuDetail = {
     name: "라지 시그니처 세트",
     enName: "LARGE  SIGNATURE SET",
     txt: `라지 피자+1인피자+음료 1.25L`,
+    ingredients: [],
+  },
+  set10: {
+    id: 10,
+    category: "set",
+    name: "브레드 콤보 세트",
+    enName: "Bread combo set",
+    txt: [
+      "<p class='txt_basic'>라지 피자+브레드 1종+음료 1.25L</p><div class='notice'><em>*시나몬 연유 브레드 선택 시 연유 소스 제공</em><em>*갈릭 치즈 브레드 선택 시 토마토 소스 제공</em></div>",
+    ],
     ingredients: [],
   },
   special1: {
