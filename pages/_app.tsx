@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider, QueryCache } from "@tanstack/react-qu
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { CookiesProvider } from "react-cookie";
 import { findStore } from "MobxFarm/store";
-// import { GoogleAnalytics } from "nextjs-google-analytics";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -105,7 +105,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       <Global styles={reset} />
       <CommonSeo />
       <NextSeo {...Seo[menu.indexOf(router.asPath)]} />
-      {/* <GoogleAnalytics trackPageViews /> */}
+      <GoogleAnalytics trackPageViews />
       <CookiesProvider>{getLayout(<Component {...pageProps} />)}</CookiesProvider>
       <ReactQueryDevtools />
       <Analytics />
