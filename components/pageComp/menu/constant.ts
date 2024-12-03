@@ -558,9 +558,9 @@ export const menuDetail: IMenuDetail = {
     category: "personal",
     name: "스트릿 콘치즈 피자",
     enName: "Street Corn Cheese Pizza",
-    txt: `연유크림소스에 옥수수와 치즈가 가득, 단짠단짠!
-케이엔페퍼가 살짝 뿌려져 매울 수 있어요`,
-    ingredients: ["연유", "케이엔 페퍼", "옥수수", "양파", "모짜렐라 치즈"],
+    txt: `달콤한 콘소메 소스, 옥수수, 치즈가 듬뿍!
+    매콤한 케이엔 페퍼까지! 단맵단맵을 즐겨보세요.`,
+    ingredients: ["콘소메 소스", "케이엔 페퍼", "옥수수", "양파", "모짜렐라 치즈"],
   },
   personal12: {
     id: 12,

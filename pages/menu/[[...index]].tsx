@@ -51,6 +51,7 @@ export const TipWrap = styled.div`
       align-items: center;
       justify-content: center;
       margin-top: 2.5rem;
+      text-align: center;
       .txt1 {
         margin-right: 1.1rem;
         font-size: 4.5rem;
@@ -124,16 +125,16 @@ export const TipWrap = styled.div`
 
 const TipArr = [
   {
-    txt1: `피자를 즐길 줄 아는 진정한\n피자러버인 당신을 위해`,
+    txt1: `오직 라지피자에서만\n즐길 수 있는 특별한 한판!`,
     txt2: "피자 1종 + 사이드 1종 + 음료 1종",
   },
   {
-    txt1: `각자 원하는 맛 골라서 나눠먹자!\n양과 가성비 둘 다 챙기기`,
-    txt2: "피자 2종 + 사이드 1종 + 음료 2종",
+    txt1: `다양한 사이즈와 맛을 즐기자!\n취향 맞춤형 PICK으로 GO!`,
+    txt2: "라지피자 1종 + 퍼스널 피자 1종 + 음료 2종",
   },
   {
-    txt1: `여럿이도 문제없GO! 취향존중`,
-    txt2: `피자 2종 + 떡볶이 or 파스타 1종\n+ 사이드 1종 + 음료 2종`,
+    txt1: `여럿이서 다같이 즐기는\n피자 PARTY~ GO!`,
+    txt2: `라지피자 2종 + 음료 2종`,
   },
 ];
 
@@ -208,19 +209,8 @@ function Menu({ seo }: { seo: object }) {
               <ul className="list_tip">
                 {TipArr.map((el, i) => (
                   <li key={i}>
-                    <img key={i} src={`https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/popup/tip${i + 1}x2.webp?v=`} alt="예시 이미지" />
+                    <img key={i} src={`/images/popup/tip${i + 1}x2.webp`} alt="예시 이미지" />
                     <div className="box_txt">
-                      <span className="txt1">
-                        {i === 2 ? (
-                          <>
-                            <span className="number">{i + 1}</span>인~{" "}
-                          </>
-                        ) : (
-                          <>
-                            <span className="number">{i + 1}</span>인
-                          </>
-                        )}
-                      </span>
                       <span className="txt_box">
                         <span className="txt2">{el.txt1}</span>
                         <span className="txt3">{el.txt2}</span>
