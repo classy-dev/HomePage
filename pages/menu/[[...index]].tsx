@@ -202,8 +202,8 @@ function Menu({ seo }: { seo: object }) {
               <div className="box_txt">
                 <h2>더 맛있게 먹는 TIP</h2>
                 <p className="tit">
-                  혼자서도, 다 같이도
-                  <br /> 항상 즐겁고 맛있는 고피자!
+                  더 크게, 더 맛있게!
+                  <br /> 라지사이즈로 즐기는 고피자!
                 </p>
               </div>
               <ul className="list_tip">
