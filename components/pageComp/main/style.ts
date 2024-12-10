@@ -471,7 +471,7 @@ export const OrderWrap = styled.ul`
 
   ${mq[0]} {
     display: block;
-    padding: 0 20px;
+    padding: 0 20px 20px;
   }
 `;
 
