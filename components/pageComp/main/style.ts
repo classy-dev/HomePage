@@ -496,6 +496,7 @@ export const InstagramWrap = styled.section`
     li {
       width: 40rem;
       height: 40rem;
+      align-items: center;
       &:nth-of-type(2) {
         margin: 0 4rem;
       }
