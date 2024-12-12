@@ -58,6 +58,7 @@ export const InstarWrap = styled.ul`
 
     .txt {
       display: none;
+      padding: 0 1rem;
     }
 
     &:hover {
