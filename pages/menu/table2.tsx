@@ -6,13 +6,12 @@ import Set from 'ComponentsFarm/pageComp/menu/table2/Set'
 import Drink from 'ComponentsFarm/pageComp/menu/table2/Drink'
 import Source from 'ComponentsFarm/pageComp/menu/table2/Source'
 import Title from 'ComponentsFarm/pageComp/menu/table2/Title'
+import { Container } from 'ComponentsFarm/pageComp/menu/tableStyle'
 
 function Table() {
   return (
-    <>
-    <div><PersonalPizza /><LargePizza /><Pasta /> <Option /><Drink /><Set /><Source /></div>
+   <Container><PersonalPizza /><LargePizza /><Pasta /> <Option /><Drink /><Set /><Source /></Container>
 
-    </>
   )
 }
 

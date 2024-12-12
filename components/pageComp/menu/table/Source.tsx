@@ -129,7 +129,7 @@ const sourceData: SourceInfo[] = [
 
 const PageStyle =css`
   tr {
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       background-color: #d2beb6;
    }
   }

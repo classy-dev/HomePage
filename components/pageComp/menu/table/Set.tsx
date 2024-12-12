@@ -89,7 +89,7 @@ const setData: SetInfo[] = [
 
 const PageStyle =css`
   tr {
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       background-color: #f4b4dc;
    }
   }

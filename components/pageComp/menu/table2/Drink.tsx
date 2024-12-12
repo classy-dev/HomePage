@@ -15,7 +15,7 @@ interface DrinkData {
 }
 
 const Tr = styled.tr`
-  &:nth-child(even) {
+  &:nth-of-type(even) {
     background-color: #E3F2FD;
   }
   &:hover {

@@ -94,7 +94,7 @@ const optionData: OptionInfo[] = [
 
 const PageStyle =css`
   tr {
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       background-color: #e0cde2;
    }
   }

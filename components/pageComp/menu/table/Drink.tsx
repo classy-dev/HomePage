@@ -196,7 +196,7 @@ const drinkData: DrinkInfo[] = [
 
 const PageStyle =css`
   tr {
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       background-color: #bec4db;
    }
   }

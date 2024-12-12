@@ -8,10 +8,12 @@ import Side from 'ComponentsFarm/pageComp/menu/table/Side'
 import Set from 'ComponentsFarm/pageComp/menu/table/Set'
 import Drink from 'ComponentsFarm/pageComp/menu/table/Drink'
 import Source from 'ComponentsFarm/pageComp/menu/table/Source'
+import { css } from '@emotion/react'
+import { Container } from 'ComponentsFarm/pageComp/menu/tableStyle'
 
 function Table() {
   return (
-    <div><PersonalPizza /><LargePizza /><Pasta /> <Topokki /><Option /><Chicken /><Side /><Drink /><Set /><Source /></div>
+    <Container><PersonalPizza /><LargePizza /><Pasta /> <Topokki /><Option /><Chicken /><Side /><Drink /><Set /><Source /></Container>
   )
 }
 

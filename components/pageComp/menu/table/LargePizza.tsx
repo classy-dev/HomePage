@@ -132,7 +132,7 @@ const pizzaData: PizzaInfo[] = [
 
 const PageStyle =css`
   tr {
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       background-color: #c4e8c7;
    }
   }

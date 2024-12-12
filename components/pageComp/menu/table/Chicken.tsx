@@ -93,7 +93,7 @@ const chickenData: ChickenInfo[] = [
 
 const PageStyle =css`
   tr {
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       background-color: #fde1ba;
    }
   }
@@ -113,7 +113,7 @@ const PageStyle =css`
 
 const Chicken = () => {
   return (
-    <Table css={PageStyle}>
+    <Table css={PageStyle}>   
       <thead>
         <tr>
           <th>메뉴명</th>

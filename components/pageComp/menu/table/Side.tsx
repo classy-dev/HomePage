@@ -93,7 +93,7 @@ const sideData: SideInfo[] = [
 
 const PageStyle =css`
   tr {
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       background-color: #eed6be;
    }
   }

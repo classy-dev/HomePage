@@ -70,7 +70,7 @@ const topokkiData: TopokkiInfo[] = [
 
 const PageStyle =css`
   tr {
-    &:nth-child(even) {
+    &:nth-of-type(even) {
       background-color: #f4c0be;
    }
   }

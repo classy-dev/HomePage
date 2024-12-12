@@ -1,11 +1,49 @@
 import styled from "@emotion/styled";
 
+export const Container = styled.div`  
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  width: 90%;
+`;
+
+
 export const Table = styled.table`
   width: 100%;
   margin: 2rem 0;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   text-align: center;
   border-collapse: collapse;
+
+  th, td {
+    &:nth-of-type(1) {
+      width:20%;
+    }
+    &:nth-of-type(2) {
+      width:10%;
+    }
+    &:nth-of-type(3) {
+      width:8%;
+    }
+    &:nth-of-type(4) {
+      width:8%;
+    }
+    &:nth-of-type(5) {
+      width:8%;
+    }
+    &:nth-of-type(6) {
+      width:8%;
+    }
+    &:nth-of-type(7) {
+      width:8%;
+    }
+    &:nth-of-type(8) {
+      width:8%;  
+    }
+    &:nth-of-type(9) {
+      width:22%;
+    }
+  }
 
   th {
         color: white;
@@ -22,11 +60,11 @@ export const Table = styled.table`
             }
             .ko {    
                 color: #231f20;
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             .en {
                 color: #58595b;
-                font-size: 1rem;
+                font-size:0.9rem;
             }
         }
     }
