@@ -35,19 +35,19 @@ export const Table = styled.table`
 
   th, td {
     &:nth-of-type(1) {
-      width:20%;
+      width:24%;
     }
     &:nth-of-type(2) {
-      width:10%;
+      width:8%;
     }
     &:nth-of-type(3) {
       width:8%;
     }
     &:nth-of-type(4) {
-      width:8%;
+      width:7%;
     }
     &:nth-of-type(5) {
-      width:8%;
+      width:7%;
     }
     &:nth-of-type(6) {
       width:8%;

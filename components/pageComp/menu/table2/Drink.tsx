@@ -205,6 +205,16 @@ const drinkData: DrinkData[] = [
 const Drink = () => {
   return (
     <Table className='ver2-store'>
+       <colgroup>
+          <col width='20%' />
+          <col width='10%' />
+          <col width='10%' />
+          <col width='10%' />
+          <col width='10%' />
+          <col width='10%' />
+          <col width='10%' />
+          <col width='20%' />
+        </colgroup>
       <thead>
         <tr>
           <th>메뉴명</th>

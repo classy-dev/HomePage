@@ -70,6 +70,11 @@ const setData: SetData[] = [
 const Set = () => {
   return (
       <Table className='ver2-store'>
+         <colgroup>
+          <col width='40%' />
+          <col width='30%' />
+          <col width='30%' />
+        </colgroup>
         <thead>
           <tr>
             <th>메뉴명</th>
