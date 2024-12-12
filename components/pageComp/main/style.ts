@@ -518,6 +518,7 @@ export const InstagramWrap = styled.section`
         width: auto;
         height: auto;
         border-radius: 10px;
+        max-height: 15rem;
 
         &:nth-of-type(2) {
           margin: 0;
