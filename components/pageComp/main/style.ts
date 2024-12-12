@@ -528,9 +528,7 @@ export const InstagramWrap = styled.section`
 `;
 
 export const YoutubeWrap = styled.section`
-  margin: 20rem 0 0;
-  padding: 10rem 0 20rem;
-  border-top: 1px solid #e5e5e5;
+  padding-bottom: 20rem;
 
   ${mq[0]} {
     display: none;
