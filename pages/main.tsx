@@ -25,7 +25,7 @@ function Main({ mainVisual, youtube, feed }: IMain) {
         <BestMenu />
         <Competitiveness />
         <Order />
-        {/* <Instagram feed={feed} /> */}
+        <Instagram feed={feed} />
         <Youtube data={youtube} />
       </main>
       {/* <TodayPopup
@@ -40,12 +40,13 @@ function Main({ mainVisual, youtube, feed }: IMain) {
 }
 
 export const getStaticProps = async () => {
-  const [mainVisual, youtube] = await Promise.all([fetchMainVisual(), fetchYoutubeVisual()]);
+  const [mainVisual, youtube, feed] = await Promise.all([fetchMainVisual(), fetchYoutubeVisual(), fetchInstaFeed()]);
 
   return {
     props: {
       mainVisual,
       youtube,
+      feed,
     },
     revalidate: 10,
   };

@@ -24,17 +24,13 @@ function InstaFeed({ feed }: { feed: IInstarItem }) {
         feed.data.map((media: any, i: number) => {
           return (
             <li key={media.id}>
-              {media.media_type === "VIDEO" ? (
-                <a target="_blank" href={media.permalink} rel="noreferrer">
-                  <video src={media.media_url} width="100%" height="100%" />
-                  <span className="txt">{processCaption(media.caption)}</span>
-                </a>
-              ) : (
-                <a target="_blank" href={media.permalink} rel="noreferrer">
-                  <img src={media.media_url} alt="고피자 인스타그램" />
-                  <span className="txt">{processCaption(media.caption)}</span>
-                </a>
-              )}
+              <a target="_blank" href={media.permalink} rel="noreferrer">
+                <img 
+                  src={media.media_type === "VIDEO" ? media.thumbnail_url : media.media_url} 
+                  alt="고피자 인스타그램" 
+                />
+                <span className="txt">{processCaption(media.caption)}</span>
+              </a>
             </li>
           );
         })}
@@ -46,6 +42,7 @@ export default InstaFeed;
 
 export const InstarWrap = styled.ul`
   display: flex;
+  align-items: center;
   justify-content: center;
   li {
     display: flex;
@@ -56,7 +53,7 @@ export const InstarWrap = styled.ul`
     border-radius: 3rem;
 
     img {
-      height: 100%;
+      height: auto;
     }
 
     .txt {
