@@ -1,10 +1,18 @@
 import styled from "@emotion/styled";
+import { mq } from "ComponentsFarm/common";
 
 export const Container = styled.div`  
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, 1fr);
   width: 90%;
+
+ 
+
+  ${mq[0]} {
+    display:block;
+    width: 98%;
+  }
 `;
 
 
@@ -14,6 +22,16 @@ export const Table = styled.table`
   font-size: 1.2rem;
   text-align: center;
   border-collapse: collapse;
+
+  ${mq[0]} { 
+    th {
+      padding:1rem 0 !important;
+    }
+    td {
+      padding:1rem 0.2rem !important;
+    }
+    font-size: 0.8rem; 
+  }
 
   th, td {
     &:nth-of-type(1) {
@@ -44,6 +62,7 @@ export const Table = styled.table`
       width:22%;
     }
   }
+  
 
   th {
         color: white;
@@ -67,6 +86,17 @@ export const Table = styled.table`
                 font-size:0.9rem;
             }
         }
+
+        ${mq[0]} {
+          &.menu-name {          
+            .ko {    
+                font-size: 0.8rem;
+            }
+            .en {
+                font-size:0.6rem;
+            }
+        }
+  }
     }
 
   &.ver2-store {
