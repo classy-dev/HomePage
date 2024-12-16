@@ -12,8 +12,8 @@ const History = [
     { id: "2023_1", title: "시그니처 빠삭 도우 출시!", desc: "브랜드 리뉴얼 및 도우 업그레이드" },
     { id: "2023_2", title: "고피자 2번째 모델 선정", desc: "침착맨x주호민" },
     { id: "2023_3", title: "인도네시아 가맹사업 진출", desc: "첫 플래그십 스토어 ‘간다리아 시티점‘ 오픈" },
-    { id: "2023_4", title: "대통령 방미 경제사절단 참여", desc: "유일한 프랜차이즈 및 푸드테크 기업으로 참여" },
-    { id: "2023_5", title: "대통령실 만찬 메뉴 선정", desc: "대한민국 중소기업인대회 만찬 메뉴 선정" },
+    // { id: "2023_4", title: "대통령 방미 경제사절단 참여", desc: "유일한 프랜차이즈 및 푸드테크 기업으로 참여" },
+    // { id: "2023_5", title: "대통령실 만찬 메뉴 선정", desc: "대한민국 중소기업인대회 만찬 메뉴 선정" },
     { id: "2023_6", title: "첫 해외 도우 공장 설립", desc: "인도네시아 자카르타" },
     { id: "2023_7", title: "중소벤처 기업부 예비 유니콘 선정", desc: "중소벤처기업부 | 기술보증기금" },
   ],
@@ -126,12 +126,12 @@ function KeepGoing() {
                   <SwiperSlide key={i}>
                     <div className={`thumb badge${el.id}`}>
                       <img
-                        src={`https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/brand/ourstory/history/${YEAR[selHistory]}/history${
+                        src={`/images/brand/ourstory/history/${YEAR[selHistory]}/history${
                           i + 1
                         }x2.webp?v=2`}
                         alt={`${el.title} 이미지`}
                       />
-                      <span className="badge"></span>
+                      <span className="badge" />
                     </div>
                     <div className="box_txt">
                       <div className="number">0{i + 1}</div>
