@@ -16,6 +16,7 @@ import Modal from "ComponentsFarm/common/Modal";
 import DOMPurify from "isomorphic-dompurify";
 import { PrivacyArr } from "ComponentsFarm/popup/PrivacyContent";
 import { folder, mq } from "ComponentsFarm/common";
+import NutritionalWrap from "ComponentsFarm/pageComp/menu/NutritionalWrap";
 
 export const TipWrap = styled.div`
   position: relative;
@@ -225,23 +226,14 @@ function Menu({ seo }: { seo: object }) {
             </TipWrap>
           </Modal>
           <Modal open={openNutrient} onClose={closesetOpenNutrient}>
-            <NutrientWrap>
+            <NutrientArea>
               <div className="box_info">
-                <div className="pc">
-                  <img src="/images/popup/info_nutrient_new.gif" alt="고피자 영양분석표" />
-                  <img src="/images/popup/info_nutrient_new2.gif" alt="고피자 영양분석표" />
-                  <img src="/images/popup/info_nutrient_new3.gif" alt="고피자 영양분석표" />
-                </div>
-                <div className="mobile">
-                  <img src="/images/popup/info_nutrient_new_mobile.gif" alt="고피자 영양분석표" />
-                  <img src="/images/popup/info_nutrient_new_mobile2.gif" alt="고피자 영양분석표" />
-                  <img src="/images/popup/info_nutrient_new_mobile3.gif" alt="고피자 영양분석표" />
-                </div>
+                  <NutritionalWrap />
               </div>
               <button className="btn_close" onClick={closesetOpenNutrient}>
                 <span className="hiddenZoneV">닫기</span>
               </button>
-            </NutrientWrap>
+            </NutrientArea>
           </Modal>
         </div>
         <MenuList>
@@ -310,55 +302,36 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const NutrientWrap = styled.div`
+export const NutrientArea = styled.div`
   position: relative;
-  width: 124rem;
+  width: 90vw;
   padding: 6.4rem 0 6.6rem;
   border-radius: 4.8rem;
   background: #fff;
 
   .box_info {
     overflow-y: scroll;
-    width: 120.5rem;
+    width: 100%;
     height: 80vh;
     margin: 5.6rem auto 0;
-    padding-right: 4.5rem;
-    .pc {
-      display: block;
-    }
-    .mobile {
-      display: none;
-    }
+    padding: 0 1.5rem;
+   
 
-    img:nth-of-type(2) {
-      display: block;
-      margin-top: 3.2rem;
-    }
   }
 
   ${mq[0]} {
-    width: calc(100vw - 40px);
-    padding: 1rem;
+    width: 98%;
+    padding: 1rem 0.5rem;
     border-radius: 10px;
+    margin:0 auto;
 
     .box_info {
       width: 100%;
       height: 75vh;
-      margin: 0 auto;
-      padding-right: 0;
+      margin: 0 auto;      
+      padding: 0;
 
-      .pc {
-        display: none;
-      }
-      .mobile {
-        display: block;
-      }
-      img {
-        width: 100%;
-        &:nth-of-type(2) {
-          margin-top: 1rem;
-        }
-      }
+     
     }
   }
 `;

@@ -11,18 +11,15 @@ import Source from 'ComponentsFarm/pageComp/menu/table/Source'
 import { css } from '@emotion/react'
 import { Container } from 'ComponentsFarm/pageComp/menu/tableStyle'
 import TitleInfo from 'ComponentsFarm/pageComp/menu/table/TitleInfo'
-import NutritionalWrap from 'ComponentsFarm/pageComp/menu/NutritionalWrap'
 
 function Table() {
   return (
-    // <>
-    //   <TitleInfo />
-    //   <Container><PersonalPizza /><LargePizza /><Pasta /> <Topokki /><Option /><Chicken /><Side /><Drink /><Set /><Source /></Container>
+    <>
+      <TitleInfo />
+      <Container><PersonalPizza /><LargePizza /><Pasta /> <Topokki /><Option /><Chicken /><Side /><Drink /><Set /><Source /></Container>
     
-    // </>
-    <NutritionalWrap />
-  
-  )
+    </>
+    )
    
 }
 

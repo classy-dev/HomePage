@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { Table } from '../tableStyle';
 import { css } from '@emotion/react';
+import { mq } from 'ComponentsFarm/common';
 
 
 interface PizzaInfo {
@@ -252,12 +253,24 @@ const PageStyle =css`
     &:nth-of-type(1) {
       border-left: none;
     }
+    
   }
+`;
+
+const TableLabel = styled.div`
+  color:#f05a28;
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  text-align: center;  
+
+  ${mq[0]} {font-size:1.4rem; }
 `;
 
 
 const PersonalPizza = () => {
   return (
+    <div>
     <Table css={PageStyle}>
       <thead>
         <tr>
@@ -291,6 +304,10 @@ const PersonalPizza = () => {
         ))}
       </tbody>
     </Table>
+    <TableLabel>
+     PERSONAL PIZZA
+    </TableLabel>
+    </div>
   );
 };
 

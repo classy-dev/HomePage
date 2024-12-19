@@ -1,5 +1,7 @@
+import { mq } from 'ComponentsFarm/common';
 import { Table } from '../tableStyle';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 interface PizzaData {
   name: string;
@@ -78,7 +80,7 @@ const pizzaData: PizzaData[] = [
     allergens: '밀, 대두, 토마토, 우유, 돼지고기, 쇠고기, 닭고기, 조개류(굴), 새우'
   },
   {
-    name: '페이보릿 (F4) 피자(L)',
+    name: '페이보릿포 (F4) 피자(L)',
     engName: '4-IN-1 PIZZA(L)',
     totalSize: 760,
     servingSize: 95,
@@ -87,10 +89,10 @@ const pizzaData: PizzaData[] = [
     protein: 9,
     saturatedFat: 3,
     sodium: 481,
-    allergens: '밀, 대두, 계란, 토마토, 우유, 돼지고기, 쇠고기, 닭고기, 아산화황'
+    allergens: '밀, 대두, 계란, 토마토, 우유, 돼지고기, 쇠고기, 닭고기, 이산화황'
   },
   {
-    name: '달달달한고구마 피자(L)',
+    name: '달달달콤하구마 피자(L)',
     engName: 'SWEET POTATO PIZZA(L)',
     totalSize: 673,
     servingSize: 84,
@@ -99,7 +101,7 @@ const pizzaData: PizzaData[] = [
     protein: 8,
     saturatedFat: 3,
     sodium: 383,
-    allergens: '밀, 대두, 우유, 계란, 쇠고기, 돼지고기, 아산화황'
+    allergens: '밀, 대두, 우유, 계란, 쇠고기, 돼지고기, 이산화황'
   },
   {
     name: '핫크러쉬 새우 피자(L)',
@@ -127,9 +129,23 @@ const pizzaData: PizzaData[] = [
   }
 ];
 
+const TableLabel = styled.div`
+
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  text-align: center;  
+
+
+  ${mq[0]} {font-size:1.4rem }
+`;
+
+
+
 const LargePizza = () => {
   return (
-      <Table className='ver2-store'>
+    <div>
+      <Table className='ver2-store' css={css`height:calc(100% - 8rem);`}>
         <thead>
           <tr>
             <th>메뉴명</th>
@@ -162,7 +178,10 @@ const LargePizza = () => {
           ))}
         </tbody>
       </Table>
-  
+      <TableLabel>
+      LARGE PIZZA
+    </TableLabel>
+    </div>
   );
 };
 

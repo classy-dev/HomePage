@@ -1,3 +1,4 @@
+import { mq } from 'ComponentsFarm/common';
 import { Table } from '../tableStyle';
 import styled from '@emotion/styled';
 
@@ -87,7 +88,7 @@ const pizzaData: PizzaData[] = [
     protein: 8,
     saturatedFat: 4,
     sodium: 444,
-    allergens: '밀, 대두, 우유, 토마토, 쇠고기, 돼지고기, 닭고기, 계란, 아산화황'
+    allergens: '밀, 대두, 우유, 토마토, 쇠고기, 돼지고기, 닭고기, 계란, 이산화황'
   },
   {
     name: '스테이크 피자',
@@ -126,7 +127,7 @@ const pizzaData: PizzaData[] = [
     allergens: '밀, 대두, 우유, 토마토, 돼지고기, 쇠고기, 닭고기, 새우, 조개류(굴)'
   },
   {
-    name: '하와이안 피자',
+    name: '아임파인 피자',
     engName: 'HAWAIIAN OVERLOAD PIZZA',
     totalSize: 490,
     servingSize: 98,
@@ -150,7 +151,7 @@ const pizzaData: PizzaData[] = [
     allergens: '밀, 대두, 우유, 계란, 쇠고기, 새우'
   },
   {
-    name: '슈스리라차 피자',
+    name: '속쓰리라차 피자',
     engName: '3X SPICY PIZZA',
     totalSize: 444,
     servingSize: 89,
@@ -163,10 +164,19 @@ const pizzaData: PizzaData[] = [
   }
 ];
 
+const TableLabel = styled.div`
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  text-align: center;  
+
+  ${mq[0]} {font-size:1.4rem; }
+`;
 
 
 const PersonalPizza = () => {
   return (
+    <div>
       <Table className='ver2-store'>
         <thead>
           <tr>
@@ -200,6 +210,10 @@ const PersonalPizza = () => {
           ))}
         </tbody>
       </Table>
+      <TableLabel>
+     PERSONAL PIZZA
+    </TableLabel>
+    </div>
   );
 };
 

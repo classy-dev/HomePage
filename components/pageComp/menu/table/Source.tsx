@@ -63,7 +63,7 @@ const sourceData: SourceInfo[] = [
     protein: '-',
     saturatedFat: '-',
     sodium: '-',
-    allergens: '아황산류'
+    allergens: '이산화황'
   },
   {
     name: '랜치 소스',

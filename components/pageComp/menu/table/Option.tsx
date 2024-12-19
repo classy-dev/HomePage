@@ -87,7 +87,7 @@ const optionData: OptionInfo[] = [
     protein: 1,
     saturatedFat: 1,
     sodium: 161,
-    allergens: '대두, 계란, 쇠고기, 아황산류'
+    allergens: '대두, 계란, 쇠고기, 이산화황'
   }
 ];
 

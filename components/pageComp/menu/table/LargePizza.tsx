@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { Table } from '../tableStyle';
 import { css } from '@emotion/react';
+import { mq } from 'ComponentsFarm/common';
 
 
 interface PizzaInfo {
@@ -79,7 +80,7 @@ const pizzaData: PizzaInfo[] = [
     allergens: '밀, 대두, 토마토, 우유, 돼지고기, 쇠고기, 닭고기, 조개류(굴), 새우'
   },
   {
-    name: '페이보릿 (F4) 피자(L)',
+    name: '페이보릿포 (F4) 피자(L)',
     nameEn: '4-IN-1 PIZZA(L)',
     totalSize: 760,
     servingSize: 95,
@@ -88,7 +89,7 @@ const pizzaData: PizzaInfo[] = [
     protein: 9,
     saturatedFat: 3,
     sodium: 481,
-    allergens: '밀, 대두, 계란, 토마토, 우유, 돼지고기, 쇠고기, 닭고기, 토마토, 아황산류'
+    allergens: '밀, 대두, 계란, 토마토, 우유, 돼지고기, 쇠고기, 닭고기, 토마토, 이산화황'
   },
   {
     name: '달달달콤하구마 피자(L)',
@@ -131,6 +132,8 @@ const pizzaData: PizzaInfo[] = [
 
 
 const PageStyle =css`
+  height:calc(100% - 8rem);
+  
   tr {
     &:nth-of-type(even) {
       background-color: #c4e8c7;
@@ -149,10 +152,21 @@ const PageStyle =css`
   }
 `;
 
+const TableLabel = styled.div`
+  color:#3ab449;
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  text-align: center;  
+
+
+  ${mq[0]} {font-size:1.4rem }
+`;
 
 
 const LargePizza = () => {
-  return (
+  return (  
+    <div>
     <Table css={PageStyle}>
       <thead>
         <tr>
@@ -191,6 +205,10 @@ const LargePizza = () => {
         </tr>
       </tbody>
     </Table>
+    <TableLabel>
+     LARGE PIZZA
+    </TableLabel>
+    </div>
   );
 };
 
