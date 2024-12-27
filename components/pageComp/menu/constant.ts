@@ -394,7 +394,7 @@ export const menuDetail: IMenuDetail = {
   large3: {
     id: 3,
     category: "large",
-    name: "페이버릿포(F4) L",
+    name: "페이보릿포(F4) L",
     enName: "4-IN-1",
     txt: `고피자에게 사랑받는 4가지 메뉴를\n 한 판에 즐길 수 있는 피자`,
     ingredients: [
