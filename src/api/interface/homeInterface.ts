@@ -76,6 +76,7 @@ export interface IStoreSearch {
   store_name: string;
   business_type: string;
   address: string;
+  distance?:number;
   address_detail: string | null;
   store_location: {
     lat: number;

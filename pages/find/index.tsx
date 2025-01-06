@@ -289,7 +289,7 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
         >
           <dt className="storeName">
             {store.store_name}
-            {/* {distance && store.distance !== undefined && <span className="distance">{Number(store.distance).toFixed(2)}km</span>} */}
+            {distance && <span className="distance">{store.distance ? Number(store.distance).toFixed(2) : 0}km</span>}
           </dt>
           <dd className="address">{store.address}</dd>
           <dd className="info">
