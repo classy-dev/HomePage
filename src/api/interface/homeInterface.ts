@@ -65,7 +65,7 @@ export interface IInstarItem {
 export interface IStoreSearchRequest {
   per_num?: number;
   current_num?: number;
-  business_type?: 'GOPIZZA' | 'GS25' | 'GSTHEFRESH' | 'CGV';
+  business_type?: string;
   city?: string;
   district?: string;
   query?: string;

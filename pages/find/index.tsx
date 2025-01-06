@@ -1,68 +1,73 @@
-import React, { useEffect, useCallback, useState } from "react";
-import { hangjungdong, storeInfo } from "ComponentsFarm/pageComp/find/constants";
+import React, { useState, useMemo } from "react";
+import { hangjungdong } from "ComponentsFarm/pageComp/find/constants";
 import { fetchStoreSearch } from "ApiFarm/home";
-import { IStoreSearch } from "ApiFarm/interface/homeInterface";
+import { IStoreSearch, IStoreSearchRequest } from "ApiFarm/interface/homeInterface";
 import Paging from "ComponentsFarm/Paging";
 import { FindWrap } from "ComponentsFarm/pageComp/find/style";
 import { findStore } from "MobxFarm/store";
 import { getDistance } from "src/util/geolocation";
 import { observer } from "mobx-react";
 import { Map, MapMarker, CustomOverlayMap } from "react-kakao-maps-sdk";
-import usePaging from "HookFarm/usePaging";
+import { useQuery } from "@tanstack/react-query";
 
-function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
-  const [timer, setTimer] = useState(0);
-  const [distance, setDistance] = useState(true);
-  const [load, setLoad] = useState(false);
-  const [storeData, setStoreData] = useState<IStoreSearch[]>([]);
+function Index() {
   const [selectedType, setSelectedType] = useState<string>("All");
   const [expandedStores, setExpandedStores] = useState<Set<number>>(new Set());
+  const [page, setPage] = useState(1);
   const { sido, sigugun } = hangjungdong;
-
-  useEffect(() => {
-    async function test() {
-      let storeInfo3 = await fetchStoreSearch();
-      console.log("storeInfo2", storeInfo2);
-      console.log("storeInfo3", storeInfo3);
-    }
-    test();
-  }, [storeInfo2]);
-
-  useEffect(() => {
-    if (3 > timer) {
-      setTimeout(() => {
-        setTimer((prev) => prev + 1);
-      }, 2000);
-    }
-  }, [timer]);
-
-  useEffect(() => {
-    if (findStore.latitude !== null) {
-      let newStoreInfo = storeInfo2
-        ?.map((el) => ({
-          ...el,
-          distance: getDistance(findStore.latitude, findStore.longitude, Number(el.store_location.lat), Number(el.store_location.lng), "K"),
-        }))
-        .sort((a, b) => (a.distance || 0) - (b.distance || 0));
-
-      setStoreData(newStoreInfo);
-      setLoad(true);
-    }
-  }, [findStore.latitude, storeInfo2]);
-
-  const handlerTimeOut = useCallback(() => {
-    setDistance(false);
-    setStoreData(storeInfo2);
-    setLoad(true);
-  }, [storeInfo2]);
-
-  const { totalPage, setTotalPage, page, setPage, currentData, storesPerPage, handlePageChange } = usePaging(storeData);
 
   const [filters, setFilters] = useState({
     name: "",
     address1: "",
     address2: "",
   });
+
+  const [searchParams, setSearchParams] = useState({
+    name: "",
+    address1: "",
+    address2: "",
+    type: "All"
+  });
+
+  const ITEMS_PER_PAGE = 10;
+  const params: IStoreSearchRequest = {
+    per_num: 999,
+    current_num: 1,
+    business_type: searchParams.type === "All" ? undefined : searchParams.type,
+    city: searchParams.address1 || undefined,
+    district: searchParams.address2 || undefined,
+    query: searchParams.name || undefined,
+  };
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["stores", { ...params, current_num: undefined }],
+    queryFn: () => fetchStoreSearch(params),
+  });
+
+  // Add distance to stores if location is available and sort by distance
+  const storesWithDistance = useMemo(() => {
+    if (!data?.result_list) return [];
+    
+    return data.result_list.map(store => ({
+      ...store,
+      distance: findStore.latitude !== null
+        ? getDistance(
+            findStore.latitude,
+            findStore.longitude,
+            Number(store.store_location.lat),
+            Number(store.store_location.lng),
+            "K"
+          )
+        : Infinity
+    })).sort((a, b) => (a.distance || Infinity) - (b.distance || Infinity));
+  }, [data?.result_list, findStore.latitude, findStore.longitude]);
+
+  // Calculate pagination
+  const totalPages = Math.ceil((storesWithDistance?.length || 0) / ITEMS_PER_PAGE);
+  const currentPageStores = storesWithDistance.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  );
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -72,57 +77,33 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
       address2: name === "address1" ? "" : name === "address2" ? value : prevFilters.address2,
       [name]: value,
     }));
+
+    // 주소 필터는 바로 적용
+    if (name === "address1" || name === "address2") {
+      setSearchParams(prev => ({
+        ...prev,
+        [name]: value,
+        address2: name === "address1" ? "" : value
+      }));
+      setPage(1);
+    }
   };
 
-  useEffect(() => {
-    handleSearch();
-  }, [filters.address1, filters.address2, selectedType]);
-
   const handleSearch = () => {
-    let filteredData = [...storeInfo2];
-
-    if (filters.name) {
-      filteredData =
-        filteredData.filter((item) => item.store_name.toLowerCase().includes(filters.name.toLowerCase())).length === 0
-          ? filteredData.filter((item) => item.address.includes(filters.name))
-          : filteredData.filter((item) => item.store_name.toLowerCase().includes(filters.name.toLowerCase()));
-    }
-
-    if (filters.address1) {
-      filteredData = filteredData.filter((item) => item.store_location.city.substring(0, 2) === filters.address1.substring(0, 2));
-    }
-
-    if (filters.address2) {
-      filteredData = filteredData.filter((item) => item.store_location.district.substring(0, 2) === filters.address2.substring(0, 2));
-    }
-
-    if (selectedType === "GS25") {
-      filteredData = filteredData.filter((item) => item.business_type === "GS25");
-    } else if (selectedType === "GSTHEFRESH") {
-      filteredData = filteredData.filter((item) => item.business_type === "GSTHEFRESH");
-    } else if (selectedType === "CGV") {
-      filteredData = filteredData.filter((item) => item.store_name.toLowerCase().includes("cgv"));
-    } else if (selectedType === "GOPIZZA") {
-      filteredData = filteredData.filter((item) => item.business_type === "GOPIZZA");
-    }
-
-    setTotalPage(filteredData.length);
+    setSearchParams({
+      ...filters,
+      type: selectedType
+    });
     setPage(1);
-
-    setStoreData(
-      filteredData
-        ?.map((el) => ({
-          ...el,
-          distance: getDistance(findStore.latitude, findStore.longitude, Number(el.store_location.lat), Number(el.store_location.lng), "K"),
-        }))
-        .sort((a, b) => (a.distance || 0) - (b.distance || 0))
-    );
-
-    setExpandedStores(new Set()); // 필터 변경 시 모든 매장 항목 닫기
   };
 
   const handleTypeFilter = (type: string) => {
     setSelectedType(type);
+    setSearchParams(prev => ({
+      ...prev,
+      type
+    }));
+    setPage(1);
   };
 
   const toggleStoreExpansion = (storeId: number) => {
@@ -216,35 +197,39 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
         </li>
       </ul>
 
-      <ul className={`list_store ${storeData.length === 0 || !load ? "off" : ""}`}>
-        {storeData.length === 0 ? (
+      <ul className={`list_store ${!data?.result_list.length || isLoading ? "off" : ""}`}>
+        {isLoading ? (
           <li>
             <div className="box_spinner">
               <div className="location_indicator"></div>
             </div>
-            <p>{(filters.name || filters.address1 || filters.address2) && "해당 지역에는 매장이 존재하지 않습니다."}</p>
+            <p>매장 정보를 불러오는 중입니다.</p>
           </li>
-        ) : load ? (
-          currentData.map((store: IStoreSearch) => (
-            <ListItem key={store.store_idx} store={store} distance={distance} expanded={expandedStores.has(store.store_idx)} toggleExpansion={() => toggleStoreExpansion(store.store_idx)} />
-          ))
+        ) : !data?.result_list.length ? (
+          <li>
+            <p>해당 조건의 매장이 존재하지 않습니다.</p>
+          </li>
         ) : (
-          <li>
-            <div className="box_spinner">
-              <div className="location_indicator"></div>
-            </div>
-            {timer > 2 ? (
-              <div className="box_basicInfo">
-                <p>현재 고객님의 위치정보를 가져올 수 없습니다.</p>
-                <button onClick={handlerTimeOut}>직접 매장 검색하기</button>
-              </div>
-            ) : (
-              <p>가까운 매장 순으로 매장 정보를 불러오는 중입니다.</p>
-            )}
-          </li>
+          currentPageStores.map((store) => (
+            <ListItem
+              key={store.store_idx}
+              store={store}
+              distance={findStore.latitude !== null}
+              expanded={expandedStores.has(store.store_idx)}
+              toggleExpansion={() => toggleStoreExpansion(store.store_idx)}
+            />
+          ))
         )}
       </ul>
-      {storeData.length !== 0 && <Paging page={page} PerPage={storesPerPage} count={totalPage} setPage={handlePageChange} />}
+
+      {storesWithDistance.length > 0 && (
+        <Paging
+          page={page}
+          PerPage={ITEMS_PER_PAGE}
+          count={storesWithDistance.length}
+          setPage={setPage}
+        />
+      )}
     </FindWrap>
   );
 }
@@ -326,26 +311,6 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
       </div>
     </li>
   );
-};
-
-export const getStaticProps = async () => {
-  const response = await fetchStoreSearch();
-  let storeList = response.result_list;
-
-  storeList.forEach((store) => {
-    store.address = store.address
-      .replace(/전라남도/g, "전남")
-      .replace(/전라북도/g, "전북")
-      .replace(/경상남도/g, "경남")
-      .replace(/경상북도/g, "경북");
-  });
-
-  return {
-    props: {
-      storeInfo2: storeList,
-    },
-    revalidate: 10,
-  };
 };
 
 export default observer(Index);
