@@ -83,27 +83,27 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 
     if (filters.name) {
       filteredData =
-        filteredData.filter((item) => item.name.toLowerCase().includes(filters.name.toLowerCase())).length === 0
+        filteredData.filter((item) => item.store_name.toLowerCase().includes(filters.name.toLowerCase())).length === 0
           ? filteredData.filter((item) => item.address.includes(filters.name))
-          : filteredData.filter((item) => item.name.toLowerCase().includes(filters.name.toLowerCase()));
+          : filteredData.filter((item) => item.store_name.toLowerCase().includes(filters.name.toLowerCase()));
     }
 
     if (filters.address1) {
-      filteredData = filteredData.filter((item) => item.store_location.district.city.substring(0, 2) === filters.address1.substring(0, 2));
+      filteredData = filteredData.filter((item) => item.store_location.city.substring(0, 2) === filters.address1.substring(0, 2));
     }
 
     if (filters.address2) {
-      filteredData = filteredData.filter((item) => item.store_location.district.name.substring(0, 2) === filters.address2.substring(0, 2));
+      filteredData = filteredData.filter((item) => item.store_location.district.substring(0, 2) === filters.address2.substring(0, 2));
     }
 
     if (selectedType === "GS25") {
-      filteredData = filteredData.filter((item) => item.type === "GS25");
+      filteredData = filteredData.filter((item) => item.business_type === "GS25");
     } else if (selectedType === "GSTHEFRESH") {
-      filteredData = filteredData.filter((item) => item.type === "GSTHEFRESH");
+      filteredData = filteredData.filter((item) => item.business_type === "GSTHEFRESH");
     } else if (selectedType === "CGV") {
-      filteredData = filteredData.filter((item) => item.name.toLowerCase().includes("cgv"));
+      filteredData = filteredData.filter((item) => item.store_name.toLowerCase().includes("cgv"));
     } else if (selectedType === "GOPIZZA") {
-      filteredData = filteredData.filter((item) => item.type !== "GS25" && item.type !== "GSTHEFRESH" && !item.name.toLowerCase().includes("cgv"));
+      filteredData = filteredData.filter((item) => item.business_type === "GOPIZZA");
     }
 
     setTotalPage(filteredData.length);
@@ -252,20 +252,26 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
 const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: boolean; store: IStoreSearch; expanded: boolean; toggleExpansion: () => void }) => {
   const getStoreClassName = (store: IStoreSearch, expanded: boolean) => {
     const isExpanded = expanded ? "on" : "";
-    const storeType = store.name.toLowerCase().includes("cgv") ? "cgv" : store.type === "GS25" ? "gs25" : store.type === "GSTHEFRESH" ? "fresh" : "";
+    const storeType = store.store_name.toLowerCase().includes("cgv") 
+      ? "cgv" 
+      : store.business_type === "GS25" 
+      ? "gs25" 
+      : store.business_type === "GSTHEFRESH" 
+      ? "fresh" 
+      : "";
 
     return `${isExpanded} ${storeType}`.trim();
   };
 
   const handleAClick = (e: any) => {
-    e.stopPropagation(); // a 태그 클릭시 이벤트 버블링 방지
+    e.stopPropagation();
   };
 
-  const logoSrc = store.name.toLowerCase().includes("cgv")
+  const logoSrc = store.store_name.toLowerCase().includes("cgv")
     ? "/images/find/btn_cgv.svg"
-    : store.type === "GS25"
+    : store.business_type === "GS25"
     ? "/images/find/btn_gs25.svg"
-    : store.type === "GSTHEFRESH"
+    : store.business_type === "GSTHEFRESH"
     ? "/images/find/btn_fresh.svg"
     : "/images/find/btn_gopizza.svg";
 
@@ -273,7 +279,7 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
     <li className={getStoreClassName(store, expanded)}>
       <div className="wrap_info">
         <div className="logo">
-          <img src={logoSrc} alt={store.name} />
+          <img src={logoSrc} alt={store.store_name} />
         </div>
         <dl
           onClick={(e) => {
@@ -282,7 +288,7 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
           }}
         >
           <dt className="storeName">
-            {store.name}
+            {store.store_name}
             {distance && <span className="distance">{Number(store.distance).toFixed(2)}km</span>}
           </dt>
           <dd className="address">{store.address}</dd>
@@ -311,7 +317,7 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
             >
               <div className="info_label">
                 <span className="left"></span>
-                <span className="center">{store.name}</span>
+                <span className="center">{store.store_name}</span>
                 <span className="right"></span>
               </div>
             </CustomOverlayMap>
