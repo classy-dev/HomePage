@@ -1,5 +1,16 @@
 import AxiosUtil from "./index";
-import { IBwk, IContactUsReq, ICustomerReq, IGroupOrderReq, IInfiltration, IInquiryReq, IPromotionDetailReq, IPromotionReq } from "./interface/homeInterface";
+import { 
+  IBwk, 
+  IContactUsReq, 
+  ICustomerReq, 
+  IGroupOrderReq, 
+  IInfiltration, 
+  IInquiryReq, 
+  IPromotionDetailReq, 
+  IPromotionReq, 
+  IStoreSearchRequest, 
+  IStoreSearchResponse 
+} from "./interface/homeInterface";
 
 export const fetchMainVisual = async () => {
   const response = await AxiosUtil.get(`/ho/v1/brand/main/banner`);
@@ -33,10 +44,10 @@ export const fetchInstaFeed = async () => {
   return data.data;
 };
 
-export const fetchStoreSearch = async () => {
-  const response = await AxiosUtil.get(`/ho/v1/stores/map`);
+export const fetchStoreSearch = async (params?: IStoreSearchRequest): Promise<IStoreSearchResponse> => {
+  const response = await AxiosUtil.get(`/ho/v2/stores/map`, { params });
 
-  return response.data;
+  return response.data.data;
 };
 
 //언론보도

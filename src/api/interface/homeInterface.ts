@@ -62,27 +62,36 @@ export interface IInstarItem {
   }[];
 }
 
+export interface IStoreSearchRequest {
+  per_num?: number;
+  current_num?: number;
+  business_type?: 'GOPIZZA' | 'GS25' | 'GSTHEFRESH' | 'CGV';
+  city?: string;
+  district?: string;
+  query?: string;
+}
+
 export interface IStoreSearch {
-  id: number;
-  name: string;
-  type: string;
-  store_phone_number: string;
+  store_idx: number;
+  store_name: string;
+  business_type: string;
   address: string;
-  business_time: string;
-  open_date: string;
+  address_detail: string | null;
   store_location: {
     lat: number;
     lng: number;
-    district: {
-      city: string;
-      name: string;
-    };
+    city: string;
+    district: string;
   };
-  service: {
-    text: string;
-    holiday: null;
-  };
-  distance?: number;
+  store_phone_number: string | null;
+  business_time: string | null;
+  regular_holiday: string | null;
+}
+
+export interface IStoreSearchResponse {
+  request_info: IStoreSearchRequest;
+  result_count: number;
+  result_list: IStoreSearch[];
 }
 
 //언론보도

@@ -323,9 +323,10 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
 };
 
 export const getStaticProps = async () => {
-  let storeInfo2 = await fetchStoreSearch();
+  const response = await fetchStoreSearch();
+  let storeList = response.result_list;
 
-  storeInfo2.forEach((store: any) => {
+  storeList.forEach((store) => {
     store.address = store.address
       .replace(/전라남도/g, "전남")
       .replace(/전라북도/g, "전북")
@@ -335,7 +336,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      storeInfo2,
+      storeInfo2: storeList,
     },
     revalidate: 10,
   };
