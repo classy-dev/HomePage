@@ -46,7 +46,7 @@ export const fetchInstaFeed = async () => {
 };
 
 export const fetchStoreSearch = async (params?: IStoreSearchRequest): Promise<IStoreSearchResponse> => {
-  const response = await AxiosUtil.get(`https://dev.api.gopizza.kr/ho/v2/stores/map`, { params });
+  const response = await axios.get(`https://dev.api.gopizza.kr/ho/v2/stores/map`, { params });
 
   return response.data.data;
 };

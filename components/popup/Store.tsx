@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "ComponentsFarm/common/Modal";
 import { IStoreSearch } from "ApiFarm/interface/homeInterface";
 import { StoreWrap } from "ComponentsFarm/pageComp/order/style";
@@ -32,11 +32,13 @@ function Store({ storeInfo, setUseStore, open, close }: StoreProps) {
   const filterStoreInfo = (): CityGroup[] => {
     return storeInfo.map((cityGroup: CityGroup) => ({
       ...cityGroup,
-      data: cityGroup.data.filter((store: IStoreSearch) => store.name.toLowerCase().includes(searchValue.toLowerCase())),
+      data: cityGroup.data.filter((store: IStoreSearch) => store.store_name?.toLowerCase().includes(searchValue.toLowerCase())),
     }));
   };
 
   const filteredStoreInfo = filterStoreInfo();
+
+ 
 
   const highlightSearchValue = (name: string) => {
     const searchIndex = name.toLowerCase().indexOf(searchValue.toLowerCase());
@@ -75,16 +77,16 @@ function Store({ storeInfo, setUseStore, open, close }: StoreProps) {
                     <h3>{el.city}</h3>
                     <ul className="list_store">
                       {el.data.map((item: IStoreSearch) => (
-                        <li key={item.id}>
+                        <li key={item.store_idx}>
                           <input
                             type="radio"
-                            id={String(item.id)}
-                            onChange={() => setSelectRadio(item.id)}
-                            checked={item.id === selectRadio}
-                            value={item.name}
+                            id={String(item.store_idx)}
+                            onChange={() => setSelectRadio(item.store_idx)}
+                            checked={item.store_idx === selectRadio}
+                            value={item.store_name}
                             name="store"
                           />
-                          <label htmlFor={String(item.id)}>{highlightSearchValue(item.name)}</label>
+                          <label htmlFor={String(item.store_idx)}>{highlightSearchValue(item.store_name)}</label>
                         </li>
                       ))}
                     </ul>

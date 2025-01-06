@@ -164,7 +164,7 @@ function Form({ type, storeInfo }: IFormProps) {
   }, [addressDetail.address, addressDetail.buildingName, startDate]);
 
   // 고객문의 - 이용하신 매장
-  const usedStoreName = useMemo(() => storeInfo?.flatMap((region) => region.data).find((store) => store.id === usedStore), [storeInfo, usedStore]);
+  const usedStoreName = useMemo(() => storeInfo?.flatMap((region) => region.data).find((store) => store.store_idx === usedStore), [storeInfo, usedStore]);
 
   //단체주문
   const GropuOrder = useMutation(["groupOrder"], (request: IGroupOrderReq) => fetchGroupOrder(request));
@@ -227,7 +227,7 @@ function Form({ type, storeInfo }: IFormProps) {
         },
       });
     } else if (type === "customer") {
-      sendData = { name, phone, email: `${email1}@${email2}`, detail_contents, store_id: Number(usedStoreName?.id) };
+      sendData = { name, phone, email: `${email1}@${email2}`, detail_contents, store_id: Number(usedStoreName?.store_idx) };
       Cusomer.mutate(sendData, {
         onSuccess: (data) => {
           openStoreModal("modal2");
@@ -322,7 +322,7 @@ function Form({ type, storeInfo }: IFormProps) {
                   openStoreModal("modal3");
                 }}
               >
-                {usedStoreName?.name}
+                {usedStoreName?.store_name ?? "선택안함"}
               </div>
             </div>
           </>

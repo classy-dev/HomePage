@@ -26,9 +26,13 @@ function Cusomer({ storeInfo }: ICustomer) {
 }
 
 export const getStaticProps = async () => {
-  let storeInfoData = await fetchStoreSearch();
+  let storeInfoData = await fetchStoreSearch({
+    per_num: 999,
+    current_num: 1,
+    business_type: 'GOPIZZA'
+  });
 
-  storeInfoData.forEach((store: any) => {
+  storeInfoData.result_list.forEach((store: any) => {
     store.address = store.address
       .replace(/전라남도/g, "전남")
       .replace(/전라북도/g, "전북")
@@ -37,7 +41,7 @@ export const getStaticProps = async () => {
   });
 
   // 지역별 매장 개수를 계산합니다.
-  const regionCountMap = storeInfoData.reduce((acc: any, curr: any) => {
+  const regionCountMap = storeInfoData.result_list.reduce((acc: any, curr: any) => {
     const region = curr.address.split("\n")[0].substring(0, 2); // 앞의 2글자만 사용합니다.
     if (acc[region]) {
       acc[region]++;
@@ -57,7 +61,7 @@ export const getStaticProps = async () => {
     .map((entry) => entry[0]);
 
   // 정렬된 지역 순서에 따라 데이터를 정렬합니다.
-  const sortStore = [...storeInfoData].sort((a, b) => {
+  const sortStore = [...storeInfoData.result_list].sort((a, b) => {
     const aRegion = a.address.split("\n")[0].substring(0, 2); // 앞의 2글자만 사용합니다.
     const bRegion = b.address.split("\n")[0].substring(0, 2); // 앞의 2글자만 사용합니다.
 
@@ -65,7 +69,7 @@ export const getStaticProps = async () => {
     const bPriority = sortedRegions.indexOf(bRegion);
 
     if (aPriority === bPriority) {
-      return a.name.localeCompare(b.name, "ko-KR");
+      return a.store_name.localeCompare(b.store_name, "ko-KR");
     } else {
       return aPriority - bPriority;
     }
