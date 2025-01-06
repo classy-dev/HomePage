@@ -1,87 +1,344 @@
+import React, { useEffect, useCallback, useState } from "react";
 import { hangjungdong, storeInfo } from "ComponentsFarm/pageComp/find/constants";
+import { fetchStoreSearch } from "ApiFarm/home";
+import { IStoreSearch } from "ApiFarm/interface/homeInterface";
+import Paging from "ComponentsFarm/Paging";
 import { FindWrap } from "ComponentsFarm/pageComp/find/style";
-import { useCallback, useEffect, useState } from "react";
+import { findStore } from "MobxFarm/store";
+import { getDistance } from "src/util/geolocation";
+import { observer } from "mobx-react";
+import { Map, MapMarker, CustomOverlayMap } from "react-kakao-maps-sdk";
+import usePaging from "HookFarm/usePaging";
 
-function Find() {
+function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
+  const [timer, setTimer] = useState(0);
+  const [distance, setDistance] = useState(true);
+  const [load, setLoad] = useState(false);
+  const [storeData, setStoreData] = useState<IStoreSearch[]>([]);
+  const [selectedType, setSelectedType] = useState<string>("All");
+  const [expandedStores, setExpandedStores] = useState<Set<number>>(new Set());
   const { sido, sigugun } = hangjungdong;
-  const [val1, setVal1] = useState("");
-  const [val2, setVal2] = useState("");
-  const [store, setStore] = useState<any[]>([]);
-
-  const handlerSetVal = useCallback((e: any) => {
-    setVal1(e.target.value);
-    setVal2("");
-  }, []);
 
   useEffect(() => {
-    setStore(storeInfo);
-  }, []);
+    async function test() {
+      let storeInfo3 = await fetchStoreSearch();
+      console.log("storeInfo2", storeInfo2);
+      console.log("storeInfo3", storeInfo3);
+    }
+    test();
+  }, [storeInfo2]);
 
-  function getDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
-    var R = 6371; // Radius of the earth in km
-    var dLat = deg2rad(lat2 - lat1); // deg2rad below
-    var dLon = deg2rad(lon2 - lon1);
-    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d = R * c; // Distance in km
-    return d;
-  }
+  useEffect(() => {
+    if (3 > timer) {
+      setTimeout(() => {
+        setTimer((prev) => prev + 1);
+      }, 2000);
+    }
+  }, [timer]);
 
-  function deg2rad(deg: number) {
-    return deg * (Math.PI / 180);
-  }
+  useEffect(() => {
+    if (findStore.latitude !== null) {
+      let newStoreInfo = storeInfo2
+        ?.map((el) => ({
+          ...el,
+          distance: getDistance(findStore.latitude, findStore.longitude, Number(el.store_location.lat), Number(el.store_location.lng), "K"),
+        }))
+        .sort((a, b) => a.distance - b.distance);
+
+      setStoreData(newStoreInfo);
+      setLoad(true);
+    }
+  }, [findStore.latitude, storeInfo2]);
+
+  const handlerTimeOut = useCallback(() => {
+    setDistance(false);
+    setStoreData(storeInfo2);
+    setLoad(true);
+  }, [storeInfo2]);
+
+  const { totalPage, setTotalPage, page, setPage, currentData, storesPerPage, handlePageChange } = usePaging(storeData);
+
+  const [filters, setFilters] = useState({
+    name: "",
+    address1: "",
+    address2: "",
+  });
+
+  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: name === "address1" ? value : prevFilters.address1,
+      address2: name === "address1" ? "" : name === "address2" ? value : prevFilters.address2,
+      [name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    handleSearch();
+  }, [filters.address1, filters.address2, selectedType]);
+
+  const handleSearch = () => {
+    let filteredData = [...storeInfo2];
+
+    if (filters.name) {
+      filteredData =
+        filteredData.filter((item) => item.name.toLowerCase().includes(filters.name.toLowerCase())).length === 0
+          ? filteredData.filter((item) => item.address.includes(filters.name))
+          : filteredData.filter((item) => item.name.toLowerCase().includes(filters.name.toLowerCase()));
+    }
+
+    if (filters.address1) {
+      filteredData = filteredData.filter((item) => item.store_location.district.city.substring(0, 2) === filters.address1.substring(0, 2));
+    }
+
+    if (filters.address2) {
+      filteredData = filteredData.filter((item) => item.store_location.district.name.substring(0, 2) === filters.address2.substring(0, 2));
+    }
+
+    if (selectedType === "GS25") {
+      filteredData = filteredData.filter((item) => item.type === "GS25");
+    } else if (selectedType === "GSTHEFRESH") {
+      filteredData = filteredData.filter((item) => item.type === "GSTHEFRESH");
+    } else if (selectedType === "CGV") {
+      filteredData = filteredData.filter((item) => item.name.toLowerCase().includes("cgv"));
+    } else if (selectedType === "GOPIZZA") {
+      filteredData = filteredData.filter((item) => item.type !== "GS25" && item.type !== "GSTHEFRESH" && !item.name.toLowerCase().includes("cgv"));
+    }
+
+    setTotalPage(filteredData.length);
+    setPage(1);
+
+    setStoreData(
+      filteredData
+        ?.map((el) => ({
+          ...el,
+          distance: getDistance(findStore.latitude, findStore.longitude, Number(el.store_location.lat), Number(el.store_location.lng), "K"),
+        }))
+        .sort((a, b) => a.distance - b.distance)
+    );
+
+    setExpandedStores(new Set()); // 필터 변경 시 모든 매장 항목 닫기
+  };
+
+  const handleTypeFilter = (type: string) => {
+    setSelectedType(type);
+  };
+
+  const toggleStoreExpansion = (storeId: number) => {
+    setExpandedStores((prevExpandedStores) => {
+      const newExpandedStores = new Set(prevExpandedStores);
+      if (newExpandedStores.has(storeId)) {
+        newExpandedStores.delete(storeId);
+      } else {
+        newExpandedStores.add(storeId);
+      }
+      return newExpandedStores;
+    });
+  };
 
   return (
     <FindWrap>
-      <h2 className="tit">매장찾기 </h2>
+      <h2 className="tit">매장찾기</h2>
+      <div className="sub_tit">
+        <h3>전국 매장 검색</h3>
+        <span className="txt">전국의 고피자 매장을 찾아보세요.</span>
+      </div>
       <div className="wrp_filter">
-        {/* <h1>{`${val1}-${val2}`}</h1> */}
-        <select onChange={handlerSetVal} value={val1}>
+        <select name="address1" onChange={handleFilterChange} value={filters.address1}>
           <option value="">도/시를 선택하세요</option>
           {sido.map((el) => (
-            <option key={el.sido} value={el.sido}>
+            <option key={el.codeNm} value={el.codeNm}>
               {el.codeNm}
             </option>
           ))}
         </select>
-        <select onChange={(e) => setVal2(e.target.value)} value={val2}>
+        <select name="address2" onChange={handleFilterChange} value={filters.address2}>
           <option value="">구/군을 선택하세요</option>
           {sigugun
-            .filter((el) => el.sido === val1)
+            .filter((el) => el.address1 === filters.address1)
             .map((el) => (
-              <option key={el.sigugun} value={el.sigugun}>
+              <option key={el.codeNm} value={el.codeNm}>
                 {el.codeNm}
               </option>
             ))}
         </select>
         <div className="box_search_keyword">
-          <input type="text" name="keyword" placeholder="검색어를 입력해주세요" />
-          <button>검색</button>
+          <input
+            type="text"
+            name="name"
+            placeholder="검색어를 입력해주세요"
+            onChange={handleFilterChange}
+            value={filters.name}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
+          />
+          <button onClick={handleSearch}>검색</button>
         </div>
-        {/* <ul>
-          <li>가까운매장</li>
-          <li>가까운 매장</li>
-        </ul> */}
       </div>
-      <ul className="list_store">
-        {store.slice(0, 10).map((el) => (
-          <li key={el.id}>
-            <dt className="storeName">{el.subject}</dt>
-            <dd className="address">{el.address}</dd>
-            <dd className="info">
-              <span className="tel">{el.phone}</span>
-              <span className="time">08:30 - 16:30</span>
-            </dd>
+      <div className="sub_tit">
+        <h3>매장유형 선택</h3>
+        <span className="txt">원하는 매장 유형을 선택해 주세요.</span>
+      </div>
+      <ul className="list_filter_store">
+        <li className={selectedType === "All" ? "fst on" : "fst"} onClick={() => handleTypeFilter("All")}>
+          <div className="box_img">
+            <img src="/images/find/btn_all.svg" alt="ALL" />
+          </div>
+          <div className="txt">전체</div>
+        </li>
+        <li className={selectedType === "GOPIZZA" ? "on" : ""} onClick={() => handleTypeFilter("GOPIZZA")}>
+          <div className="box_img">
+            <img src="/images/find/btn_gopizza.svg" alt="GOPIZZA" />
+          </div>
+          <div className="txt">GOPIZZA</div>
+        </li>
+        <li className={selectedType === "GS25" ? "on" : ""} onClick={() => handleTypeFilter("GS25")}>
+          <div className="box_img">
+            <img src="/images/find/btn_gs25.svg" alt="GS25" />
+          </div>
+          <div className="txt">GS25</div>
+        </li>
+        <li className={selectedType === "GSTHEFRESH" ? "on" : ""} onClick={() => handleTypeFilter("GSTHEFRESH")}>
+          <div className="box_img">
+            <img src="/images/find/btn_fresh.svg" alt="Fresh" />
+          </div>
+          <div className="txt">GS THE FRESH</div>
+        </li>
+        <li className={selectedType === "CGV" ? "on" : ""} onClick={() => handleTypeFilter("CGV")}>
+          <div className="box_img">
+            <img src="/images/find/btn_cgv.svg" alt="CGV" />
+          </div>
+          <div className="txt">CGV</div>
+        </li>
+      </ul>
+
+      <ul className={`list_store ${storeData.length === 0 || !load ? "off" : ""}`}>
+        {storeData.length === 0 ? (
+          <li>
+            <div className="box_spinner">
+              <div className="location_indicator"></div>
+            </div>
+            <p>{(filters.name || filters.address1 || filters.address2) && "해당 지역에는 매장이 존재하지 않습니다."}</p>
           </li>
-        ))}
+        ) : load ? (
+          currentData.map((store: IStoreSearch) => (
+            <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
+          ))
+        ) : (
+          <li>
+            <div className="box_spinner">
+              <div className="location_indicator"></div>
+            </div>
+            {timer > 2 ? (
+              <div className="box_basicInfo">
+                <p>현재 고객님의 위치정보를 가져올 수 없습니다.</p>
+                <button onClick={handlerTimeOut}>직접 매장 검색하기</button>
+              </div>
+            ) : (
+              <p>가까운 매장 순으로 매장 정보를 불러오는 중입니다.</p>
+            )}
+          </li>
+        )}
       </ul>
-      <ul className="pagination">
-        {Array.from({ length: 9 }).map((_, i) => (
-          <li key={i}>{i + 1}</li>
-        ))}
-      </ul>
+      {storeData.length !== 0 && <Paging page={page} PerPage={storesPerPage} count={totalPage} setPage={handlePageChange} />}
     </FindWrap>
   );
 }
 
-export default Find;
+const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: boolean; store: IStoreSearch; expanded: boolean; toggleExpansion: () => void }) => {
+  const getStoreClassName = (store: IStoreSearch, expanded: boolean) => {
+    const isExpanded = expanded ? "on" : "";
+    const storeType = store.name.toLowerCase().includes("cgv") ? "cgv" : store.type === "GS25" ? "gs25" : store.type === "GSTHEFRESH" ? "fresh" : "";
+
+    return `${isExpanded} ${storeType}`.trim();
+  };
+
+  const handleAClick = (e: any) => {
+    e.stopPropagation(); // a 태그 클릭시 이벤트 버블링 방지
+  };
+
+  const logoSrc = store.name.toLowerCase().includes("cgv")
+    ? "/images/find/btn_cgv.svg"
+    : store.type === "GS25"
+    ? "/images/find/btn_gs25.svg"
+    : store.type === "GSTHEFRESH"
+    ? "/images/find/btn_fresh.svg"
+    : "/images/find/btn_gopizza.svg";
+
+  return (
+    <li className={getStoreClassName(store, expanded)}>
+      <div className="wrap_info">
+        <div className="logo">
+          <img src={logoSrc} alt={store.name} />
+        </div>
+        <dl
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleExpansion();
+          }}
+        >
+          <dt className="storeName">
+            {store.name}
+            {distance && <span className="distance">{Number(store.distance).toFixed(2)}km</span>}
+          </dt>
+          <dd className="address">{store.address}</dd>
+          <dd className="info">
+            {store.store_phone_number && (
+              <span className="tel">
+                <span className="pc">{store.store_phone_number}</span>
+                <a href={`tel:${store.store_phone_number}`} className="mobile" onClick={handleAClick}>
+                  {store.store_phone_number}
+                </a>
+              </span>
+            )}
+            {store.business_time && <span className="time">{store.business_time}</span>}
+          </dd>
+        </dl>
+      </div>
+      <div>
+        {expanded && (
+          <Map center={{ lat: store.store_location.lat, lng: store.store_location.lng }} level={4}>
+            <MapMarker position={{ lat: store.store_location.lat, lng: store.store_location.lng }}></MapMarker>
+            <CustomOverlayMap
+              position={{
+                lat: store.store_location.lat,
+                lng: store.store_location.lng,
+              }}
+            >
+              <div className="info_label">
+                <span className="left"></span>
+                <span className="center">{store.name}</span>
+                <span className="right"></span>
+              </div>
+            </CustomOverlayMap>
+          </Map>
+        )}
+      </div>
+    </li>
+  );
+};
+
+export const getStaticProps = async () => {
+  let storeInfo2 = await fetchStoreSearch();
+
+  storeInfo2.forEach((store: any) => {
+    store.address = store.address
+      .replace(/전라남도/g, "전남")
+      .replace(/전라북도/g, "전북")
+      .replace(/경상남도/g, "경남")
+      .replace(/경상북도/g, "경북");
+  });
+
+  return {
+    props: {
+      storeInfo2,
+    },
+    revalidate: 10,
+  };
+};
+
+export default observer(Index);

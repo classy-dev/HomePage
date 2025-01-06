@@ -43,7 +43,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
           ...el,
           distance: getDistance(findStore.latitude, findStore.longitude, Number(el.store_location.lat), Number(el.store_location.lng), "K"),
         }))
-        .sort((a, b) => a.distance - b.distance);
+        .sort((a, b) => (a.distance || 0) - (b.distance || 0));
 
       setStoreData(newStoreInfo);
       setLoad(true);
@@ -115,7 +115,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
           ...el,
           distance: getDistance(findStore.latitude, findStore.longitude, Number(el.store_location.lat), Number(el.store_location.lng), "K"),
         }))
-        .sort((a, b) => a.distance - b.distance)
+        .sort((a, b) => (a.distance || 0) - (b.distance || 0))
     );
 
     setExpandedStores(new Set()); // 필터 변경 시 모든 매장 항목 닫기
@@ -226,7 +226,7 @@ function Index({ storeInfo2 }: { storeInfo2: IStoreSearch[] }) {
           </li>
         ) : load ? (
           currentData.map((store: IStoreSearch) => (
-            <ListItem key={store.id} store={store} distance={distance} expanded={expandedStores.has(store.id)} toggleExpansion={() => toggleStoreExpansion(store.id)} />
+            <ListItem key={store.store_idx} store={store} distance={distance} expanded={expandedStores.has(store.store_idx)} toggleExpansion={() => toggleStoreExpansion(store.store_idx)} />
           ))
         ) : (
           <li>
@@ -289,7 +289,7 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
         >
           <dt className="storeName">
             {store.store_name}
-            {distance && <span className="distance">{Number(store.distance).toFixed(2)}km</span>}
+            {/* {distance && store.distance !== undefined && <span className="distance">{Number(store.distance).toFixed(2)}km</span>} */}
           </dt>
           <dd className="address">{store.address}</dd>
           <dd className="info">
