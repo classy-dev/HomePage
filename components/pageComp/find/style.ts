@@ -238,11 +238,6 @@ export const FindWrap = styled.main`
         display: flex;
         align-items: center;
 
-        .wrap_time {
-            display:flex;
-          }
-          
-
         span {
           display: block;
           height: 3.2rem;
@@ -251,36 +246,29 @@ export const FindWrap = styled.main`
           padding-left: 4.8rem;
           font-size: 2rem;
           font-family: "rucksack";
-          
-          &.tel {
-            margin-right: 4.9rem;
-          }
-
-
-          &.time {
-            margin-right:0;
-          }
-
-          &.regular_holiday {
-            padding-left: 0.5rem;
-          }
 
           &.pc {
             padding-left: 0;
           }
 
-       
+          &:last-of-type {
+            margin-right: 0;
+          }
         }
 
         .tel {
           .mobile {
             display: none;
           }
-          background: url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/find/ico_tel.svg") no-repeat left center / 3.2rem;
+          background: url("/images/find/ico_tel.svg") no-repeat left center / 3.2rem;
         }
 
         .time {
-          background: url("https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/find/ico_time.svg") no-repeat left center / 3.2rem;
+          background: url("/images/find/ico_time.svg") no-repeat left center / 3.2rem;
+        }
+
+        .regular_holiday {
+          background: url("/images/find/ico_holiday.svg") no-repeat left center / 3.2rem;
         }
       }
     }
@@ -385,8 +373,6 @@ export const FindWrap = styled.main`
             padding-left: 28px;
             font-size: 12px;
             background-size: 20px !important;
-
-           
           }
           .pc {
             display: none;
@@ -488,12 +474,12 @@ export const FindWrap = styled.main`
 
       .info {
           display:block;
-          .wrap_time {
-            display:flex;
-            }
-
-          .tel {
+          span {
             margin-bottom:0.5rem;  
+
+            &:last-of-type {
+              margin-bottom:0;
+            }
 
             a {width:fit-content;}
           }

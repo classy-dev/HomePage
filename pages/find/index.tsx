@@ -286,7 +286,8 @@ const ListItem = ({ distance, store, expanded, toggleExpansion }: { distance: bo
                 </a>
               </span>
             )}
-            {store.business_time && <div className="wrap_time"><span className="time">{store.business_time}</span> <span className="regular_holiday">{store.regular_holiday ? (`/ ${store.regular_holiday}`) : ""}</span></div>}
+            {store.business_time && <span className="time">{store.business_time}</span>}
+           {store.regular_holiday && <span className="regular_holiday">{store.regular_holiday}</span>}
           </dd>
         </dl>
       </div>
