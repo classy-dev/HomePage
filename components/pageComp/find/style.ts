@@ -238,6 +238,11 @@ export const FindWrap = styled.main`
         display: flex;
         align-items: center;
 
+        .wrap_time {
+            display:flex;
+          }
+          
+
         span {
           display: block;
           height: 3.2rem;
@@ -246,14 +251,25 @@ export const FindWrap = styled.main`
           padding-left: 4.8rem;
           font-size: 2rem;
           font-family: "rucksack";
+          
+          &.tel {
+            margin-right: 4.9rem;
+          }
+
+
+          &.time {
+            margin-right:0;
+          }
+
+          &.regular_holiday {
+            padding-left: 0.5rem;
+          }
 
           &.pc {
             padding-left: 0;
           }
 
-          &:last-of-type {
-            margin-right: 0;
-          }
+       
         }
 
         .tel {
@@ -369,6 +385,8 @@ export const FindWrap = styled.main`
             padding-left: 28px;
             font-size: 12px;
             background-size: 20px !important;
+
+           
           }
           .pc {
             display: none;
@@ -470,6 +488,10 @@ export const FindWrap = styled.main`
 
       .info {
           display:block;
+          .wrap_time {
+            display:flex;
+            }
+
           .tel {
             margin-bottom:0.5rem;  
 
