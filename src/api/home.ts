@@ -1,16 +1,16 @@
 import axios from "axios";
 import AxiosUtil from "./index";
-import { 
-  IBwk, 
-  IContactUsReq, 
-  ICustomerReq, 
-  IGroupOrderReq, 
-  IInfiltration, 
-  IInquiryReq, 
-  IPromotionDetailReq, 
-  IPromotionReq, 
-  IStoreSearchRequest, 
-  IStoreSearchResponse 
+import {
+  IBwk,
+  IContactUsReq,
+  ICustomerReq,
+  IGroupOrderReq,
+  IInfiltration,
+  IInquiryReq,
+  IPromotionDetailReq,
+  IPromotionReq,
+  IStoreSearchRequest,
+  IStoreSearchResponse,
 } from "./interface/homeInterface";
 
 export const fetchMainVisual = async () => {
@@ -45,8 +45,10 @@ export const fetchInstaFeed = async () => {
   return data.data;
 };
 
-export const fetchStoreSearch = async (params?: IStoreSearchRequest): Promise<IStoreSearchResponse> => {
-  const response = await axios.get(`https://dev.api.gopizza.kr/ho/v2/stores/map`, { params });
+export const fetchStoreSearch = async (
+  params?: IStoreSearchRequest
+): Promise<IStoreSearchResponse> => {
+  const response = await AxiosUtil.get(`/ho/v2/stores/map`, { params });
 
   return response.data.data;
 };
@@ -60,7 +62,9 @@ export const fetchNews = async () => {
 
 //이벤트 프로모션
 export const fetchPromotion = async (params?: IPromotionReq) => {
-  const response = await AxiosUtil.get(`/ho/v1/brand/promotion/list`, { params });
+  const response = await AxiosUtil.get(`/ho/v1/brand/promotion/list`, {
+    params,
+  });
 
   return response.data.data;
 };

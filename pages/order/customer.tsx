@@ -27,7 +27,7 @@ function Cusomer({ storeInfo }: ICustomer) {
 
 export const getStaticProps = async () => {
   let storeInfoData = await fetchStoreSearch({
-    per_num: 999,
+    per_num: 9999,
     current_num: 1,
     business_type: 'GOPIZZA'
   });

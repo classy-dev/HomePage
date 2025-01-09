@@ -23,7 +23,11 @@ const getBaseUrl = () => {
 
   if ((hostSplit && hostSplit[0] === "dev") || host?.includes("vercel")) {
     reVal = "https://dev.api.gopizza.kr";
-  } else if ((hostSplit && hostSplit[0] === "192") || (hostSplit && hostSplit[0].indexOf("localhost") >= 0) || (hostSplit && hostSplit[0] === "local")) {
+  } else if (
+    (hostSplit && hostSplit[0] === "192") ||
+    (hostSplit && hostSplit[0].indexOf("localhost") >= 0) ||
+    (hostSplit && hostSplit[0] === "local")
+  ) {
     reVal = "https://dev.api.gopizza.kr";
     //reVal = "http://feature.api.gopizza.kr";
     //reVal = "http://api.gopizza.kr";

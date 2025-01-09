@@ -31,7 +31,7 @@ function Index() {
 
   const ITEMS_PER_PAGE = 10;
   const params: IStoreSearchRequest = {
-    per_num: 999,
+    per_num: 9999,
     current_num: 1,
     business_type: searchParams.type === "All" ? undefined : searchParams.type,
     city: searchParams.address1 || undefined,
