@@ -52,7 +52,7 @@ function Group() {
         </div>
         <div className="div_img3">
           <img
-            src="https://dev-gopizza-homepage.s3.ap-northeast-2.amazonaws.com/ui/images/order/group/img_group_bnr3.webp"
+            src="/images/order/group/img_group_bnr3.webp"
             alt=" 단체주문 혜택 1. 10% 할인 - 주문 메뉴 전체 10% 할인 2. 배송비 무료 - 단체 주문 접수 건은 배송비 무료! 3. 모바일 쿠폰 발송 - 단체 주문 접수자에게 감사카드 및
             모바일 쿠폰 발송"
           />
