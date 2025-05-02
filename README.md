@@ -12,7 +12,7 @@
 - **리뉴얼 버전**: [https://gopizza.kr](https://gopizza.kr) (최신 프로덕션 버전)
 - **리뉴얼 전 버전**: [https://gopizzahome-43cr37mzv-gopizza.vercel.app/](https://gopizzahome-43cr37mzv-gopizza.vercel.app/)
 
-> 2025년 5월 기준으로 메인페이지 및 공통 레이아웃의 디자인 리뉴얼이 완료되었습니다.
+> 2025년 4월 기준으로 메인페이지 및 공통 레이아웃의 디자인 리뉴얼이 완료되었습니다.
 
 ## 주요 특징 및 기능
 
